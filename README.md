@@ -1,0 +1,58 @@
+<img src="./Icon.png" width="96">
+
+# PureBar
+
+[![](https://img.shields.io/badge/Platform-macOS_15.0+-blue?color=007bff)](https://github.com/tbxhs/PureBar/releases/latest) [![](https://github.com/tbxhs/PureBar/actions/workflows/build-and-test.yml/badge.svg?branch=main)](https://github.com/tbxhs/PureBar/actions/workflows/build-and-test.yml)
+
+完全免费且开源的 Mac 状态栏极简日历，支持农历、公共假日、系统日历及提醒等功能。
+
+<img src="./Screenshots/01.png" width="320" alt="截图 01"> <img src="./Screenshots/02.png" width="320" alt="截图 02">
+
+> [!TIP]
+> 在 [libremac.github.io](https://libremac.github.io/) 探索我们的其他免费开源应用。
+
+## 安装 PureBar
+
+从 <a href="https://github.com/tbxhs/PureBar/releases/latest" target="_blank">latest release</a> 获取 `PureBar.dmg`，打开后将 `PureBar.app` 拖拽至 `Applications` 即可。
+
+<img src="./Screenshots/03.png" width="540" alt="安装 PureBar">
+
+PureBar 会自动检查更新，你也可以在应用内手动检查更新，或者在 [releases](https://github.com/tbxhs/PureBar/releases) 页面浏览历史版本。
+
+如果你偏好使用 [Homebrew](https://brew.sh/) 安装，在终端运行 `brew install purebar` 即可。
+
+> 无需担心非 App Store 安装的可靠性，PureBar 是沙盒应用，且经过签名和 [notarization](https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution) 认证。
+>
+> 兼容旧操作系统的历史版本：[macos-13](https://github.com/tbxhs/PureBar/releases/tag/macos-13)、[macos-14](https://github.com/tbxhs/PureBar/releases/tag/macos-14)。
+
+## 使用 PureBar 的理由
+
+如果你是这类人，欢迎试试：
+
+- 日常使用 Mac
+- 需要查看农历
+- 需要查看公共假日
+- 喜欢极致的应用
+- 喜欢简单的事物
+
+请不要期待过高，PureBar 的极简设计是经过深思熟虑的结果。当它不能满足你的需求时，不妨试试其他产品。
+
+## 一些可能被问到的问题
+
+本项目没有设立反馈渠道，所以在此解释一些常见问题。对于使用方面的疑问，请参考 [wiki](https://github.com/tbxhs/PureBar/wiki) 以了解更多。
+
+**为什么开发 PureBar**
+
+我们开发它纯粹是为了满足自己的需求，将它发布也只是以防万一你也需要。
+
+**为什么不开发 iOS 版本**
+
+我们没有这个需求，iOS 没有状态栏，且通知中心小组件已被废弃。
+
+**为什么不开发小组件版本**
+
+基于 SwiftUI 的"新"小组件即便到了 2024 年也不够完善，我们不想做。
+
+**PureBar 是怎么开发的**
+
+如果你作为开发者对 PureBar 的开发过程感兴趣，请参考[这篇文章](./DEV.md)。

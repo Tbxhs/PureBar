@@ -1,0 +1,16 @@
+//
+//  Build.xcconfig
+//  PureBarMac
+//
+//  Created by cyan on 12/21/23.
+//
+//  https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+
+CODE_SIGN_IDENTITY = -
+DEVELOPMENT_TEAM =
+PRODUCT_BUNDLE_IDENTIFIER = app.purebar.com
+
+MARKETING_VERSION = 2.0.0
+CURRENT_PROJECT_VERSION = 10
+
+#include? "Local.xcconfig"
