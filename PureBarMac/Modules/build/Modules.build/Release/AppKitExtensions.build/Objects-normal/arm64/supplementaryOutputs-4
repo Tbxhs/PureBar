@@ -1,0 +1,12 @@
+{
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitExtensions/NSAlert+Extension.swift" : {
+    "abi-baseline-json" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/arm64/AppKitExtensions.abi.json",
+    "const-values" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/arm64/AppKitExtensions-primary.swiftconstvalues",
+    "dependencies" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/arm64/AppKitExtensions-primary.d",
+    "diagnostics" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/arm64/AppKitExtensions-primary.dia",
+    "objc-header" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/arm64/AppKitExtensions-Swift.h",
+    "swiftdoc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/arm64/AppKitExtensions.swiftdoc",
+    "swiftmodule" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/arm64/AppKitExtensions.swiftmodule",
+    "swiftsourceinfo" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/arm64/AppKitExtensions.swiftsourceinfo"
+  }
+}

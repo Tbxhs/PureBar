@@ -1,0 +1,12 @@
+{
+  "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/DerivedSources/resource_bundle_accessor.swift" : {
+    "abi-baseline-json" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/PureBarKit.abi.json",
+    "const-values" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/PureBarKit-primary.swiftconstvalues",
+    "dependencies" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/PureBarKit-primary.d",
+    "diagnostics" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/PureBarKit-primary.dia",
+    "objc-header" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/PureBarKit-Swift.h",
+    "swiftdoc" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/PureBarKit.swiftdoc",
+    "swiftmodule" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/PureBarKit.swiftmodule",
+    "swiftsourceinfo" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/PureBarKit.swiftsourceinfo"
+  }
+}

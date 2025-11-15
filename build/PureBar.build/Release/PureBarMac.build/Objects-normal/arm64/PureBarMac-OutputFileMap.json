@@ -1,0 +1,146 @@
+{
+  "" : {
+    "const-values" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/PureBarMac-primary.swiftconstvalues",
+    "dependencies" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/PureBarMac-primary.d",
+    "diagnostics" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/PureBarMac-primary.dia",
+    "emit-module-dependencies" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/PureBarMac-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/PureBarMac-primary-emit-module.dia",
+    "pch" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/PureBarMac-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/PureBarMac-primary.swiftdeps"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Main/AppDelegate.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppDelegate.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppDelegate.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppDelegate.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Main/AppHacks.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppHacks.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppHacks.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppHacks.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Main/AppMainVC+Menu.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppMainVC+Menu.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppMainVC+Menu.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppMainVC+Menu.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Main/AppMainVC.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppMainVC.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppMainVC.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppMainVC.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Managers/CalendarManager.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/CalendarManager.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/CalendarManager.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/CalendarManager.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Managers/DateRefreshTimer.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/DateRefreshTimer.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/DateRefreshTimer.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/DateRefreshTimer.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Managers/HolidayManager.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/HolidayManager.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/HolidayManager.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/HolidayManager.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Shared/AppDefinitions.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppDefinitions.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppDefinitions.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppDefinitions.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Shared/AppDesign.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppDesign.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppDesign.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppDesign.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Shared/AppIconFactory.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppIconFactory.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppIconFactory.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppIconFactory.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Shared/AppLocalizer.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppLocalizer.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppLocalizer.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppLocalizer.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Shared/AppPreferences.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppPreferences.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppPreferences.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppPreferences.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Unchecked.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/Unchecked.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/Unchecked.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/Unchecked.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Updater/AppUpdater.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppUpdater.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppUpdater.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppUpdater.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Updater/AppVersion.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppVersion.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppVersion.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/AppVersion.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Views/DateDetailsView.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/DateDetailsView.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/DateDetailsView.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/DateDetailsView.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Views/DateGridCell.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/DateGridCell.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/DateGridCell.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/DateGridCell.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Views/DateGridView.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/DateGridView.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/DateGridView.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/DateGridView.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Views/EventListView.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/EventListView.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/EventListView.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/EventListView.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Views/EventView.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/EventView.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/EventView.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/EventView.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Views/HeaderView.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/HeaderView.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/HeaderView.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/HeaderView.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Views/ScalableView.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/ScalableView.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/ScalableView.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/ScalableView.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Sources/Views/WeekdayView.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/WeekdayView.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/WeekdayView.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/WeekdayView.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/main.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/main.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/main.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/main.o"
+  },
+  "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/GeneratedAssetSymbols.o"
+  },
+  "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/DerivedSources/GeneratedStringSymbols_InfoPlist.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/GeneratedStringSymbols_InfoPlist.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/GeneratedStringSymbols_InfoPlist.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/GeneratedStringSymbols_InfoPlist.o"
+  },
+  "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/DerivedSources/GeneratedStringSymbols_Localizable.swift" : {
+    "index-unit-output-path" : "/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/GeneratedStringSymbols_Localizable.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/GeneratedStringSymbols_Localizable.bc",
+    "object" : "/Users/james/dev/PureBar/build/PureBar.build/Release/PureBarMac.build/Objects-normal/arm64/GeneratedStringSymbols_Localizable.o"
+  }
+}

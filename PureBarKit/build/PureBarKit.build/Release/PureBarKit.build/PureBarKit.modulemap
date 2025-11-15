@@ -1,0 +1,4 @@
+module PureBarKit {
+header "PureBarKit-Swift.h"
+export *
+}

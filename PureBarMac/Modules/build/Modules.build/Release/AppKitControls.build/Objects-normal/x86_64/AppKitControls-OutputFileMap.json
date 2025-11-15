@@ -1,0 +1,31 @@
+{
+  "" : {
+    "const-values" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/x86_64/AppKitControls-primary.swiftconstvalues",
+    "dependencies" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/x86_64/AppKitControls-primary.d",
+    "diagnostics" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/x86_64/AppKitControls-primary.dia",
+    "emit-module-dependencies" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/x86_64/AppKitControls-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/x86_64/AppKitControls-primary-emit-module.dia",
+    "pch" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/x86_64/AppKitControls-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/x86_64/AppKitControls-primary.swiftdeps"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitControls/CustomButton.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitControls.build/Objects-normal/x86_64/CustomButton.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/x86_64/CustomButton.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/x86_64/CustomButton.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitControls/EditableTextField.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitControls.build/Objects-normal/x86_64/EditableTextField.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/x86_64/EditableTextField.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/x86_64/EditableTextField.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitControls/ImageButton.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitControls.build/Objects-normal/x86_64/ImageButton.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/x86_64/ImageButton.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/x86_64/ImageButton.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitControls/TextLabel.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitControls.build/Objects-normal/x86_64/TextLabel.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/x86_64/TextLabel.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/x86_64/TextLabel.o"
+  }
+}

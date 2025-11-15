@@ -1,0 +1,76 @@
+{
+  "" : {
+    "const-values" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/PureBarKit-primary.swiftconstvalues",
+    "dependencies" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/PureBarKit-primary.d",
+    "diagnostics" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/PureBarKit-primary.dia",
+    "emit-module-dependencies" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/PureBarKit-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/PureBarKit-primary-emit-module.dia",
+    "pch" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/PureBarKit-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/PureBarKit-primary.swiftdeps"
+  },
+  "/Users/james/dev/PureBar/PureBarKit/Sources/Extensions/Bundle+Extension.swift" : {
+    "index-unit-output-path" : "/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/Bundle+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/Bundle+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/Bundle+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarKit/Sources/Extensions/Calendar+Extension.swift" : {
+    "index-unit-output-path" : "/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/Calendar+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/Calendar+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/Calendar+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarKit/Sources/Extensions/DateComponents+Extension.swift" : {
+    "index-unit-output-path" : "/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/DateComponents+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/DateComponents+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/DateComponents+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarKit/Sources/Extensions/DateFormatter+Extension.swift" : {
+    "index-unit-output-path" : "/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/DateFormatter+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/DateFormatter+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/DateFormatter+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarKit/Sources/Extensions/EKCalendarItem+Extension.swift" : {
+    "index-unit-output-path" : "/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/EKCalendarItem+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/EKCalendarItem+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/EKCalendarItem+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarKit/Sources/Extensions/EKEventStore+Extension.swift" : {
+    "index-unit-output-path" : "/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/EKEventStore+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/EKEventStore+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/EKEventStore+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarKit/Sources/Extensions/NSObject+Extension.swift" : {
+    "index-unit-output-path" : "/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/NSObject+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/NSObject+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/NSObject+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarKit/Sources/Extensions/Set+Extension.swift" : {
+    "index-unit-output-path" : "/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/Set+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/Set+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/Set+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarKit/Sources/Extensions/String+Extension.swift" : {
+    "index-unit-output-path" : "/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/String+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/String+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/String+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarKit/Sources/Logger.swift" : {
+    "index-unit-output-path" : "/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/Logger.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/Logger.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/Logger.o"
+  },
+  "/Users/james/dev/PureBar/PureBarKit/Sources/LunarCalendar/LunarCalendar.swift" : {
+    "index-unit-output-path" : "/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/LunarCalendar.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/LunarCalendar.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/LunarCalendar.o"
+  },
+  "/Users/james/dev/PureBar/PureBarKit/Sources/LunarCalendar/LunarInfo.swift" : {
+    "index-unit-output-path" : "/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/LunarInfo.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/LunarInfo.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/LunarInfo.o"
+  },
+  "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/DerivedSources/resource_bundle_accessor.swift" : {
+    "index-unit-output-path" : "/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/resource_bundle_accessor.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/resource_bundle_accessor.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarKit/build/PureBarKit.build/Release/PureBarKit.build/Objects-normal/arm64/resource_bundle_accessor.o"
+  }
+}

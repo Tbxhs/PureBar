@@ -76,7 +76,7 @@
 		8740E30E2B37FB36004A06C2 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		8740E31A2B39210F004A06C2 /* AppPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppPreferences.swift; sourceTree = "<group>"; };
 		874D77762BCF94900093662D /* Unchecked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unchecked.swift; sourceTree = "<group>"; };
-		874E99292B33D8C0002FC90A /* LunarBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LunarBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		874E99292B33D8C0002FC90A /* PureBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PureBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		874E992C2B33D8C0002FC90A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		874E99302B33D8C1002FC90A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		874E99352B33D8C1002FC90A /* Info.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Info.entitlements; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 		874E992A2B33D8C0002FC90A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				874E99292B33D8C0002FC90A /* LunarBar.app */,
+				874E99292B33D8C0002FC90A /* PureBar.app */,
 				8732DDF02B3E896D004B72DE /* PureBarMacTests.xctest */,
 			);
 			name = Products;
@@ -311,8 +311,8 @@
 				8777B9592B3426F7007915B2 /* AppKitControls */,
 				1AE8727C2EC7E66C004E3466 /* Sparkle */,
 			);
-			productName = LunarBar;
-			productReference = 874E99292B33D8C0002FC90A /* LunarBar.app */;
+			productName = PureBar;
+			productReference = 874E99292B33D8C0002FC90A /* PureBar.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -454,7 +454,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LunarBar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LunarBar";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PureBar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LunarBar";
 			};
 			name = Debug;
 		};
@@ -473,7 +473,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LunarBar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LunarBar";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PureBar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LunarBar";
 			};
 			name = Release;
 		};
@@ -622,7 +622,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PureBarMac/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = LunarBar;
+				INFOPLIST_KEY_CFBundleDisplayName = PureBar;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "A bright moon rises over the sea, sharing this moment, though worlds apart.";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -632,7 +632,7 @@
 				);
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
-				PRODUCT_NAME = LunarBar;
+				PRODUCT_NAME = PureBar;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -653,7 +653,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PureBarMac/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = LunarBar;
+				INFOPLIST_KEY_CFBundleDisplayName = PureBar;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "A bright moon rises over the sea, sharing this moment, though worlds apart.";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -663,7 +663,7 @@
 				);
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
-				PRODUCT_NAME = LunarBar;
+				PRODUCT_NAME = PureBar;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};

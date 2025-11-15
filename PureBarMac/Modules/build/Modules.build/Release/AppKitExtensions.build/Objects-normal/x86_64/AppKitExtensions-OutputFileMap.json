@@ -1,0 +1,106 @@
+{
+  "" : {
+    "const-values" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/AppKitExtensions-primary.swiftconstvalues",
+    "dependencies" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/AppKitExtensions-primary.d",
+    "diagnostics" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/AppKitExtensions-primary.dia",
+    "emit-module-dependencies" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/AppKitExtensions-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/AppKitExtensions-primary-emit-module.dia",
+    "pch" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/AppKitExtensions-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/AppKitExtensions-primary.swiftdeps"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitExtensions/NSAlert+Extension.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSAlert+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSAlert+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSAlert+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitExtensions/NSAppearance+Extension.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSAppearance+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSAppearance+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSAppearance+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitExtensions/NSBezierPath+Extension.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSBezierPath+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSBezierPath+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSBezierPath+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitExtensions/NSBitmapImageRep+Extension.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSBitmapImageRep+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSBitmapImageRep+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSBitmapImageRep+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitExtensions/NSColor+Extension.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSColor+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSColor+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSColor+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitExtensions/NSControl+Extension.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSControl+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSControl+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSControl+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitExtensions/NSEvent+Extension.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSEvent+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSEvent+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSEvent+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitExtensions/NSFont+Extension.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSFont+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSFont+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSFont+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitExtensions/NSImage+Extension.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSImage+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSImage+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSImage+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitExtensions/NSMenu+Extension.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSMenu+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSMenu+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSMenu+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitExtensions/NSMenuItem+Extension.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSMenuItem+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSMenuItem+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSMenuItem+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitExtensions/NSPopover+Extension.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSPopover+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSPopover+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSPopover+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitExtensions/NSStackView+Extension.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSStackView+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSStackView+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSStackView+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitExtensions/NSTextView+Extension.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSTextView+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSTextView+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSTextView+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitExtensions/NSView+Extension.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSView+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSView+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSView+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitExtensions/NSViewController+Extension.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSViewController+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSViewController+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSViewController+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitExtensions/NSWindow+Extension.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSWindow+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSWindow+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSWindow+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitExtensions/NSWorkspace+Extension.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSWorkspace+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSWorkspace+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/NSWorkspace+Extension.o"
+  },
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitExtensions/SMAppService+Extension.swift" : {
+    "index-unit-output-path" : "/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/SMAppService+Extension.o",
+    "llvm-bc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/SMAppService+Extension.bc",
+    "object" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitExtensions.build/Objects-normal/x86_64/SMAppService+Extension.o"
+  }
+}

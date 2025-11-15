@@ -1,0 +1,12 @@
+{
+  "/Users/james/dev/PureBar/PureBarMac/Modules/Sources/AppKitControls/CustomButton.swift" : {
+    "abi-baseline-json" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/arm64/AppKitControls.abi.json",
+    "const-values" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/arm64/AppKitControls-primary.swiftconstvalues",
+    "dependencies" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/arm64/AppKitControls-primary.d",
+    "diagnostics" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/arm64/AppKitControls-primary.dia",
+    "objc-header" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/arm64/AppKitControls-Swift.h",
+    "swiftdoc" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/arm64/AppKitControls.swiftdoc",
+    "swiftmodule" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/arm64/AppKitControls.swiftmodule",
+    "swiftsourceinfo" : "/Users/james/dev/PureBar/PureBarMac/Modules/build/Modules.build/Release/AppKitControls.build/Objects-normal/arm64/AppKitControls.swiftsourceinfo"
+  }
+}

@@ -4,23 +4,23 @@
 import PackageDescription
 
 let package = Package(
-  name: "LunarBarKit",
+  name: "PureBarKit",
   platforms: [
     .iOS(.v17),
     .macOS(.v14),
   ],
   products: [
     .library(
-      name: "LunarBarKit",
-      targets: ["LunarBarKit"]
+      name: "PureBarKit",
+      targets: ["PureBarKit"]
     ),
   ],
   dependencies: [
-    .package(path: "../LunarBarTools"),
+    .package(path: "../PureBarTools"),
   ],
   targets: [
     .target(
-      name: "LunarBarKit",
+      name: "PureBarKit",
       path: "Sources",
       resources: [
         .process("LunarCalendar/Resources"),
@@ -29,16 +29,16 @@ let package = Package(
         .enableExperimentalFeature("StrictConcurrency")
       ],
       plugins: [
-        .plugin(name: "SwiftLint", package: "LunarBarTools"),
+        .plugin(name: "SwiftLint", package: "PureBarTools"),
       ]
     ),
 
     .testTarget(
-      name: "LunarBarKitTests",
-      dependencies: ["LunarBarKit"],
+      name: "PureBarKitTests",
+      dependencies: ["PureBarKit"],
       path: "Tests",
       plugins: [
-        .plugin(name: "SwiftLint", package: "LunarBarTools"),
+        .plugin(name: "SwiftLint", package: "PureBarTools"),
       ]
     ),
   ]

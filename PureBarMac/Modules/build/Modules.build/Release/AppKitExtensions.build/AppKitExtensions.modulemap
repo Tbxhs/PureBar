@@ -1,0 +1,4 @@
+module AppKitExtensions {
+header "AppKitExtensions-Swift.h"
+export *
+}
