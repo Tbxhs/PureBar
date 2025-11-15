@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.0.1] - 2025-11-15
+- Minor improvements and optimizations
+
 ## [2.0.0] - 2025-11-15
 - Initial PureBar release (rebranded from LunarBar).
 - Fixed crash on first launch when holiday directories don't exist.
