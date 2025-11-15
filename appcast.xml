@@ -8,7 +8,7 @@
             <sparkle:version>10</sparkle:version>
             <sparkle:shortVersionString>2.0.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://tbxhs.github.io/PureBar/PureBar-2.0.0.zip" length="3030186" type="application/octet-stream" sparkle:edSignature="TDHV4rB1OQ0HPQeUUEytaaM9RkPC7RurN2LvSgQm4fcJ4mbKGrk5NRzythP7foARCqfzhQLBG8kxmsyXOWUYCw=="/>
+            <enclosure url="https://tbxhs.github.io/PureBar/PureBar-2.0.0.zip" length="3030173" type="application/octet-stream" sparkle:edSignature="2wlkiEm/w+TuQyeqQqoyqWsdTXOZPmHjhO3+lWkVonBaaD0jmluiDibkxdJ8cyGZrf4eLFj0ysWNAMWUSCfYDg=="/>
         </item>
     </channel>
 </rss>
