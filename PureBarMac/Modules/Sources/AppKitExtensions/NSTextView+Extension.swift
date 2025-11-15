@@ -6,6 +6,18 @@
 
 import AppKit
 
+/// A custom NSTextView that properly accepts first responder for keyboard shortcuts
+private final class SelectableTextView: NSTextView {
+  override var acceptsFirstResponder: Bool {
+    return true
+  }
+
+  override func mouseDown(with event: NSEvent) {
+    super.mouseDown(with: event)
+    window?.makeFirstResponder(self)
+  }
+}
+
 public extension NSTextView {
   static func markdownView(
     with markdown: String,
@@ -13,10 +25,11 @@ public extension NSTextView {
     contentPadding: Double = 0,
     fontSize: Double = 11
   ) -> NSTextView {
-    let textView = NSTextView()
+    let textView = SelectableTextView()
     textView.font = .systemFont(ofSize: fontSize)
     textView.drawsBackground = false
     textView.isEditable = false
+    textView.isSelectable = true
 
     if let data = markdown.data(using: .utf8), let string = try? NSAttributedString(markdown: data, options: .init(allowsExtendedAttributes: true, interpretedSyntax: .inlineOnlyPreservingWhitespace)) {
       textView.textStorage?.setAttributedString(string)
