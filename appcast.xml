@@ -2,9 +2,13 @@
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
         <title>PureBar</title>
-        <link>https://tbxhs.github.io/PureBar/appcast.xml</link>
-        <description>PureBar updates</description>
-        <language>en</language>
-        <!-- No releases available yet -->
+        <item>
+            <title>2.0.0</title>
+            <pubDate>Sat, 15 Nov 2025 06:19:49 +0100</pubDate>
+            <sparkle:version>10</sparkle:version>
+            <sparkle:shortVersionString>2.0.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://tbxhs.github.io/PureBar/PureBar-2.0.0.zip" length="3030186" type="application/octet-stream" sparkle:edSignature="TDHV4rB1OQ0HPQeUUEytaaM9RkPC7RurN2LvSgQm4fcJ4mbKGrk5NRzythP7foARCqfzhQLBG8kxmsyXOWUYCw=="/>
+        </item>
     </channel>
 </rss>
