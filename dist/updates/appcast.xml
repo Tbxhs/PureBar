@@ -1,0 +1,47 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>LunarBar</title>
+        <item>
+            <title>2.2.4</title>
+            <pubDate>Sat, 15 Nov 2025 04:43:20 +0100</pubDate>
+            <sparkle:version>31</sparkle:version>
+            <sparkle:shortVersionString>2.2.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://tbxhs.github.io/PureBar/PureBar-2.2.4.zip" length="3030526" type="application/octet-stream" sparkle:edSignature="VNaO3pGCEOGft62hD1uvANi9cfCFKlgu4xVXYFNwsZWwh12/2C5M0lJoMF3N+LuABBpnjI0kQKyS7VOGbTWBCg=="/>
+            <sparkle:deltas>
+                <enclosure url="https://tbxhs.github.io/PureBar/PureBar31-30.delta" sparkle:deltaFrom="30" length="176518" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="JDu1ObsuahZ7S/X4WJrclNKZ4e6WpsGYMu0SO5XCTkObku34UbL2K3fDLG3U4sk1eWzZ8bCCyYs84KcQehWhDg=="/>
+                <enclosure url="https://tbxhs.github.io/PureBar/PureBar31-26.delta" sparkle:deltaFrom="26" length="180126" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="gD13y6U23AR1daUEolTnq4pvZGGKtOuGIlzZGWJzoKhJN8348o+pwGb1aYRMfoazf7GF2B9Rz6PruIQoJ1cIAQ=="/>
+                <enclosure url="https://tbxhs.github.io/PureBar/PureBar31-28.delta" sparkle:deltaFrom="28" length="176322" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="SPBSZoFrsC/M6d9KY3tiXoUuYJtivpSKsvX8/I1HkDsN7ClAPyYzxle3GRy+P46DbWCRQZbkgOOsjgYL4yy5CA=="/>
+                <enclosure url="https://tbxhs.github.io/PureBar/PureBar31-29.delta" sparkle:deltaFrom="29" length="176518" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="WFxFOfynsGwth1GAfrvvGQiLjeRr4Pasv3EF14AZ64BS+w3GlSf8Zatx1LHHs3u8z7eYHkJzUs04qewgWU0aDA=="/>
+                <enclosure url="https://tbxhs.github.io/PureBar/PureBar31-27.delta" sparkle:deltaFrom="27" length="176502" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="LgjCw33Xl1DAVdQ2zHou0zsQ9m9kur2bTSGAePU0MwihLYG35Aj8XQ/QKdtammjB5hsEBiIhSezQ5iZ7TEe+Dg=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
+            <title>2.2.3</title>
+            <pubDate>Sat, 15 Nov 2025 03:25:41 +0100</pubDate>
+            <sparkle:version>30</sparkle:version>
+            <sparkle:shortVersionString>2.2.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://tbxhs.github.io/LunarBar/LunarBar-2.2.3.zip" length="3526185" type="application/octet-stream" sparkle:edSignature="Xvvi4UJ2YVODiNGvnnpY6dQ8LKBVtuJwpYOWiGYroyzoqOBGzDot2J4TwRfS0BN/0RM/w5KMEV+vb/9Dom08Cw=="/>
+            <sparkle:deltas>
+                <enclosure url="https://tbxhs.github.io/LunarBar/LunarBar30-28.delta" sparkle:deltaFrom="28" length="2310" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="hAI85mpsOjjG/1tiI4T9kaenuhR+k3WQtE7Yqq7w/K5NDoCk66efVzskghJlx4LnxyFwnUHA8Ra+uUlzYcjbCg=="/>
+                <enclosure url="https://tbxhs.github.io/LunarBar/LunarBar30-27.delta" sparkle:deltaFrom="27" length="51870" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="C9aKOSKkOpFnh+TaQhTByzVV1DH8q4bmnMTHH4NNUEZDM3yn0ZaZt9qx2WqaLWkKy7Fpi00B9laBdyR003HFBw=="/>
+                <enclosure url="https://tbxhs.github.io/LunarBar/LunarBar30-26.delta" sparkle:deltaFrom="26" length="138402" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="9L4ljVM59ldcojfBqDURNyrHzpRQs4lMxr8WP442cI2hUM3WlddUZmID7bWyPFeM1/h9jI3+RMSSpk265lqiCw=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
+            <title>2.2.2</title>
+            <pubDate>Sat, 15 Nov 2025 03:15:40 +0100</pubDate>
+            <sparkle:version>29</sparkle:version>
+            <sparkle:shortVersionString>2.2.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://tbxhs.github.io/LunarBar/LunarBar-2.2.2.zip" length="3526193" type="application/octet-stream" sparkle:edSignature="PDLriq6hCGjyeNl525UF3NWpUQhqffi1CdE4OvqtThlYEOLV6U+BuoDZmeu6YQWwr4kbW+lolqmcVUHdIDe/Dg=="/>
+            <sparkle:deltas>
+                <enclosure url="https://tbxhs.github.io/LunarBar/LunarBar29-28.delta" sparkle:deltaFrom="28" length="2338" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="Bac2MuYhGEP1SAw/k9JAoQMRn50fK04AJ8NzVMbVL4+a3brwZIPfZ3pCTsqtypsZq8bGNuFMoDpmbh7mC2ztBQ=="/>
+                <enclosure url="https://tbxhs.github.io/LunarBar/LunarBar29-27.delta" sparkle:deltaFrom="27" length="51874" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="thp0NhHmfPpfkE1fW+XeSIo0Z1Jlxyh09k2lWqaTqNl7FO0x39ehUbI9Y5MuifEMJ2GUx+JgbOUagC6o5PLcDg=="/>
+                <enclosure url="https://tbxhs.github.io/LunarBar/LunarBar29-26.delta" sparkle:deltaFrom="26" length="138830" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="fbV9xy4ozFEVuvgwCPbNMYBd0RO3XQHTkbGGNqUfnuf+BmIOih9C4iXowEN/CpyULGZrMO0trXRpPJxxVCCpCw=="/>
+            </sparkle:deltas>
+        </item>
+    </channel>
+</rss>
