@@ -9,7 +9,7 @@ import AppKit
 import AppKitExtensions
 import SwiftUI
 import EventKit
-import LunarBarKit
+import PureBarKit
 
 /**
  Details view to show date info and Calendar events.

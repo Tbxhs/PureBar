@@ -8,7 +8,7 @@
 import AppKit
 import AppKitControls
 import AppKitExtensions
-import LunarBarKit
+import PureBarKit
 import ServiceManagement
 
 // MARK: - Internal

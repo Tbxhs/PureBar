@@ -7,7 +7,7 @@
 
 import AppKit
 import EventKit
-import LunarBarKit
+import PureBarKit
 
 /**
  The main view controller that manages all components.

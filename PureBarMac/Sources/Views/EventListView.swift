@@ -8,7 +8,7 @@
 import AppKit
 import AppKitExtensions
 import EventKit
-import LunarBarKit
+import PureBarKit
 
 /**
  Event list view to show Calendar events for a selected date.

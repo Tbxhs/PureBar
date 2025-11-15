@@ -8,7 +8,7 @@
 import AppKit
 import AppKitControls
 import EventKit
-import LunarBarKit
+import PureBarKit
 
 /**
  Grid cell that draws a day, including its solar date and lunar date and decorating views.

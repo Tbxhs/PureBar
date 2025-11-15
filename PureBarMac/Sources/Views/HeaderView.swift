@@ -7,7 +7,7 @@
 
 import AppKit
 import AppKitControls
-import LunarBarKit
+import PureBarKit
 
 @MainActor
 protocol HeaderViewDelegate: AnyObject {

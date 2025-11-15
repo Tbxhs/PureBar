@@ -6,7 +6,7 @@
 //
 
 import AppKit
-import LunarBarKit
+import PureBarKit
 
 enum HolidayType: Int {
   case workday = 1

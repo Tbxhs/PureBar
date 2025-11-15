@@ -6,7 +6,7 @@
 //
 
 import AppKit
-import LunarBarKit
+import PureBarKit
 
 /**
  UserDefaults wrapper with handy getters and setters.

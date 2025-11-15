@@ -7,7 +7,7 @@
 
 import AppKit
 import AppKitControls
-import LunarBarKit
+import PureBarKit
 
 /**
  Weekday symbols, showing the shortest representation of each weekday.

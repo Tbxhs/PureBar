@@ -7,7 +7,7 @@
 
 import Foundation
 import EventKit
-import LunarBarKit
+import PureBarKit
 
 struct DateRange: Hashable {
   let start: Date

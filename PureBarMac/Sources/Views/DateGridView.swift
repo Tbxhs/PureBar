@@ -7,7 +7,7 @@
 
 import AppKit
 import EventKit
-import LunarBarKit
+import PureBarKit
 
 /**
  Grid view to show dates of a month.

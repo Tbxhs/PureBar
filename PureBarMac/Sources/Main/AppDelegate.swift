@@ -6,7 +6,7 @@
 //
 
 import AppKit
-import LunarBarKit
+import PureBarKit
 #if canImport(Sparkle)
 import Sparkle
 #endif
