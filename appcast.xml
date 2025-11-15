@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>PureBar</title>
+        <link>https://tbxhs.github.io/PureBar/appcast.xml</link>
+        <description>PureBar updates</description>
+        <language>en</language>
+        <!-- No releases available yet -->
+    </channel>
+</rss>
