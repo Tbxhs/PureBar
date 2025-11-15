@@ -19,7 +19,7 @@ let package = Package(
     ),
   ],
   dependencies: [
-    .package(path: "../LunarBarTools"),
+    .package(path: "../PureBarTools"),
   ],
   targets: [
     .target(
@@ -27,14 +27,14 @@ let package = Package(
       dependencies: ["AppKitExtensions"],
       path: "Sources/AppKitControls",
       plugins: [
-        .plugin(name: "SwiftLint", package: "LunarBarTools"),
+        .plugin(name: "SwiftLint", package: "PureBarTools"),
       ]
     ),
     .target(
       name: "AppKitExtensions",
       path: "Sources/AppKitExtensions",
       plugins: [
-        .plugin(name: "SwiftLint", package: "LunarBarTools"),
+        .plugin(name: "SwiftLint", package: "PureBarTools"),
       ]
     ),
   ]

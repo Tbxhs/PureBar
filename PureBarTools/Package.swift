@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-  name: "LunarBarTools",
+  name: "PureBarTools",
   platforms: [
     .iOS(.v17),
     .macOS(.v14),

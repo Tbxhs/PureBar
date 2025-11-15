@@ -32,7 +32,7 @@
 		8777B95A2B3426F7007915B2 /* AppKitControls in Frameworks */ = {isa = PBXBuildFile; productRef = 8777B9592B3426F7007915B2 /* AppKitControls */; };
 		8782F4692B33E7E1008B1912 /* AppKitExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 8782F4682B33E7E1008B1912 /* AppKitExtensions */; };
 		8782F46F2B33F627008B1912 /* AppDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F46E2B33F627008B1912 /* AppDefinitions.swift */; };
-		8782F4732B33F8AC008B1912 /* LunarBarKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8782F4722B33F8AC008B1912 /* LunarBarKit */; };
+		8782F4732B33F8AC008B1912 /* PureBarKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8782F4722B33F8AC008B1912 /* PureBarKit */; };
 		8782F4772B33F904008B1912 /* AppMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F4762B33F904008B1912 /* AppMainVC.swift */; };
 		8782F4832B342413008B1912 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F4822B342413008B1912 /* HeaderView.swift */; };
 		878B73AB2DEFE8EC00F0E331 /* DateRefreshTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878B73AA2DEFE8EB00F0E331 /* DateRefreshTimer.swift */; };
@@ -53,7 +53,7 @@
 			containerPortal = 874E99212B33D8C0002FC90A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 874E99282B33D8C0002FC90A;
-			remoteInfo = LunarBarMac;
+			remoteInfo = PureBarMac;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -62,7 +62,7 @@
 		87007C1E2CE7157F006E98DE /* RuntimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeTests.swift; sourceTree = "<group>"; };
 		871429182B3DAF4A003FA2CB /* AppLocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocalizer.swift; sourceTree = "<group>"; };
 		8714291B2B3DBFDF003FA2CB /* AppMainVC+Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppMainVC+Menu.swift"; sourceTree = "<group>"; };
-		8732DDF02B3E896D004B72DE /* LunarBarMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LunarBarMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8732DDF02B3E896D004B72DE /* PureBarMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PureBarMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8732DDF22B3E896D004B72DE /* HolidayManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayManagerTests.swift; sourceTree = "<group>"; };
 		873424CF2B35357B00C364BF /* DateGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateGridCell.swift; sourceTree = "<group>"; };
 		8739F9C82B5F611D00BD1F1B /* DateFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterTests.swift; sourceTree = "<group>"; };
@@ -80,13 +80,13 @@
 		874E992C2B33D8C0002FC90A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		874E99302B33D8C1002FC90A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		874E99352B33D8C1002FC90A /* Info.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Info.entitlements; sourceTree = "<group>"; };
-		874E993F2B33DC20002FC90A /* LunarBarTools */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = LunarBarTools; sourceTree = "<group>"; };
+		874E993F2B33DC20002FC90A /* PureBarTools */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PureBarTools; sourceTree = "<group>"; };
 		875A81262B39558000C031C3 /* AppVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
 		875A81272B39558000C031C3 /* AppUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUpdater.swift; sourceTree = "<group>"; };
 		877353D82DFBC1BA00F502AB /* AppDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDesign.swift; sourceTree = "<group>"; };
 		8782F4652B33E740008B1912 /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modules; sourceTree = "<group>"; };
 		8782F46E2B33F627008B1912 /* AppDefinitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDefinitions.swift; sourceTree = "<group>"; };
-		8782F4702B33F841008B1912 /* LunarBarKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = LunarBarKit; sourceTree = "<group>"; };
+		8782F4702B33F841008B1912 /* PureBarKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PureBarKit; sourceTree = "<group>"; };
 		8782F4762B33F904008B1912 /* AppMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainVC.swift; sourceTree = "<group>"; };
 		8782F4822B342413008B1912 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		878B73AA2DEFE8EB00F0E331 /* DateRefreshTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRefreshTimer.swift; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 			files = (
 				8777B95A2B3426F7007915B2 /* AppKitControls in Frameworks */,
 				1AE8727D2EC7E66C004E3466 /* Sparkle in Frameworks */,
-				8782F4732B33F8AC008B1912 /* LunarBarKit in Frameworks */,
+				8782F4732B33F8AC008B1912 /* PureBarKit in Frameworks */,
 				8782F4692B33E7E1008B1912 /* AppKitExtensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,7 +136,7 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
-		8732DDF12B3E896D004B72DE /* LunarBarMacTests */ = {
+		8732DDF12B3E896D004B72DE /* PureBarMacTests */ = {
 			isa = PBXGroup;
 			children = (
 				87007C1E2CE7157F006E98DE /* RuntimeTests.swift */,
@@ -145,7 +145,7 @@
 				87D65EB02B41200100E41049 /* AppPreferencesTests.swift */,
 				8732DDF22B3E896D004B72DE /* HolidayManagerTests.swift */,
 			);
-			path = LunarBarMacTests;
+			path = PureBarMacTests;
 			sourceTree = "<group>";
 		};
 		8740E2FD2B37C823004A06C2 /* Managers */ = {
@@ -161,10 +161,10 @@
 		874E99202B33D8C0002FC90A = {
 			isa = PBXGroup;
 			children = (
-				8782F4702B33F841008B1912 /* LunarBarKit */,
-				874E993F2B33DC20002FC90A /* LunarBarTools */,
-				874E992B2B33D8C0002FC90A /* LunarBarMac */,
-				8732DDF12B3E896D004B72DE /* LunarBarMacTests */,
+				8782F4702B33F841008B1912 /* PureBarKit */,
+				874E993F2B33DC20002FC90A /* PureBarTools */,
+				874E992B2B33D8C0002FC90A /* PureBarMac */,
+				8732DDF12B3E896D004B72DE /* PureBarMacTests */,
 				874E992A2B33D8C0002FC90A /* Products */,
 				8782F4672B33E7E1008B1912 /* Frameworks */,
 				87F862152B33DE1E00857541 /* Build.xcconfig */,
@@ -177,12 +177,12 @@
 			isa = PBXGroup;
 			children = (
 				874E99292B33D8C0002FC90A /* LunarBar.app */,
-				8732DDF02B3E896D004B72DE /* LunarBarMacTests.xctest */,
+				8732DDF02B3E896D004B72DE /* PureBarMacTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		874E992B2B33D8C0002FC90A /* LunarBarMac */ = {
+		874E992B2B33D8C0002FC90A /* PureBarMac */ = {
 			isa = PBXGroup;
 			children = (
 				8782F4652B33E740008B1912 /* Modules */,
@@ -190,7 +190,7 @@
 				874E993C2B33D95E002FC90A /* Resources */,
 				874E993B2B33D955002FC90A /* Supporting Files */,
 			);
-			path = LunarBarMac;
+			path = PureBarMac;
 			sourceTree = "<group>";
 		};
 		874E993B2B33D955002FC90A /* Supporting Files */ = {
@@ -273,9 +273,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8732DDEF2B3E896D004B72DE /* LunarBarMacTests */ = {
+		8732DDEF2B3E896D004B72DE /* PureBarMacTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8732DDF82B3E896D004B72DE /* Build configuration list for PBXNativeTarget "LunarBarMacTests" */;
+			buildConfigurationList = 8732DDF82B3E896D004B72DE /* Build configuration list for PBXNativeTarget "PureBarMacTests" */;
 			buildPhases = (
 				8732DDEC2B3E896D004B72DE /* Sources */,
 				8732DDED2B3E896D004B72DE /* Frameworks */,
@@ -286,14 +286,14 @@
 			dependencies = (
 				8732DDF52B3E896D004B72DE /* PBXTargetDependency */,
 			);
-			name = LunarBarMacTests;
-			productName = LunarBarMacTests;
-			productReference = 8732DDF02B3E896D004B72DE /* LunarBarMacTests.xctest */;
+			name = PureBarMacTests;
+			productName = PureBarMacTests;
+			productReference = 8732DDF02B3E896D004B72DE /* PureBarMacTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		874E99282B33D8C0002FC90A /* LunarBarMac */ = {
+		874E99282B33D8C0002FC90A /* PureBarMac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 874E99382B33D8C1002FC90A /* Build configuration list for PBXNativeTarget "LunarBarMac" */;
+			buildConfigurationList = 874E99382B33D8C1002FC90A /* Build configuration list for PBXNativeTarget "PureBarMac" */;
 			buildPhases = (
 				874E99252B33D8C0002FC90A /* Sources */,
 				874E99262B33D8C0002FC90A /* Frameworks */,
@@ -304,10 +304,10 @@
 			dependencies = (
 				87F862132B33DDC400857541 /* PBXTargetDependency */,
 			);
-			name = LunarBarMac;
+			name = PureBarMac;
 			packageProductDependencies = (
 				8782F4682B33E7E1008B1912 /* AppKitExtensions */,
-				8782F4722B33F8AC008B1912 /* LunarBarKit */,
+				8782F4722B33F8AC008B1912 /* PureBarKit */,
 				8777B9592B3426F7007915B2 /* AppKitControls */,
 				1AE8727C2EC7E66C004E3466 /* Sparkle */,
 			);
@@ -352,8 +352,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				874E99282B33D8C0002FC90A /* LunarBarMac */,
-				8732DDEF2B3E896D004B72DE /* LunarBarMacTests */,
+				874E99282B33D8C0002FC90A /* PureBarMac */,
+				8732DDEF2B3E896D004B72DE /* PureBarMacTests */,
 			);
 		};
 /* End PBXProject section */
@@ -429,7 +429,7 @@
 /* Begin PBXTargetDependency section */
 		8732DDF52B3E896D004B72DE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 874E99282B33D8C0002FC90A /* LunarBarMac */;
+			target = 874E99282B33D8C0002FC90A /* PureBarMac */;
 			targetProxy = 8732DDF42B3E896D004B72DE /* PBXContainerItemProxy */;
 		};
 		87F862132B33DDC400857541 /* PBXTargetDependency */ = {
@@ -613,7 +613,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = LunarBarMac/Info.entitlements;
+				CODE_SIGN_ENTITLEMENTS = PureBarMac/Info.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = "$(inherited)";
@@ -621,7 +621,7 @@
 				DEVELOPMENT_TEAM = "$(inherited)";
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LunarBarMac/Info.plist;
+				INFOPLIST_FILE = PureBarMac/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LunarBar;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "A bright moon rises over the sea, sharing this moment, though worlds apart.";
@@ -644,7 +644,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = LunarBarMac/Info.entitlements;
+				CODE_SIGN_ENTITLEMENTS = PureBarMac/Info.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = "$(inherited)";
@@ -652,7 +652,7 @@
 				DEVELOPMENT_TEAM = "$(inherited)";
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LunarBarMac/Info.plist;
+				INFOPLIST_FILE = PureBarMac/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LunarBar;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "A bright moon rises over the sea, sharing this moment, though worlds apart.";
@@ -672,7 +672,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8732DDF82B3E896D004B72DE /* Build configuration list for PBXNativeTarget "LunarBarMacTests" */ = {
+		8732DDF82B3E896D004B72DE /* Build configuration list for PBXNativeTarget "PureBarMacTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8732DDF62B3E896D004B72DE /* Debug */,
@@ -690,7 +690,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		874E99382B33D8C1002FC90A /* Build configuration list for PBXNativeTarget "LunarBarMac" */ = {
+		874E99382B33D8C1002FC90A /* Build configuration list for PBXNativeTarget "PureBarMac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				874E99392B33D8C1002FC90A /* Debug */,
@@ -726,9 +726,9 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = AppKitExtensions;
 		};
-		8782F4722B33F8AC008B1912 /* LunarBarKit */ = {
+		8782F4722B33F8AC008B1912 /* PureBarKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = LunarBarKit;
+			productName = PureBarKit;
 		};
 		87F862122B33DDC400857541 /* SwiftLint */ = {
 			isa = XCSwiftPackageProductDependency;
