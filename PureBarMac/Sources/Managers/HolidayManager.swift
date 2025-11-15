@@ -1,6 +1,6 @@
 //
 //  HolidayManager.swift
-//  LunarBarMac
+//  PureBarMac
 //
 //  Created by cyan on 12/24/23.
 //
@@ -140,7 +140,7 @@ private extension HolidayManager {
   }
 
   var userDefinedDirectory: URL {
-    URL.applicationSupportDirectory.appending(path: "LunarBar/\(Constants.directoryName)", directoryHint: .isDirectory)
+    URL.applicationSupportDirectory.appending(path: "PureBar/\(Constants.directoryName)", directoryHint: .isDirectory)
   }
 
   func ensureDirectory(_ directory: URL) {
