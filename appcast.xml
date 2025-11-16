@@ -3,6 +3,19 @@
     <channel>
         <title>PureBar</title>
         <item>
+            <title>2.1.0</title>
+            <pubDate>Sun, 16 Nov 2025 20:25:57 +0100</pubDate>
+            <sparkle:version>13</sparkle:version>
+            <sparkle:shortVersionString>2.1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://tbxhs.github.io/PureBar/PureBar-2.1.0.zip" length="2212138" type="application/octet-stream" sparkle:edSignature="wiU73CbVPuEzewAS7VwpwvMa5MQS6V/GIqv24LzZgJAcuWL8Vi+PdTSvnGMKTGVmH2bdyWu+0sf/fvT6I6JjAw=="/>
+            <sparkle:deltas>
+                <enclosure url="https://tbxhs.github.io/PureBar/PureBar13-12.delta" sparkle:deltaFrom="12" length="856530" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="gRDQPGC1PO8YHJZZSDqaZWJky7z6Locz31eBSkmi1I9GnbGMCiyQMqNnwomkgpbh8MEuGmcTediJGBPgIrgoBQ=="/>
+                <enclosure url="https://tbxhs.github.io/PureBar/PureBar13-10.delta" sparkle:deltaFrom="10" length="888386" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="Ce8KTCxKoyjWr581pcG39x3q7i5+nzscN7MgF/0mHgw56E1RNagcgM3pdI+x12XiwTH/SgQXGnVysDfpoBszDQ=="/>
+                <enclosure url="https://tbxhs.github.io/PureBar/PureBar13-11.delta" sparkle:deltaFrom="11" length="885266" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="TZeZJKC0V9LBAQPKuJGxmqOScpn7S3p4lZn35TDOhm+JLKCz8pkqKGcuvmTp9wo1usVWeI4N4j/iLTZEA4xUBA=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>2.0.2</title>
             <pubDate>Sat, 15 Nov 2025 19:47:44 +0100</pubDate>
             <sparkle:version>12</sparkle:version>
@@ -24,14 +37,6 @@
             <sparkle:deltas>
                 <enclosure url="https://tbxhs.github.io/PureBar/PureBar11-10.delta" sparkle:deltaFrom="10" length="25306" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="am5y6M/fXI5uX0sBahijlZOsxHSeRgwPDHP2thp/BVFgTHzyAU8Db3o5plHv/6VRdmeGRlgpoJPbslSLJ5PlDw=="/>
             </sparkle:deltas>
-        </item>
-        <item>
-            <title>2.0.0</title>
-            <pubDate>Sat, 15 Nov 2025 06:19:49 +0100</pubDate>
-            <sparkle:version>10</sparkle:version>
-            <sparkle:shortVersionString>2.0.0</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://tbxhs.github.io/PureBar/PureBar-2.0.0.zip" length="3030173" type="application/octet-stream" sparkle:edSignature="2wlkiEm/w+TuQyeqQqoyqWsdTXOZPmHjhO3+lWkVonBaaD0jmluiDibkxdJ8cyGZrf4eLFj0ysWNAMWUSCfYDg=="/>
         </item>
     </channel>
 </rss>
