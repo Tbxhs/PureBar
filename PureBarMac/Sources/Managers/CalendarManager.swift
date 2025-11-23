@@ -23,6 +23,8 @@ final class CalendarManager {
 
   private var eventStore = EKEventStore()
   private var memoryCache = [DateRange: [EKCalendarItem]]()
+  private var cacheOrder = [DateRange]()  // Maintain insertion order for a simple LRU
+  private let cacheLimit = 128
 
   func authorizationStatus(for type: EKEntityType) -> EKAuthorizationStatus {
     EKEventStore.authorizationStatus(for: type)
@@ -74,12 +76,8 @@ final class CalendarManager {
 
     let items = events + reminders
     if !items.isEmpty {
-      // Rough cache-dropping strategy, sufficient as the cache is non-essential
-      if memoryCache.count > 128 {
-        memoryCache.removeAll()
-      }
-
-      memoryCache[DateRange(start: startDate, end: endDate)] = items
+      let range = DateRange(start: startDate, end: endDate)
+      updateCache(range: range, items: items)
     }
 
     return items
@@ -122,7 +120,18 @@ final class CalendarManager {
 
 extension CalendarManager {
   func caches(from startDate: Date, to endDate: Date) -> [EKCalendarItem]? {
-    memoryCache[DateRange(start: startDate, end: endDate)]
+    let range = DateRange(start: startDate, end: endDate)
+    guard let items = memoryCache[range] else {
+      return nil
+    }
+
+    // Bump to most-recent
+    if let index = cacheOrder.firstIndex(of: range) {
+      cacheOrder.remove(at: index)
+      cacheOrder.append(range)
+    }
+
+    return items
   }
 
   func preload(date: Date) async {
@@ -147,6 +156,23 @@ extension CalendarManager {
 private extension CalendarManager {
   enum Constants {
     static let scriptingDateFormatter: DateFormatter = .fullDate
+  }
+
+  func updateCache(range: DateRange, items: [EKCalendarItem]) {
+    // Remove existing entry from order if present
+    if let index = cacheOrder.firstIndex(of: range) {
+      cacheOrder.remove(at: index)
+    }
+
+    // Insert as most-recent
+    cacheOrder.append(range)
+    memoryCache[range] = items
+
+    // Evict oldest while exceeding limit
+    while cacheOrder.count > cacheLimit {
+      let oldest = cacheOrder.removeFirst()
+      memoryCache.removeValue(forKey: oldest)
+    }
   }
 
   func hasReadAccess(for type: EKEntityType) -> Bool {

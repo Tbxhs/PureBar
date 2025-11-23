@@ -372,24 +372,6 @@
         }
       }
     },
-    "Choose a Custom Icon (SF Symbols)" : {
-      "comment" : "[Alert] Configure the SF Symbols icon name",
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "选择自定义图标（SF Symbols）"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "選擇自訂圖示（SF Symbols）"
-          }
-        }
-      }
-    },
     "Chunfen" : {
       "comment" : "The 4th solar term, always in Chinese",
       "localizations" : {
@@ -551,24 +533,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "自訂符號"
-          }
-        }
-      }
-    },
-    "Custom Symbol (SF Symbols)" : {
-      "comment" : "[Menu] Use an SF Symbols name as the menu bar icon",
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "自定义符号（SF Symbols）"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "自訂符號（SF Symbols）"
           }
         }
       }
@@ -1537,24 +1501,6 @@
         }
       }
     },
-    "Enter an SF Symbols name, e.g., `calendar`, `moon.fill`, `gear`. See more examples: https://github.com/Tbxhs/PureBar/wiki/CustomSymbols" : {
-      "comment" : "[Alert] Explanation and examples for SF Symbols icon name",
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请输入一个 SF Symbols 的符号名称，例如：`calendar`、`moon.fill`、`gear`。更多示例：https://github.com/Tbxhs/PureBar/wiki/CustomSymbols"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "請輸入一個 SF Symbols 的符號名稱，例如：`calendar`、`moon.fill`、`gear`。更多示例：https://github.com/Tbxhs/PureBar/wiki/CustomSymbols"
-          }
-        }
-      }
-    },
     "Enter date format, e.g., `M/d HH:mm`, `yyyy-MM-dd`. More examples: [Help](https://github.com/Tbxhs/PureBar/wiki/CustomDateFormat)" : {
       "comment" : "[Alert] Explanation and examples for custom date format",
       "localizations" : {
@@ -2021,42 +1967,6 @@
         }
       }
     },
-    "PureBar %@ is available!" : {
-      "comment" : "Title for new version available",
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "LunarBar %@ 已发布！"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "LunarBar %@ 已釋出！"
-          }
-        }
-      }
-    },
-    "PureBar %@ is currently the latest version." : {
-      "comment" : "Message for the up-to-date info",
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "LunarBar %@ 是目前的最新版本。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "LunarBar %@ 是目前的最新版本。"
-          }
-        }
-      }
-    },
     "Mangzhong" : {
       "comment" : "The 9th solar term, always in Chinese",
       "localizations" : {
@@ -2436,24 +2346,6 @@
         }
       }
     },
-    "Not Now" : {
-      "comment" : "Title for the \"Not Now\" button",
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "等下再说"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "等下再說"
-          }
-        }
-      }
-    },
     "Open Directory" : {
       "comment" : "[Menu] Open the directory of user-defined holidays",
       "localizations" : {
@@ -2501,78 +2393,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "置頂顯示"
-          }
-        }
-      }
-    },
-    "Please check your network connection or get the latest release from the version history." : {
-      "comment" : "Message for failed to get the update",
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请检查您的网络连接，或从版本记录中获取最新版本。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "請檢查您的網路連線，或從版本記錄中獲取最新版本。"
-          }
-        }
-      }
-    },
-    "Please enter a [SF Symbol](https://developer.apple.com/sf-symbols/) name here. Refer to the [wiki](https://github.com/Tbxhs/PureBar/wiki) for more instructions and examples." : {
-      "comment" : "[Alert] Explanation for system symbol name",
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请输入一个 [SF Symbol](https://developer.apple.com/sf-symbols/) 名称，参考[文档](https://github.com/Tbxhs/PureBar/wiki)以获取更多说明和示例。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "請輸入一個 [SF Symbol](https://developer.apple.com/sf-symbols/) 名稱，參考[文件](https://github.com/Tbxhs/PureBar/wiki)以獲取更多說明和示例。"
-          }
-        }
-      }
-    },
-    "Please enter standard [date format patterns](https://unicode.org/reports/tr35/tr35-dates.html#Date_Format_Patterns) here." : {
-      "comment" : "[Alert] Explanation for custom date format",
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请输入标准的[日期格式模式](https://unicode.org/reports/tr35/tr35-dates.html#Date_Format_Patterns)。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "請輸入標準的[日期格式模式](https://unicode.org/reports/tr35/tr35-dates.html#Date_Format_Patterns)。"
-          }
-        }
-      }
-    },
-    "Please enter standard [date format patterns](https://unicode.org/reports/tr35/tr35-dates.html#Date_Format_Patterns) here. Refer to the [wiki](https://github.com/Tbxhs/PureBar/wiki) for more instructions and examples." : {
-      "comment" : "[Alert] Explanation for custom date format",
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请输入标准的[日期格式模式](https://unicode.org/reports/tr35/tr35-dates.html#Date_Format_Patterns)，参考[文档](https://github.com/Tbxhs/PureBar/wiki)以获取更多说明和示例。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "請輸入標準的[日期格式模式](https://unicode.org/reports/tr35/tr35-dates.html#Date_Format_Patterns)，參考[文件](https://github.com/Tbxhs/PureBar/wiki)以獲取更多說明和示例。"
           }
         }
       }
@@ -2799,24 +2619,6 @@
         }
       }
     },
-    "Remind Me Later" : {
-      "comment" : "Title for the \"Remind Me Later\" button",
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "稍后提醒我"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "稍後提醒我"
-          }
-        }
-      }
-    },
     "Roomy" : {
       "comment" : "[Menu] Content scale: roomy",
       "localizations" : {
@@ -2943,24 +2745,6 @@
         }
       }
     },
-    "Skip This Version" : {
-      "comment" : "Title for the \"Skip This Version\" button",
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "跳过这个版本"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "跳過這個版本"
-          }
-        }
-      }
-    },
     "Sparkle updater is not configured. Please set SUFeedURL and SUPublicEDKey." : {
 
     },
@@ -3000,24 +2784,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "系統"
-          }
-        }
-      }
-    },
-    "System Symbol" : {
-      "comment" : "[Menu] Use a system symbol as the menu bar icon",
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "系统符号"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "系統符號"
           }
         }
       }
@@ -3230,24 +2996,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "夏至"
-          }
-        }
-      }
-    },
-    "You're up-to-date!" : {
-      "comment" : "Title for the up-to-date info",
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "您已安装最新版本！"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "您已安裝最新版本！"
           }
         }
       }

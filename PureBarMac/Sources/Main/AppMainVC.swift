@@ -176,7 +176,7 @@ extension AppMainVC {
       }
     }
 
-    Logger.log(.info, "updateEventList: events=\(events.count) height=\(eventListHeight)")
+    Logger.log(.debug, "updateEventList: events=\(events.count) height=\(eventListHeight)")
   }
 }
 

@@ -131,13 +131,13 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "海上生明月，天涯共此时。"
+            "value" : "光阴似水，涓滴成时。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "海上生明月，天涯共此時。"
+            "value" : "光陰似水，涓滴成時。"
           }
         }
       }

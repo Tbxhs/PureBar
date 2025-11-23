@@ -165,12 +165,10 @@ extension DateGridView {
       let items = try await CalendarManager.default.items(from: startDate, to: endDate)
       reloadData(allDates: allDates, events: items, diffable: false)
 
-      // Months that can be easily navigated
+      // Preload adjacent months to match 6-row view without over-fetching
       let preloadDates = [
-        Calendar.solar.date(byAdding: .day, value: -1, to: startDate),
-        Calendar.solar.date(byAdding: .day, value: 1, to: endDate),
-        Calendar.solar.date(byAdding: .year, value: -1, to: monthDate),
-        Calendar.solar.date(byAdding: .year, value: 1, to: monthDate),
+        Calendar.solar.date(byAdding: .month, value: -1, to: monthDate),
+        Calendar.solar.date(byAdding: .month, value: 1, to: monthDate),
       ].compactMap { $0 }
 
       for preloadDate in preloadDates {
@@ -234,7 +232,7 @@ private extension DateGridView {
   @MainActor
   func reloadData(allDates: [Date], events: [EKCalendarItem]?, diffable: Bool = true) {
     cancelHighlight()
-    Logger.log(.info, "Reloading dateGridView: \(allDates.count) items")
+    Logger.log(.debug, "Reloading dateGridView: \(allDates.count) items")
 
     var snapshot = NSDiffableDataSourceSnapshot<Section, Model>()
     snapshot.appendSections([Section.default])
