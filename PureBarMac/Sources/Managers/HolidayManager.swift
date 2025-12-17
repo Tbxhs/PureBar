@@ -22,7 +22,6 @@ final class HolidayManager {
 
   private var defaultData = [FileType]()
   private var cachedData = [FileType]()
-  private var userDefinedData = [FileType]()
 
   private init() {
     if let defaultDirectory, let data = contentsOf(directory: defaultDirectory) {
@@ -32,21 +31,10 @@ final class HolidayManager {
     }
 
     ensureDirectory(cachesDirectory)
-    ensureDirectory(userDefinedDirectory)
-
     reloadCachedFiles()
-    reloadUserDefinedFiles()
   }
 
   var defaultsEnabled = AppPreferences.Calendar.defaultHolidays
-
-  var userDefinedFiles: [String] {
-    guard let files = try? FileManager.default.contentsOfDirectory(atPath: userDefinedDirectory.path()) else {
-      return []
-    }
-
-    return files.filter { URL(filePath: $0).pathExtension.lowercased() == Constants.fileExtension }
-  }
 
   func reloadCachedFiles() {
     if let data = contentsOf(directory: cachesDirectory) {
@@ -58,26 +46,9 @@ final class HolidayManager {
     }
   }
 
-  func reloadUserDefinedFiles() {
-    if let data = contentsOf(directory: userDefinedDirectory) {
-      userDefinedData = data
-    } else {
-      // Empty or non-existent directory is valid, especially on first launch
-      userDefinedData = []
-      Logger.log(.info, "No user-defined holidays found")
-    }
-  }
-
-  func openUserDefinedDirectory() {
-    NSWorkspace.shared.open(userDefinedDirectory)
-  }
-
   func typeOf(year: Int, monthDay: String) -> HolidayType? {
-    // Order matters, prefer user-defined over default
-    let allData = [
-      userDefinedData,
-      defaultsEnabled ? (defaultData + cachedData) : [],
-    ].flatMap { $0 }
+    // Prefer cached data (may include newer years) over default data
+    let allData = defaultsEnabled ? (cachedData + defaultData) : []
 
     for data in allData {
       if let value = data[String(year)]?[monthDay], let type = HolidayType(rawValue: value) {
@@ -88,9 +59,9 @@ final class HolidayManager {
     return nil
   }
 
-  nonisolated func fetchDefaultHolidays() async {
-    guard let url = URL(string: Constants.endpoint) else {
-      return Logger.assertFail("Failed to create the URL: \(Constants.endpoint)")
+  nonisolated func fetchDefaultHolidays(from urlString: String = Constants.endpoint) async {
+    guard let url = URL(string: urlString) else {
+      return Logger.assertFail("Failed to create the URL: \(urlString)")
     }
 
     guard let (data, response) = try? await URLSession.shared.data(from: url) else {
@@ -132,7 +103,7 @@ private extension HolidayManager {
   enum Constants {
     static let directoryName = "Holidays"
     static let fileExtension = "json"
-    static let endpoint = "https://github.com/Tbxhs/Holidays/raw/main/mainland-china.json"
+    static let endpoint = "https://raw.githubusercontent.com/Tbxhs/PureBar/main/PureBarMac/Resources/Holidays/mainland-china.json"
   }
 
   var defaultDirectory: URL? {
@@ -141,10 +112,6 @@ private extension HolidayManager {
 
   var cachesDirectory: URL {
     URL.cachesDirectory.appending(path: Constants.directoryName, directoryHint: .isDirectory)
-  }
-
-  var userDefinedDirectory: URL {
-    URL.applicationSupportDirectory.appending(path: "PureBar/\(Constants.directoryName)", directoryHint: .isDirectory)
   }
 
   func ensureDirectory(_ directory: URL) {

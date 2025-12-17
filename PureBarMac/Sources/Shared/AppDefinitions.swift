@@ -61,9 +61,6 @@ enum Localized {
     static let menuTitlePublicHolidays = String(localized: "Public Holidays", comment: "[Menu] Public holidays")
     static let menuTitleDefaultHolidays = String(localized: "Default (Mainland China)", comment: "[Menu] Default public holidays (Mainland China)")
     static let menuTitleFetchUpdates = String(localized: "Fetch Updates...", comment: "[Menu] Fetch public holiday updates")
-    static let menuTitleOpenDirectory = String(localized: "Open Directory", comment: "[Menu] Open the directory of user-defined holidays")
-    static let menuTitleCustomizationTips = String(localized: "Customization Tips", comment: "[Menu] View tips of customizing public holidays")
-    static let menuTitleReloadCustomizations = String(localized: "Reload Customizations", comment: "[Menu] Reload customized public holidays")
     static let menuTitleLaunchAtLogin = String(localized: "Launch at Login", comment: "[Menu] Automatically start the app at login")
     static let menuTitleAbout = String(localized: "About PureBar", comment: "[Menu] Open the standard about panel")
     static let menuTitleCheckForUpdates = String(localized: "Check for Updates...", comment: "[Menu] Check for new versions")
@@ -83,6 +80,10 @@ enum Localized {
     static let alertExplanationSetSymbolName = String(localized: "Enter an SF Symbols name, e.g., `calendar`, `moon.fill`, `gear`. More examples: [Help](https://github.com/Tbxhs/PureBar/wiki/CustomSymbols)", comment: "[Alert] Explanation and examples for SF Symbols icon name")
     static let alertMessageRelaunchRequired = String(localized: "Relaunch PureBar to apply the change.", comment: "[Alert] Message about relaunch after changing the interface")
     static let alertButtonTitleApplyChanges = String(localized: "Apply Changes", comment: "[Alert] Apply the custom date format")
+    static let alertMessageFetchUpdates = String(localized: "Fetch Holiday Updates", comment: "[Alert] Title for fetch updates dialog")
+    static let alertExplanationFetchUpdates = String(localized: "Enter the URL of a JSON file containing holiday data. The file will be downloaded and cached locally.", comment: "[Alert] Explanation for fetch updates")
+    static let alertPlaceholderFetchUpdates = String(localized: "Enter holiday data URL", comment: "[Alert] Placeholder for URL input field")
+    static let alertButtonTitleFetch = String(localized: "Fetch", comment: "[Alert] Button to start fetching updates")
 
     // Accessibility
     static let accessibilityWeekdayArea = String(localized: "Weekday symbol area", comment: "[AX] Indicate the current group is for weekday symbols")

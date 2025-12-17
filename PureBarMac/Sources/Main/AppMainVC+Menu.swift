@@ -253,39 +253,7 @@ extension AppMainVC {
     .setOn(AppPreferences.Calendar.defaultHolidays)
 
     menu.addItem(withTitle: Localized.UI.menuTitleFetchUpdates) { [weak self] in
-      Task {
-        await HolidayManager.default.fetchDefaultHolidays()
-        self?.reloadCalendar()
-      }
-    }
-
-    menu.addSeparator()
-
-    // User defined, read-only here
-    HolidayManager.default.userDefinedFiles.forEach {
-      let item = NSMenuItem(title: $0)
-      item.isEnabled = false
-      item.setOn(true)
-      menu.addItem(item)
-    }
-
-    menu.addSeparator()
-
-    menu.addItem(withTitle: Localized.UI.menuTitleOpenDirectory) { [weak self] in
-      self?.closePopover()
-      HolidayManager.default.openUserDefinedDirectory()
-    }
-
-    menu.addItem(withTitle: Localized.UI.menuTitleCustomizationTips) { [weak self] in
-      self?.closePopover()
-      NSWorkspace.shared.safelyOpenURL(string: "https://github.com/Tbxhs/Holidays")
-    }
-
-    menu.addSeparator()
-
-    menu.addItem(withTitle: Localized.UI.menuTitleReloadCustomizations) { [weak self] in
-      HolidayManager.default.reloadUserDefinedFiles()
-      self?.reloadCalendar()
+      self?.showFetchUpdatesDialog()
     }
 
     let item = NSMenuItem(title: Localized.UI.menuTitlePublicHolidays)
@@ -464,6 +432,64 @@ extension AppMainVC {
 
     item.addAction(showAlert)
     return item
+  }
+
+  func showFetchUpdatesDialog() {
+    let alert = NSAlert()
+    alert.messageText = Localized.UI.alertMessageFetchUpdates
+    alert.addButton(withTitle: Localized.UI.alertButtonTitleFetch)
+    alert.addButton(withTitle: Localized.General.cancel)
+
+    let inputField = EditableTextField(frame: CGRect(x: 0, y: 0, width: 400, height: 22))
+    inputField.cell?.usesSingleLineMode = true
+    inputField.cell?.lineBreakMode = .byTruncatingTail
+    inputField.stringValue = "https://raw.githubusercontent.com/Tbxhs/PureBar/main/PureBarMac/Resources/Holidays/mainland-china.json"
+    inputField.placeholderString = Localized.UI.alertPlaceholderFetchUpdates
+
+    let textView = NSTextView.markdownView(
+      with: Localized.UI.alertExplanationFetchUpdates,
+      contentWidth: inputField.frame.width
+    )
+
+    textView.frame = CGRect(
+      origin: CGPoint(x: 0, y: inputField.frame.height + 15),
+      size: textView.frame.size
+    )
+
+    let wrapper = NSView(frame: {
+      var rect = textView.frame
+      rect.size.height += textView.frame.minY
+      return rect
+    }())
+
+    wrapper.addSubview(textView)
+    wrapper.addSubview(inputField)
+    alert.accessoryView = wrapper
+    alert.layout()
+
+    func showAlert() {
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+        inputField.window?.makeFirstResponder(inputField)
+      }
+
+      guard alert.runModal() == .alertFirstButtonReturn else {
+        return
+      }
+
+      let urlString = inputField.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
+      guard !urlString.isEmpty else {
+        NSSound.beep()
+        showAlert()
+        return
+      }
+
+      Task { [weak self] in
+        await HolidayManager.default.fetchDefaultHolidays(from: urlString)
+        self?.reloadCalendar()
+      }
+    }
+
+    showAlert()
   }
 
   func reloadCalendar() {
