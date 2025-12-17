@@ -71,6 +71,10 @@ enum Localized {
     static let menuTitlePreferences = String(localized: "Preferences", comment: "[Menu] Open preferences submenu")
     static let menuTitleAboutAndHelp = String(localized: "About & Help", comment: "[Menu] About and help submenu")
     static let menuTitleAccessibility = String(localized: "Accessibility", comment: "[Menu] Accessibility options submenu")
+    static let menuTitleHolidayIconStyle = String(localized: "Holiday Icon Style", comment: "[Menu] Holiday icon style selection")
+    static let menuTitleDefaultStyle = String(localized: "Default (Briefcase & Dot)", comment: "[Menu] Default holiday icon style")
+    static let menuTitleSymbolStyle = String(localized: "Symbol (Moon & Briefcase)", comment: "[Menu] Symbol holiday icon style")
+    static let menuTitleTextBadgeStyle = String(localized: "Text Badge (休 & 班)", comment: "[Menu] Text badge holiday icon style")
 
     // Alert
     static let alertMessageSetDateFormat = String(localized: "Set Date Format", comment: "[Alert] Configure the custom date format")

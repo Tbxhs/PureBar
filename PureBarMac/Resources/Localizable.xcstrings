@@ -194,7 +194,21 @@
       }
     },
     "Accessibility" : {
-      "comment" : "[Menu] Accessibility options submenu"
+      "comment" : "[Menu] Accessibility options submenu",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "辅助功能"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "輔助功能"
+          }
+        }
+      }
     },
     "all-day" : {
       "comment" : "Label for an all-day event",
@@ -1705,6 +1719,74 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "休假"
+          }
+        }
+      }
+    },
+    "Holiday Icon Style" : {
+      "comment" : "[Menu] Holiday icon style selection",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "节假日图标样式"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "節假日圖標樣式"
+          }
+        }
+      }
+    },
+    "Default (Briefcase & Dot)" : {
+      "comment" : "[Menu] Default holiday icon style",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "默认（公文包和圆点）"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "默認（公文包和圓點）"
+          }
+        }
+      }
+    },
+    "Symbol (Moon & Briefcase)" : {
+      "comment" : "[Menu] Symbol holiday icon style",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "符号（月亮和公文包）"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "符號（月亮和公文包）"
+          }
+        }
+      }
+    },
+    "Text Badge (休 & 班)" : {
+      "comment" : "[Menu] Text badge holiday icon style",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "文字徽章（休和班）"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "文字徽章（休和班）"
           }
         }
       }

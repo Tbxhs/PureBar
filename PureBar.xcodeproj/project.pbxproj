@@ -16,6 +16,7 @@
 		873424D02B35357B00C364BF /* DateGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873424CF2B35357B00C364BF /* DateGridCell.swift */; };
 		8739F9C92B5F611D00BD1F1B /* DateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8739F9C82B5F611D00BD1F1B /* DateFormatterTests.swift */; };
 		873AD8F62B4C3DAB001C90B1 /* AppIconFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873AD8F52B4C3DAB001C90B1 /* AppIconFactory.swift */; };
+		E8AF01BD2AE9042E003FA2CB /* HolidayIconFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF01BC2AE9042E003FA2CB /* HolidayIconFactory.swift */; };
 		8740E2DE2B35DC06004A06C2 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8740E2DD2B35DC06004A06C2 /* InfoPlist.xcstrings */; };
 		8740E2E22B35DCB7004A06C2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8740E2E12B35DCB7004A06C2 /* Localizable.xcstrings */; };
 		8740E2FF2B37C841004A06C2 /* HolidayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740E2FE2B37C841004A06C2 /* HolidayManager.swift */; };
@@ -66,6 +67,7 @@
 		873424CF2B35357B00C364BF /* DateGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateGridCell.swift; sourceTree = "<group>"; };
 		8739F9C82B5F611D00BD1F1B /* DateFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterTests.swift; sourceTree = "<group>"; };
 		873AD8F52B4C3DAB001C90B1 /* AppIconFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconFactory.swift; sourceTree = "<group>"; };
+		E8AF01BC2AE9042E003FA2CB /* HolidayIconFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayIconFactory.swift; sourceTree = "<group>"; };
 		8740E2D82B35DB93004A06C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8740E2DD2B35DC06004A06C2 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		8740E2E12B35DCB7004A06C2 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				873AD8F52B4C3DAB001C90B1 /* AppIconFactory.swift */,
 				871429182B3DAF4A003FA2CB /* AppLocalizer.swift */,
 				8740E31A2B39210F004A06C2 /* AppPreferences.swift */,
+				E8AF01BC2AE9042E003FA2CB /* HolidayIconFactory.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				8740E2FF2B37C841004A06C2 /* HolidayManager.swift in Sources */,
 				878B73AB2DEFE8EC00F0E331 /* DateRefreshTimer.swift in Sources */,
 				873AD8F62B4C3DAB001C90B1 /* AppIconFactory.swift in Sources */,
+				E8AF01BD2AE9042E003FA2CB /* HolidayIconFactory.swift in Sources */,
 				8740E30F2B37FB36004A06C2 /* CalendarManager.swift in Sources */,
 				8714291C2B3DBFDF003FA2CB /* AppMainVC+Menu.swift in Sources */,
 				8740E30B2B37F969004A06C2 /* EventView.swift in Sources */,

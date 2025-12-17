@@ -63,6 +63,9 @@ enum AppPreferences {
         HolidayManager.default.defaultsEnabled = defaultHolidays
       }
     }
+
+    @Storage(key: "calendar.holiday-icon-style", defaultValue: .textBadge)
+    static var holidayIconStyle: HolidayIconStyle
   }
 
   enum Accessibility {
@@ -110,6 +113,12 @@ enum ContentScale: Double, Codable {
   case `default` = 1.0
   case compact = 0.9
   case roomy = 1.1
+}
+
+enum HolidayIconStyle: String, Codable {
+  case `default`        // Current style: briefcase + dot
+  case symbol           // Symbol style: moon + briefcase circle
+  case textBadge        // Text style: circle + 休/班
 }
 
 @MainActor

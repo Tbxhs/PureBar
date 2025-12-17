@@ -258,6 +258,7 @@ extension DateGridCell {
     eventView.updateEvents(cellEvents)
 
     // Holiday indicator icons
+    let iconStyle = AppPreferences.Calendar.holidayIconStyle
     switch holidayType {
     case .none:
       holidayView.isHidden = true
@@ -265,12 +266,13 @@ extension DateGridCell {
       holidayView.contentTintColor = nil
     case .workday:
       holidayView.isHidden = false
-      holidayView.image = Constants.workdayIcon  // 补班日：公文包
-      holidayView.contentTintColor = .systemRed
+      holidayView.image = HolidayIconFactory.workdayIcon(style: iconStyle)
+      // textBadge style already includes color, no need for additional tinting
+      holidayView.contentTintColor = iconStyle == .textBadge ? nil : .systemRed
     case .holiday:
       holidayView.isHidden = false
-      holidayView.image = Constants.holidayIcon  // 放假日：圆点
-      holidayView.contentTintColor = .systemGreen
+      holidayView.image = HolidayIconFactory.holidayIcon(style: iconStyle)
+      holidayView.contentTintColor = iconStyle == .textBadge ? nil : .systemGreen
     }
 
     self.mainInfo = {
@@ -387,9 +389,6 @@ private extension DateGridCell {
     static let focusRingBorderWidth: Double = 2
     static let selectionRingBorderWidth: Double = 1.5
     static let lunarDateFormatter: DateFormatter = .lunarDate
-    // 节假日图标
-    static let workdayIcon: NSImage = .with(symbolName: "briefcase.fill", pointSize: 9)  // 补班日：公文包
-    static let holidayIcon: NSImage = .with(symbolName: "circle.fill", pointSize: 9)     // 放假日：圆点
     // 固定圆圈尺寸，保证所有日期大小一致且为正圆
     static let fixedRingSize: Double = 40  // 40pt 避免横向重合，偶数尺寸渲染更精确
   }

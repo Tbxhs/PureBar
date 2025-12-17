@@ -229,6 +229,23 @@ extension AppMainVC {
 
   var menuItemPublicHolidays: NSMenuItem {
     let menu = NSMenu()
+
+    // Holiday icon style selection
+    menu.addItem(withTitle: Localized.UI.menuTitleHolidayIconStyle).isEnabled = false
+    [
+      (Localized.UI.menuTitleDefaultStyle, HolidayIconStyle.default),
+      (Localized.UI.menuTitleSymbolStyle, HolidayIconStyle.symbol),
+      (Localized.UI.menuTitleTextBadgeStyle, HolidayIconStyle.textBadge),
+    ].forEach { (title: String, style: HolidayIconStyle) in
+      menu.addItem(withTitle: title) { [weak self] in
+        AppPreferences.Calendar.holidayIconStyle = style
+        self?.reloadCalendar()
+      }
+      .setOn(AppPreferences.Calendar.holidayIconStyle == style)
+    }
+
+    menu.addSeparator()
+
     menu.addItem(withTitle: Localized.UI.menuTitleDefaultHolidays) { [weak self] in
       AppPreferences.Calendar.defaultHolidays.toggle()
       self?.reloadCalendar()
@@ -288,6 +305,44 @@ extension AppMainVC {
       }
     }
 
+    return item
+  }
+
+  var menuItemAccessibility: NSMenuItem {
+    let menu = NSMenu()
+
+    menu.addItem(withTitle: Localized.UI.menuTitleReduceMotion) { [weak self] in
+      AppPreferences.Accessibility.reduceMotion.toggle()
+
+      // Reopen popover to apply new animation settings
+      if self?.popover?.isShown == true {
+        self?.closePopover()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+          if let delegate = NSApp.delegate as? AppDelegate {
+            delegate.openPanel()
+          }
+        }
+      }
+    }
+    .setOn(AppPreferences.Accessibility.reduceMotion)
+
+    menu.addItem(withTitle: Localized.UI.menuTitleReduceTransparency) { [weak self] in
+      AppPreferences.Accessibility.reduceTransparency.toggle()
+
+      // Reopen popover to apply new material effect
+      if self?.popover?.isShown == true {
+        self?.closePopover()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+          if let delegate = NSApp.delegate as? AppDelegate {
+            delegate.openPanel()
+          }
+        }
+      }
+    }
+    .setOn(AppPreferences.Accessibility.reduceTransparency)
+
+    let item = NSMenuItem(title: Localized.UI.menuTitleAccessibility)
+    item.submenu = menu
     return item
   }
 
