@@ -94,11 +94,11 @@ final class DateGridCell: NSCollectionViewItem {
     view.isHidden = true
     view.setAccessibilityHidden(true)
 
-    view.layer?.borderWidth = 1.5  // 选中日期边框宽度
-    // 边框颜色在 viewDidLayout 中设置
+    // 统一填充风格：选中状态使用背景填充而非边框
+    view.layer?.borderWidth = 0
     view.layer?.cornerRadius = AppDesign.cellCornerRadius
     view.layer?.cornerCurve = .continuous
-    view.layer?.backgroundColor = NSColor.clear.cgColor
+    // 背景颜色在 viewDidLayout 中设置
 
     return view
   }()
@@ -136,34 +136,43 @@ extension DateGridCell {
     // 完全隐藏 highlightView，不再使用悬停效果
     highlightView.isHidden = true
 
-    // 设置今日标记：只有轻微灰色背景，无边框
     let isDarkMode = view.effectiveAppearance.isDarkMode
-    let todayBackgroundColor = isDarkMode ? NSColor.white.withAlphaComponent(0.08) : NSColor.black.withAlphaComponent(0.05)
-
-    focusRingView.layer?.backgroundColor = todayBackgroundColor.cgColor
-    focusRingView.layer?.borderWidth = 0  // 移除边框
-    focusRingView.layer?.borderColor = nil
 
     // 使用固定尺寸的圆角半径，保证完美正圆
     let radius = Constants.fixedRingSize / 2
+
+    // 统一填充风格：今日使用较深的背景
+    let todayBackgroundColor = isDarkMode
+      ? NSColor.white.withAlphaComponent(0.12)
+      : NSColor.black.withAlphaComponent(0.08)
+    focusRingView.layer?.backgroundColor = todayBackgroundColor.cgColor
+    focusRingView.layer?.borderWidth = 0
+    focusRingView.layer?.borderColor = nil
     focusRingView.layer?.cornerRadius = radius
 
-    // 设置选中标记为细灰色边框
-    let selectionBorderColor = isDarkMode ? NSColor.white.withAlphaComponent(0.3) : NSColor.black.withAlphaComponent(0.25)
-    selectionRingView.layer?.borderColor = selectionBorderColor.cgColor
-    selectionRingView.layer?.borderWidth = Constants.selectionRingBorderWidth  // 边框宽度
-    selectionRingView.layer?.cornerRadius = radius  // 与 focusRingView 相同半径
+    // 统一填充风格：选中使用较浅的背景（非今日时显示）
+    let selectionBackgroundColor = isDarkMode
+      ? NSColor.white.withAlphaComponent(0.06)
+      : NSColor.black.withAlphaComponent(0.04)
+    selectionRingView.layer?.backgroundColor = selectionBackgroundColor.cgColor
+    selectionRingView.layer?.borderWidth = 0
+    selectionRingView.layer?.borderColor = nil
+    selectionRingView.layer?.cornerRadius = radius
 
     // Update Glass view corner radius and tint on macOS 26+
     if #available(macOS 26.0, *), AppDesign.modernStyle {
-      // 今日 Glass（稍深）- 配合背景色
+      // 今日 Glass（较深）
       (glassFocusView as? NSGlassEffectView)?.cornerRadius = radius
-      let todayGlassTint = isDarkMode ? NSColor.white.withAlphaComponent(0.10) : NSColor.black.withAlphaComponent(0.08)
+      let todayGlassTint = isDarkMode
+        ? NSColor.white.withAlphaComponent(0.14)
+        : NSColor.black.withAlphaComponent(0.10)
       (glassFocusView as? NSGlassEffectView)?.tintColor = todayGlassTint
 
-      // 选中日期 Glass（适中）- 配合边框
-      (glassSelectionView as? NSGlassEffectView)?.cornerRadius = radius  // 使用相同半径
-      let selectionGlassTint = isDarkMode ? NSColor.white.withAlphaComponent(0.08) : NSColor.black.withAlphaComponent(0.06)
+      // 选中日期 Glass（较浅）
+      (glassSelectionView as? NSGlassEffectView)?.cornerRadius = radius
+      let selectionGlassTint = isDarkMode
+        ? NSColor.white.withAlphaComponent(0.08)
+        : NSColor.black.withAlphaComponent(0.05)
       (glassSelectionView as? NSGlassEffectView)?.tintColor = selectionGlassTint
     }
   }
@@ -239,7 +248,8 @@ extension DateGridCell {
       (glassFocusView as? NSGlassEffectView)?.isHidden = !isDateToday
     }
 
-    // 今日脉冲动画已移除，保持静态效果
+    // 今日+选中的复合状态：给今日背景添加细边框表示选中
+    updateTodaySelectionBorder(isToday: isDateToday, isSelected: isDateSelected)
 
     // Show selection ring for selected non-today dates
     let shouldShowSelection = isDateSelected && !isDateToday
@@ -373,8 +383,28 @@ extension DateGridCell {
     // Only animate if the state actually changed
     if wasSelected != selected {
       animateSelection(show: shouldShow)
+      // 更新今日+选中的边框状态
+      updateTodaySelectionBorder(isToday: isDateToday, isSelected: isDateSelected)
     } else if !shouldShow {
       selectionRingView.isHidden = true
+    }
+  }
+
+  /// 更新今日+选中的复合状态边框
+  func updateTodaySelectionBorder(isToday: Bool, isSelected: Bool) {
+    let isDarkMode = view.effectiveAppearance.isDarkMode
+
+    if isToday && isSelected {
+      // 今日+选中：添加细边框表示选中状态
+      let borderColor = isDarkMode
+        ? NSColor.white.withAlphaComponent(0.25)
+        : NSColor.black.withAlphaComponent(0.18)
+      focusRingView.layer?.borderWidth = Constants.selectionRingBorderWidth
+      focusRingView.layer?.borderColor = borderColor.cgColor
+    } else {
+      // 非复合状态：移除边框
+      focusRingView.layer?.borderWidth = 0
+      focusRingView.layer?.borderColor = nil
     }
   }
 }
@@ -493,7 +523,7 @@ private extension DateGridCell {
   func setupGlassEffects() {
     let isDarkMode = view.effectiveAppearance.isDarkMode
 
-    // 今日标记的 Glass effect（深色）
+    // 今日标记的 Glass effect（较深填充）
     let glassFocus = NSGlassEffectView()
     glassFocus.cornerRadius = AppDesign.cellCornerRadius
     let todayTint = isDarkMode ? NSColor.white.withAlphaComponent(0.12) : NSColor.black.withAlphaComponent(0.10)
@@ -510,7 +540,7 @@ private extension DateGridCell {
     ])
     self.glassFocusView = glassFocus
 
-    // 选中日期的 Glass effect（浅色 + 边框）
+    // 选中日期的 Glass effect（较浅填充）
     let glassSelection = NSGlassEffectView()
     glassSelection.cornerRadius = AppDesign.cellCornerRadius
     let selectionTint = isDarkMode ? NSColor.white.withAlphaComponent(0.06) : NSColor.black.withAlphaComponent(0.04)
