@@ -3,6 +3,17 @@
     <channel>
         <title>PureBar</title>
         <item>
+            <title>2.4.0</title>
+            <pubDate>Wed, 21 Jan 2026 19:32:44 +0800</pubDate>
+            <sparkle:version>17</sparkle:version>
+            <sparkle:shortVersionString>2.4.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://tbxhs.github.io/PureBar/PureBar-2.4.0.zip" length="2296076" type="application/octet-stream" sparkle:edSignature="bEWXl6BW8bwkOh/4ObElZ764KSVIbNV4kVqvgnPx9NWggBfTYONBo90kydEpPFSLmk3M7RsP1lOaGc0tDKv+AA=="/>
+            <sparkle:deltas>
+                <enclosure url="https://tbxhs.github.io/PureBar/PureBar17-16.delta" sparkle:deltaFrom="16" length="23302" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="+zEQVd6xi4SpeR8lFKep71/FLLQ7E1xG+izzXvTgpVHpj+FiCVIp1Mp3kS8CqRR/vUZTFDwYsSTViv8hYnR6Bg=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>2.3.0</title>
             <pubDate>Wed, 17 Dec 2025 16:38:14 +0800</pubDate>
             <sparkle:version>16</sparkle:version>
