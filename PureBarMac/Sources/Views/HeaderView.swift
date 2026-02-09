@@ -169,12 +169,24 @@ extension HeaderView {
 
     previousDate = date
     updateTodayButtonState(for: date)
+    updateTodayButtonIcon()
   }
 
   func updateTodayButtonState(for date: Date) {
     let isCurrentMonth = Calendar.solar.isDate(date, inSameMonthAs: Date.now)
     // Hide button when viewing current month, show when viewing other months
     actionsButton.alphaValue = isCurrentMonth ? 0 : 1
+  }
+
+  func updateTodayButtonIcon() {
+    let icon: NSImage
+    if AppPreferences.Calendar.holidayIconStyle == .textBadge {
+      icon = HolidayIconFactory.todayIcon(pointSize: Constants.iconSize)
+    } else {
+      icon = .with(symbolName: Icons.locationFill, pointSize: Constants.iconSize, weight: .semibold)
+    }
+
+    actionsButton.updateIcon(image: icon)
   }
 
   func showClickEffect(for identifier: ButtonIdentifier) {
@@ -205,6 +217,7 @@ private extension HeaderView {
     static let dateFontSize: Double = FontSizes.large
     static let datePadding: Double = 9
     static let buttonPadding: Double = 6
+    static let iconSize: Double = 14
     static let dateFormatter: DateFormatter = .localizedMonth
   }
 

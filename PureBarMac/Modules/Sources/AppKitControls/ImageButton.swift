@@ -22,6 +22,8 @@ public final class ImageButton: CustomButton {
     return view
   }()
 
+  private let iconView: NSImageView
+
   // The color should be lazily calculated
   private let highlightColorProvider: () -> NSColor
 
@@ -33,6 +35,11 @@ public final class ImageButton: CustomButton {
     tintColor: NSColor? = nil,
     accessibilityLabel: String
   ) {
+    let iconSize = Constants.iconSize + sizeDelta
+    let iconImage = NSImage.with(symbolName: symbolName, pointSize: iconSize, weight: .semibold)
+    iconImage.setTintColor(tintColor)
+
+    self.iconView = NSImageView(image: iconImage)
     self.highlightColorProvider = highlightColorProvider
     super.init()
 
@@ -43,11 +50,6 @@ public final class ImageButton: CustomButton {
     highlightView.translatesAutoresizingMaskIntoConstraints = false
     addSubview(highlightView)
 
-    let iconSize = Constants.iconSize + sizeDelta
-    let iconImage = NSImage.with(symbolName: symbolName, pointSize: iconSize, weight: .semibold)
-    iconImage.setTintColor(tintColor)
-
-    let iconView = NSImageView(image: iconImage)
     iconView.sizeToFit()
     iconView.translatesAutoresizingMaskIntoConstraints = false
     addSubview(iconView)
@@ -75,6 +77,10 @@ public final class ImageButton: CustomButton {
       dx: Constants.highlightViewInset,
       dy: Constants.highlightViewInset
     )
+  }
+
+  public func updateIcon(image: NSImage) {
+    iconView.image = image
   }
 
   override public func accessibilityLabel() -> String? {

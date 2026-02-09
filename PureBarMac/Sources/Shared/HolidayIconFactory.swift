@@ -40,6 +40,14 @@ enum HolidayIconFactory {
     }
   }
 
+  /// Get "今" icon for the "go to today" button in textBadge mode
+  static func todayIcon(pointSize: Double, weight: NSFont.Weight = .semibold) -> NSImage {
+    let font = NSFont.systemFont(ofSize: pointSize, weight: weight)
+    let image = NSImage.with(text: "今", font: font)
+    image.isTemplate = true
+    return image
+  }
+
   /// Create a text badge icon (circle + text)
   private static func createTextBadge(text: String, backgroundColor: NSColor) -> NSImage {
     let size = CGSize(width: Constants.textBadgeSize, height: Constants.textBadgeSize)
