@@ -48,6 +48,45 @@ enum HolidayIconFactory {
     return image
   }
 
+  /// Menu preview icon showing holiday + workday icons side by side
+  static func menuPreviewIcon(style: HolidayIconStyle) -> NSImage {
+    let holiday = holidayIcon(style: style)
+    let workday = workdayIcon(style: style)
+
+    if style != .textBadge {
+      holiday.setTintColor(.systemGreen)
+      workday.setTintColor(.systemRed)
+    }
+
+    let spacing: Double = 3
+    let totalWidth = holiday.size.width + spacing + workday.size.width
+    let height = max(holiday.size.height, workday.size.height)
+    let size = CGSize(width: totalWidth, height: height)
+
+    let image = NSImage(size: size, flipped: false) { _ in
+      let holidayY = (height - holiday.size.height) / 2
+      holiday.draw(
+        in: CGRect(origin: CGPoint(x: 0, y: holidayY), size: holiday.size),
+        from: .zero,
+        operation: .sourceOver,
+        fraction: 1
+      )
+
+      let workdayX = holiday.size.width + spacing
+      let workdayY = (height - workday.size.height) / 2
+      workday.draw(
+        in: CGRect(origin: CGPoint(x: workdayX, y: workdayY), size: workday.size),
+        from: .zero,
+        operation: .sourceOver,
+        fraction: 1
+      )
+
+      return true
+    }
+
+    return image
+  }
+
   /// Create a text badge icon (circle + text)
   private static func createTextBadge(text: String, backgroundColor: NSColor) -> NSImage {
     let size = CGSize(width: Constants.textBadgeSize, height: Constants.textBadgeSize)

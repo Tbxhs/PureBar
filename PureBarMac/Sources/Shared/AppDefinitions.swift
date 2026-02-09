@@ -84,6 +84,8 @@ enum Localized {
     static let alertExplanationFetchUpdates = String(localized: "Enter the URL of a JSON file containing holiday data. The file will be downloaded and cached locally.", comment: "[Alert] Explanation for fetch updates")
     static let alertPlaceholderFetchUpdates = String(localized: "Enter holiday data URL", comment: "[Alert] Placeholder for URL input field")
     static let alertButtonTitleFetch = String(localized: "Fetch", comment: "[Alert] Button to start fetching updates")
+    static let alertMessageFetchSuccess = String(localized: "Holiday data updated successfully.", comment: "[Alert] Success message after fetching holiday updates")
+    static let alertMessageFetchFailed = String(localized: "Failed to fetch holiday data. Please check the URL and try again.", comment: "[Alert] Failure message after fetching holiday updates")
 
     // Accessibility
     static let accessibilityWeekdayArea = String(localized: "Weekday symbol area", comment: "[AX] Indicate the current group is for weekday symbols")

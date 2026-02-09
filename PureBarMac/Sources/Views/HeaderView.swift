@@ -89,6 +89,7 @@ final class HeaderView: NSView {
   }()
 
   private var previousDate: Date = .distantPast
+  private var currentIconStyle: HolidayIconStyle?
 
   init() {
     super.init(frame: .zero)
@@ -179,11 +180,18 @@ extension HeaderView {
   }
 
   func updateTodayButtonIcon() {
+    let style = AppPreferences.Calendar.holidayIconStyle
+    guard style != currentIconStyle else {
+      return
+    }
+
+    currentIconStyle = style
+    let iconSize = Constants.iconSize + Constants.sizeDelta
     let icon: NSImage
-    if AppPreferences.Calendar.holidayIconStyle == .textBadge {
-      icon = HolidayIconFactory.todayIcon(pointSize: Constants.iconSize)
+    if style == .textBadge {
+      icon = HolidayIconFactory.todayIcon(pointSize: iconSize - 1)
     } else {
-      icon = .with(symbolName: Icons.locationFill, pointSize: Constants.iconSize, weight: .semibold)
+      icon = .with(symbolName: Icons.locationFill, pointSize: iconSize, weight: .semibold)
     }
 
     actionsButton.updateIcon(image: icon)
@@ -218,13 +226,14 @@ private extension HeaderView {
     static let datePadding: Double = 9
     static let buttonPadding: Double = 6
     static let iconSize: Double = 14
+    @MainActor static let sizeDelta: Double = AppDesign.modernStyle ? 1 : 0
     static let dateFormatter: DateFormatter = .localizedMonth
   }
 
   func createButton(symbolName: String, accessibilityLabel: String, tintColor: NSColor? = Colors.primaryLabel) -> ImageButton {
     ImageButton(
       symbolName: symbolName,
-      sizeDelta: AppDesign.modernStyle ? 1 : 0,
+      sizeDelta: Constants.sizeDelta,
       cornerRadius: AppDesign.cellCornerRadius,
       highlightColorProvider: { .highlightedBackground },
       tintColor: tintColor,

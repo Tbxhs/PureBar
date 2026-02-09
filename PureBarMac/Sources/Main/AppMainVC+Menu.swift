@@ -237,11 +237,12 @@ extension AppMainVC {
       (Localized.UI.menuTitleSymbolStyle, HolidayIconStyle.symbol),
       (Localized.UI.menuTitleTextBadgeStyle, HolidayIconStyle.textBadge),
     ].forEach { (title: String, style: HolidayIconStyle) in
-      menu.addItem(withTitle: title) { [weak self] in
+      let item = menu.addItem(withTitle: title) { [weak self] in
         AppPreferences.Calendar.holidayIconStyle = style
         self?.reloadCalendar()
       }
-      .setOn(AppPreferences.Calendar.holidayIconStyle == style)
+      item.setOn(AppPreferences.Calendar.holidayIconStyle == style)
+      item.image = HolidayIconFactory.menuPreviewIcon(style: style)
     }
 
     menu.addSeparator()
@@ -484,8 +485,15 @@ extension AppMainVC {
       }
 
       Task { [weak self] in
-        await HolidayManager.default.fetchDefaultHolidays(from: urlString)
+        let success = await HolidayManager.default.fetchDefaultHolidays(from: urlString)
         self?.reloadCalendar()
+
+        let feedback = NSAlert()
+        feedback.messageText = success
+          ? Localized.UI.alertMessageFetchSuccess
+          : Localized.UI.alertMessageFetchFailed
+        feedback.alertStyle = success ? .informational : .warning
+        feedback.runModal()
       }
     }
 

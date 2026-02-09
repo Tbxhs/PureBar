@@ -59,21 +59,26 @@ final class HolidayManager {
     return nil
   }
 
-  nonisolated func fetchDefaultHolidays(from urlString: String = Constants.endpoint) async {
+  @discardableResult
+  nonisolated func fetchDefaultHolidays(from urlString: String = Constants.endpoint) async -> Bool {
     guard let url = URL(string: urlString) else {
-      return Logger.assertFail("Failed to create the URL: \(urlString)")
+      Logger.assertFail("Failed to create the URL: \(urlString)")
+      return false
     }
 
     guard let (data, response) = try? await URLSession.shared.data(from: url) else {
-      return Logger.log(.error, "Failed to reach out to the server")
+      Logger.log(.error, "Failed to reach out to the server")
+      return false
     }
 
     guard let status = (response as? HTTPURLResponse)?.statusCode, status == 200 else {
-      return Logger.log(.error, "Failed to get the update")
+      Logger.log(.error, "Failed to get the update")
+      return false
     }
 
     guard let contents = try? JSONSerialization.jsonObject(with: data), contents is FileType else {
-      return Logger.log(.error, "Invalid online data is found")
+      Logger.log(.error, "Invalid online data is found")
+      return false
     }
 
     Logger.log(.info, "Successfully fetched default holidays")
@@ -88,8 +93,10 @@ final class HolidayManager {
       )
 
       await reloadCachedFiles()
+      return true
     } catch {
       Logger.log(.error, error.localizedDescription)
+      return false
     }
   }
 }

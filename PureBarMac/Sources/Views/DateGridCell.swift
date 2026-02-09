@@ -114,6 +114,9 @@ final class DateGridCell: NSCollectionViewItem {
 
     return view
   }()
+
+  private var holidayViewWidthConstraint: NSLayoutConstraint?
+  private var holidayViewHeightConstraint: NSLayoutConstraint?
 }
 
 // MARK: - Life Cycle
@@ -269,6 +272,10 @@ extension DateGridCell {
 
     // Holiday indicator icons
     let iconStyle = AppPreferences.Calendar.holidayIconStyle
+    let iconSize: Double = iconStyle == .textBadge ? Constants.textBadgeIconSize : Constants.defaultIconSize
+    holidayViewWidthConstraint?.constant = iconSize
+    holidayViewHeightConstraint?.constant = iconSize
+
     switch holidayType {
     case .none:
       holidayView.isHidden = true
@@ -418,6 +425,8 @@ private extension DateGridCell {
     static let eventViewHeight: Double = 10
     static let focusRingBorderWidth: Double = 2
     static let selectionRingBorderWidth: Double = 1.5
+    static let defaultIconSize: Double = 9
+    static let textBadgeIconSize: Double = 11
     static let lunarDateFormatter: DateFormatter = .lunarDate
     // 固定圆圈尺寸，保证所有日期大小一致且为正圆
     static let fixedRingSize: Double = 40  // 40pt 避免横向重合，偶数尺寸渲染更精确
@@ -502,11 +511,17 @@ private extension DateGridCell {
 
     holidayView.translatesAutoresizingMaskIntoConstraints = false
     containerView.addSubview(holidayView)
+
+    let widthConstraint = holidayView.widthAnchor.constraint(equalToConstant: 9)
+    let heightConstraint = holidayView.heightAnchor.constraint(equalToConstant: 9)
+    holidayViewWidthConstraint = widthConstraint
+    holidayViewHeightConstraint = heightConstraint
+
     NSLayoutConstraint.activate([
       holidayView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: -3.5),
       holidayView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -1.5),
-      holidayView.widthAnchor.constraint(equalToConstant: 9),  // 固定宽度，与图标 pointSize 一致
-      holidayView.heightAnchor.constraint(equalToConstant: 9),  // 固定高度
+      widthConstraint,
+      heightConstraint,
     ])
 
     let longPressRecognizer = NSPressGestureRecognizer(target: self, action: #selector(onLongPress(_:)))

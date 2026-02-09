@@ -3119,6 +3119,40 @@
           }
         }
       }
+    },
+    "Holiday data updated successfully.": {
+      "comment": "[Alert] Success message after fetching holiday updates",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "假日数据更新成功。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "假日資料更新成功。"
+          }
+        }
+      }
+    },
+    "Failed to fetch holiday data. Please check the URL and try again.": {
+      "comment": "[Alert] Failure message after fetching holiday updates",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "获取假日数据失败，请检查 URL 后重试。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "獲取假日資料失敗，請檢查 URL 後重試。"
+          }
+        }
+      }
     }
   },
   "version": "1.0"
