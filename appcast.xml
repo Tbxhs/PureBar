@@ -3,6 +3,20 @@
     <channel>
         <title>PureBar</title>
         <item>
+            <title>2.5.2</title>
+            <pubDate>Thu, 16 Apr 2026 08:01:42 +0100</pubDate>
+            <sparkle:version>20</sparkle:version>
+            <sparkle:shortVersionString>2.5.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://tbxhs.github.io/PureBar/PureBar-2.5.2.zip" length="2293737" type="application/octet-stream" sparkle:edSignature="DOwOMUF/uB1woiuWQ95/AfUjPoJR1Fjzmz4otLRunr/+p9NT3LY2CUf9PNMjZhHSUcNdmdQojet7Lo1BUNxwBw=="/>
+            <sparkle:deltas>
+                <enclosure url="https://tbxhs.github.io/PureBar/PureBar20-19.delta" sparkle:deltaFrom="19" length="109946" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="ZD+BMesm0ITviCZ9FNkJSiy3Kd6bDpCd79v2PpMqScB5khCV6EumZ30HKqAHYmyViih0eT5J38xp6cwzpq3cBQ=="/>
+                <enclosure url="https://tbxhs.github.io/PureBar/PureBar20-17.delta" sparkle:deltaFrom="17" length="118098" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="kaBAbS/cqDHYlSEYTHKQdULPYQ5WbkiFZSq43hsWlaaq/TrVp9L+i2EaSYiMer5Bwx+tA7RcWoUkfqahN1aZBw=="/>
+                <enclosure url="https://tbxhs.github.io/PureBar/PureBar20-16.delta" sparkle:deltaFrom="16" length="119154" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="twsUUV82h9nFR0TC3xrvhfltZkG4vo2zb/EFXZrSLFKUkJHDC6ZMZy84tpLkOzSR2ftr4aV26qBkV3QdGDOhDg=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>2.5.1</title>
             <pubDate>Mon, 09 Feb 2026 17:40:39 +0800</pubDate>
             <sparkle:version>19</sparkle:version>
@@ -13,6 +27,7 @@
                 <enclosure url="https://tbxhs.github.io/PureBar/PureBar19-17.delta" sparkle:deltaFrom="17" length="53414" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="pmT7igJYDXMGfRM444xm+FwUyxf0xu1ZbpGFjr+ve5DFQ96xVBqqvSKVrBdvp3890FcCDSSCzVxl6wykOCfcAA=="/>
                 <enclosure url="https://tbxhs.github.io/PureBar/PureBar19-16.delta" sparkle:deltaFrom="16" length="59522" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="a/r9TRaiA0KDT3cEUxKH7To99qZ+g0Nqau5cyzvo/hqp3eS75oNrGWKyS9btcfZtpDEcUGvW4GFIktVlDe8KDg=="/>
             </sparkle:deltas>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
         </item>
         <item>
             <title>2.4.0</title>
@@ -24,6 +39,7 @@
             <sparkle:deltas>
                 <enclosure url="https://tbxhs.github.io/PureBar/PureBar17-16.delta" sparkle:deltaFrom="16" length="23302" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="+zEQVd6xi4SpeR8lFKep71/FLLQ7E1xG+izzXvTgpVHpj+FiCVIp1Mp3kS8CqRR/vUZTFDwYsSTViv8hYnR6Bg=="/>
             </sparkle:deltas>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
         </item>
         <item>
             <title>2.3.0</title>
@@ -32,6 +48,7 @@
             <sparkle:shortVersionString>2.3.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <enclosure url="https://tbxhs.github.io/PureBar/PureBar-2.3.0.zip" length="2221318" type="application/octet-stream" sparkle:edSignature="kJ6IpxOZ0mA8VhypNS2J0yM+sEE5/gr8tmv6U1TCPmNYM9RZAnlqbwtdbi5VB9F9ZsSZvbBcLLWBBE6kwikUDw=="/>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
         </item>
     </channel>
 </rss>
