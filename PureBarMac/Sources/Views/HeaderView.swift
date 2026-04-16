@@ -24,11 +24,20 @@ protocol HeaderViewDelegate: AnyObject {
 final class HeaderView: NSView {
   weak var delegate: HeaderViewDelegate?
 
-  private let dateLabel: TextLabel = {
+  // Date display: split into two labels for partial animation
+  private let dateContainer = NSView()
+
+  private let primaryLabel: TextLabel = {
     let label = TextLabel()
     label.textColor = Colors.primaryLabel
     label.font = .monospacedDigitSystemFont(ofSize: Constants.dateFontSize, weight: .medium)
+    return label
+  }()
 
+  private let secondaryLabel: TextLabel = {
+    let label = TextLabel()
+    label.textColor = Colors.primaryLabel
+    label.font = .monospacedDigitSystemFont(ofSize: Constants.dateFontSize, weight: .medium)
     return label
   }()
 
@@ -94,11 +103,31 @@ final class HeaderView: NSView {
   init() {
     super.init(frame: .zero)
 
-    dateLabel.translatesAutoresizingMaskIntoConstraints = false
-    addSubview(dateLabel)
+    // Date container with clipping for ticker animation
+    dateContainer.translatesAutoresizingMaskIntoConstraints = false
+    dateContainer.wantsLayer = true
+    dateContainer.layer?.masksToBounds = true
+    addSubview(dateContainer)
+
+    // Primary label (first component: year for CJK, month for Western)
+    primaryLabel.translatesAutoresizingMaskIntoConstraints = false
+    dateContainer.addSubview(primaryLabel)
+
+    // Secondary label (second component: month for CJK, year for Western)
+    secondaryLabel.translatesAutoresizingMaskIntoConstraints = false
+    dateContainer.addSubview(secondaryLabel)
+
     NSLayoutConstraint.activate([
-      dateLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.datePadding),
-      dateLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+      dateContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.datePadding),
+      dateContainer.centerYAnchor.constraint(equalTo: centerYAnchor),
+      dateContainer.heightAnchor.constraint(equalTo: heightAnchor),
+
+      primaryLabel.leadingAnchor.constraint(equalTo: dateContainer.leadingAnchor),
+      primaryLabel.centerYAnchor.constraint(equalTo: dateContainer.centerYAnchor),
+
+      secondaryLabel.leadingAnchor.constraint(equalTo: primaryLabel.trailingAnchor),
+      secondaryLabel.centerYAnchor.constraint(equalTo: dateContainer.centerYAnchor),
+      secondaryLabel.trailingAnchor.constraint(equalTo: dateContainer.trailingAnchor),
     ])
 
     nextButton.translatesAutoresizingMaskIntoConstraints = false
@@ -138,7 +167,7 @@ final class HeaderView: NSView {
     super.mouseUp(with: event)
 
     // Hidden way to goto today
-    if dateLabel.frame.contains(convert(event.locationInWindow, from: nil)) {
+    if dateContainer.frame.contains(convert(event.locationInWindow, from: nil)) {
       delegate?.headerViewGotoToday(self)
     }
   }
@@ -154,18 +183,29 @@ extension HeaderView {
   }
 
   func updateCalendar(date: Date) {
-    dateLabel.stringValue = Constants.dateFormatter.string(from: date)
+    let newPrimary = Constants.primaryFormatter.string(from: date)
+    let newSecondary = Constants.secondaryFormatter.string(from: date)
 
-    if !AppPreferences.Accessibility.reduceMotion, previousDate != .distantPast,
-       !Calendar.solar.isDate(previousDate, inSameMonthAs: date) {
-      let transition = CATransition()
-      transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-      transition.type = .push
-      transition.subtype = previousDate < date ? .fromBottom : .fromTop
-      transition.duration = 0.25
+    let shouldAnimate = !AppPreferences.Accessibility.reduceMotion
+      && previousDate != .distantPast
+      && !Calendar.solar.isDate(previousDate, inSameMonthAs: date)
 
-      dateLabel.wantsLayer = true
-      dateLabel.layer?.add(transition, forKey: "pushEffect")
+    if shouldAnimate {
+      let forward = previousDate < date
+      let primaryChanged = primaryLabel.stringValue != newPrimary
+      let secondaryChanged = secondaryLabel.stringValue != newSecondary
+
+      // Animate only the labels that actually changed
+      if secondaryChanged {
+        animateLabel(secondaryLabel, to: newSecondary, forward: forward)
+      }
+      if primaryChanged {
+        let primaryDelay = secondaryChanged ? Constants.staggerDelay : 0
+        animateLabel(primaryLabel, to: newPrimary, forward: forward, delay: primaryDelay)
+      }
+    } else {
+      primaryLabel.stringValue = newPrimary
+      secondaryLabel.stringValue = newSecondary
     }
 
     previousDate = date
@@ -227,7 +267,96 @@ private extension HeaderView {
     static let buttonPadding: Double = 6
     static let iconSize: Double = 14
     @MainActor static let sizeDelta: Double = AppDesign.modernStyle ? 1 : 0
-    static let dateFormatter: DateFormatter = .localizedMonth
+    static let animationDuration: TimeInterval = 0.3
+    static let staggerDelay: TimeInterval = 0.04
+    static let slideOffset: CGFloat = 20
+
+    // Determine locale order: CJK locales show year first, others show month first
+    static let yearFirst: Bool = {
+      let id = Locale.autoupdatingCurrent.identifier
+      return id.hasPrefix("zh") || id.hasPrefix("ja") || id.hasPrefix("ko")
+    }()
+
+    // Primary = the part that appears first (left side)
+    // Secondary = the part that appears second (right side)
+    static let primaryFormatter: DateFormatter = {
+      let formatter = DateFormatter()
+      formatter.locale = .autoupdatingCurrent
+      formatter.setLocalizedDateFormatFromTemplate(yearFirst ? "y" : "MMM")
+      // Append a separator for the first part
+      if yearFirst {
+        // Keep the localized format as-is (e.g., "2026年" in zh)
+      } else {
+        // Add trailing space for Western locales (e.g., "Apr ")
+        let base = formatter.dateFormat ?? ""
+        formatter.dateFormat = base + " "
+      }
+      return formatter
+    }()
+
+    static let secondaryFormatter: DateFormatter = {
+      let formatter = DateFormatter()
+      formatter.locale = .autoupdatingCurrent
+      formatter.setLocalizedDateFormatFromTemplate(yearFirst ? "MMM" : "y")
+      return formatter
+    }()
+  }
+
+  /// Ticker-style animation: old text slides out, new text slides in
+  func animateLabel(_ label: TextLabel, to newValue: String, forward: Bool, delay: TimeInterval = 0) {
+    let slideOffset = Constants.slideOffset
+    let direction: CGFloat = forward ? -1 : 1  // forward = slide up (negative Y)
+
+    // Snapshot the old text
+    let snapshot = TextLabel()
+    snapshot.stringValue = label.stringValue
+    snapshot.font = label.font
+    snapshot.textColor = label.textColor
+    snapshot.translatesAutoresizingMaskIntoConstraints = false
+    snapshot.alphaValue = 1
+
+    dateContainer.addSubview(snapshot)
+    NSLayoutConstraint.activate([
+      snapshot.leadingAnchor.constraint(equalTo: label.leadingAnchor),
+      snapshot.centerYAnchor.constraint(equalTo: label.centerYAnchor),
+    ])
+
+    // Set new text and prepare entry position
+    label.stringValue = newValue
+    label.alphaValue = 0
+
+    // Force layout so snapshot is positioned correctly
+    dateContainer.layoutSubtreeIfNeeded()
+
+    // Offset the new label to its start position (below or above)
+    let entryOffset = -direction * slideOffset
+    label.wantsLayer = true
+    snapshot.wantsLayer = true
+    label.layer?.transform = CATransform3DMakeTranslation(0, entryOffset, 0)
+
+    let animate = {
+      NSAnimationContext.runAnimationGroup { context in
+        context.duration = Constants.animationDuration
+        context.timingFunction = CAMediaTimingFunction(controlPoints: 0.2, 0, 0, 1)
+        context.allowsImplicitAnimation = true
+
+        // Old text slides out + fades
+        snapshot.animator().alphaValue = 0
+        snapshot.layer?.transform = CATransform3DMakeTranslation(0, direction * slideOffset, 0)
+
+        // New text slides in + appears
+        label.animator().alphaValue = 1
+        label.layer?.transform = CATransform3DIdentity
+      } completionHandler: {
+        snapshot.removeFromSuperview()
+      }
+    }
+
+    if delay > 0 {
+      DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: animate)
+    } else {
+      animate()
+    }
   }
 
   func createButton(symbolName: String, accessibilityLabel: String, tintColor: NSColor? = Colors.primaryLabel) -> ImageButton {
