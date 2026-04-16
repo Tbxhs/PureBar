@@ -42,21 +42,20 @@ final class EventListView: NSView {
 
   /**
    Update the event list with new events.
-   If events is empty or all events are past, the entire view will be hidden.
+   If events is empty, the entire view will be hidden.
    */
   func updateEvents(_ events: [EKCalendarItem]) {
     // Clear existing event rows
     stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
 
-    // Hide entire view if no upcoming events (events are expected to be pre-filtered)
     guard !events.isEmpty else {
       isHidden = true
-      Logger.log(.debug, "EventListView.updateEvents: no upcoming events, hiding view")
+      Logger.log(.debug, "EventListView.updateEvents: no events, hiding view")
       return
     }
 
     isHidden = false
-    Logger.log(.debug, "EventListView.updateEvents: rendering \(events.count) upcoming events")
+    Logger.log(.debug, "EventListView.updateEvents: rendering \(events.count) events")
 
     // Add event rows (no maximum limit, fully adaptive)
     events.oldestToNewest.forEach { event in
@@ -170,28 +169,6 @@ private extension EventListView {
     return containerView
   }
 
-  func isEventPast(_ event: EKCalendarItem) -> Bool {
-    let now = Date.now
-
-    guard let endDate = event.endOfItem else {
-      // No end time, use start time for判断
-      guard let startDate = event.startOfItem else {
-        return false
-      }
-      return startDate < now
-    }
-
-    // All-day event: compare dates (ignore specific time)
-    if event.isAllDayItem {
-      let todayStart = Calendar.solar.startOfDay(for: now)
-      let eventEndDayStart = Calendar.solar.startOfDay(for: endDate)
-      return eventEndDayStart < todayStart
-    }
-
-    // Timed event: directly compare timestamps
-    return endDate < now
-  }
-
   @objc func handleEventClick(_ gesture: NSClickGestureRecognizer) {
     guard let containerView = gesture.view,
           let identifier = containerView.identifier,
@@ -213,12 +190,10 @@ private extension EventListView {
 
 extension EventListView {
   func updateEventsWithStorage(_ events: [EKCalendarItem]) {
-    // Filter out past events once, reuse for storage and rendering
-    let upcomingEvents = events.filter { !isEventPast($0) }
-    storedEvents = upcomingEvents
-    updateEvents(upcomingEvents)
+    storedEvents = events
+    updateEvents(events)
     invalidateIntrinsicContentSize()
-    Logger.log(.debug, "EventListView.updateEventsWithStorage: total=\(events.count) stored=\(upcomingEvents.count) height=\(self.intrinsicContentSize.height)")
+    Logger.log(.debug, "EventListView.updateEventsWithStorage: total=\(events.count) height=\(self.intrinsicContentSize.height)")
   }
 }
 
@@ -254,7 +229,6 @@ private enum Constants {
   static let horizontalPadding: Double = 12
   static let topPadding: Double = 6
   static let bottomPadding: Double = 8
-  static let maxHeight: Double = 200  // Maximum height for event list
   static let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "HH:mm"

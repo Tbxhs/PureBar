@@ -62,30 +62,7 @@ extension AppMainVC {
     Logger.log(.info, "AppMainVC.viewWillAppear")
 
     updateAppearance()
-    updateCalendar()
-
-    // Select today after a short delay to ensure calendar is loaded
-    Task {
-      // Wait for calendar to load
-      try? await Task.sleep(for: .milliseconds(100))
-
-      let today = Date.now
-      if Calendar.solar.month(from: monthDate) == Calendar.solar.month(from: today) {
-        // Get today's events
-        let startOfDay = Calendar.solar.startOfDay(for: today)
-        let endOfDay = Calendar.solar.endOfDay(for: today)
-        let events = try? await CalendarManager.default.items(from: startOfDay, to: endOfDay)
-        let todayEvents = events?.filter {
-          $0.overlaps(startOfDay: startOfDay, endOfDay: endOfDay)
-        }.oldestToNewest ?? []
-
-        // Select today and update event list
-        await MainActor.run {
-          dateGridView.selectDate(today)
-          updateEventList(for: today, events: todayEvents)
-        }
-      }
-    }
+    updateCalendar(selectToday: true)
   }
 
   // MARK: - Updating
@@ -98,7 +75,7 @@ extension AppMainVC {
     view.window?.appearance = NSApp.appearance
   }
 
-  func updateCalendar(targetDate: Date = .now) {
+  func updateCalendar(targetDate: Date = .now, selectToday: Bool = false) {
     Logger.log(.info, "Updating calendar to target date: \(targetDate)")
     monthDate = targetDate
 
@@ -108,9 +85,13 @@ extension AppMainVC {
     headerView.updateCalendar(date: targetDate)
     dateGridView.updateCalendar(date: targetDate, lunarInfo: lunarInfo)
 
-    // Clear selection and event list, and resize popover to base size
+    // Clear selection and event list
     dateGridView.clearSelection()
     updateEventList(for: targetDate, events: [])
+
+    if selectToday {
+      selectTodayWithEvents()
+    }
   }
 
   func updateCalendar(moveBy offset: Int, unit: Calendar.Component) {
@@ -124,25 +105,7 @@ extension AppMainVC {
 
   func gotoToday() {
     Logger.log(.info, "Going to today")
-    let today = Date.now
-
-    // Update calendar to today's month
-    updateCalendar(targetDate: today)
-
-    // Load today's events and select the date
-    Task {
-      let startOfDay = Calendar.solar.startOfDay(for: today)
-      let endOfDay = Calendar.solar.endOfDay(for: today)
-      let events = try? await CalendarManager.default.items(from: startOfDay, to: endOfDay)
-      let todayEvents = events?.filter {
-        $0.overlaps(startOfDay: startOfDay, endOfDay: endOfDay)
-      }.oldestToNewest ?? []
-
-      await MainActor.run {
-        dateGridView.selectDate(today)
-        updateEventList(for: today, events: todayEvents)
-      }
-    }
+    updateCalendar(targetDate: Date.now, selectToday: true)
   }
 
   func togglePinnedOnTop() {
@@ -224,6 +187,25 @@ private extension AppMainVC {
         + cellSpacing * Double(Calendar.solar.numberOfRowsInMonth - 1)
         + contentMargin
     )
+  }
+
+  func selectTodayWithEvents() {
+    let today = Date.now
+    Task {
+      let startOfDay = Calendar.solar.startOfDay(for: today)
+      let endOfDay = Calendar.solar.endOfDay(for: today)
+      let events = try? await CalendarManager.default.items(from: startOfDay, to: endOfDay)
+      let todayEvents = events?.filter {
+        $0.overlaps(startOfDay: startOfDay, endOfDay: endOfDay)
+      }.oldestToNewest ?? []
+
+      await MainActor.run {
+        // Only select today if we're still viewing this month
+        guard Calendar.solar.month(from: monthDate) == Calendar.solar.month(from: today) else { return }
+        dateGridView.selectDate(today)
+        updateEventList(for: today, events: todayEvents)
+      }
+    }
   }
 
   func setUp() {
