@@ -114,11 +114,14 @@ security dump-keychain 2>/dev/null | grep -A2 "sparkle-project"
 
 ### 生成 Appcast
 
-使用 Sparkle 的 `generate_appcast` 工具：
+使用 Sparkle 的 `generate_appcast` 工具（**运行时框架走 SPM**，与 brew 无关；这里只需要 CLI）：
 
 ```bash
+# 本地构建后，工具一般在 SPM artifacts 里
+SPARKLE_BIN=$(echo build/*/SourcePackages/artifacts/sparkle/Sparkle/bin | awk '{print $1}')
+
 # 自动从 Keychain 读取私钥
-/opt/homebrew/Caskroom/sparkle/2.8.1/bin/generate_appcast \
+"$SPARKLE_BIN/generate_appcast" \
     --account "ed25519" \
     -o dist/updates/appcast.xml \
     dist/updates
@@ -163,8 +166,9 @@ ditto -c -k --sequesterRsrc --keepParent \
     "build/DerivedData/Build/Products/Release/PureBar.app" \
     "dist/updates/PureBar-2.4.0.zip"
 
-# 3. 生成 appcast
-/opt/homebrew/Caskroom/sparkle/2.8.1/bin/generate_appcast \
+# 3. 生成 appcast（优先用 SPM artifacts 里的 CLI）
+SPARKLE_BIN=$(echo build/*/SourcePackages/artifacts/sparkle/Sparkle/bin | awk '{print $1}')
+"$SPARKLE_BIN/generate_appcast" \
     --account "ed25519" \
     -o dist/updates/appcast.xml \
     dist/updates
@@ -192,26 +196,40 @@ cd build/gh-pages && git add . && git commit -m "docs(appcast): 2.4.0" && git pu
 
 | 工具 | 用途 | 安装方式 |
 |------|------|----------|
-| **Xcode 16.0+** | 构建项目 | Mac App Store |
-| **Sparkle** | 生成签名的 appcast | `brew install --cask sparkle` |
+| **Xcode 16.0+** | 构建项目 | Mac App Store / Apple Developer |
+| **Sparkle 框架** | App 内自动更新 | SPM（Xcode 自动解析，无需 brew） |
+| **Sparkle CLI** | 生成/签名 appcast | 构建后自带，或从 [GitHub Releases](https://github.com/sparkle-project/Sparkle/releases) 下载（**不要**再装已弃用的 `brew install --cask sparkle`） |
 | **create-dmg** | 创建 DMG 安装包 | `brew install create-dmg` |
 | **gh (GitHub CLI)** | 创建 GitHub Release | `brew install gh` |
 
-### Sparkle 工具位置
+### Sparkle：框架 vs CLI（为什么 brew 里曾有 sparkle）
 
-安装后位于：
+| 用途 | 来源 | 是否需要 brew |
+|------|------|----------------|
+| App 内 `import Sparkle` | SPM 依赖 | **否** |
+| 发布用的 `generate_appcast` / `sign_update` | SPM artifacts 或官方 release 包 | **否**（brew cask 已因 Gatekeeper 弃用） |
+
+历史上 `DEVELOPMENT.md` 写了 `brew install --cask sparkle`，所以本机装过这个 cask；它只是多装了一份 Test App + CLI，**和 SPM 框架重复**，还会触发 `brew doctor` 的 deprecated 警告。现已改为优先用构建产物里的 CLI。
+
+### Sparkle CLI 位置
+
+构建一次后通常在：
 ```
-/opt/homebrew/Caskroom/sparkle/<version>/bin/
+build/SourcePackages/artifacts/sparkle/Sparkle/bin/
+# 或
+build/DerivedData/SourcePackages/artifacts/sparkle/Sparkle/bin/
 ├── generate_appcast    # 生成 appcast.xml
 ├── sign_update         # 单独签名更新包
 └── generate_keys       # 生成新的密钥对
 ```
 
+`release.sh` 会自动探测上述路径（也可用环境变量 `SPARKLE_BIN_DIR` 覆盖）。
+
 ### 验证工具安装
 
 ```bash
-# 检查 Sparkle
-ls /opt/homebrew/Caskroom/sparkle/*/bin/generate_appcast
+# 检查 Sparkle CLI（构建后）
+ls build/*/SourcePackages/artifacts/sparkle/Sparkle/bin/generate_appcast
 
 # 检查 create-dmg
 which create-dmg
@@ -238,7 +256,7 @@ Error: Unable to find a valid signing key...
    ```
 2. 如果没有，需要生成新的密钥对：
    ```bash
-   /opt/homebrew/Caskroom/sparkle/*/bin/generate_keys
+   build/*/SourcePackages/artifacts/sparkle/Sparkle/bin/generate_keys
    ```
 3. 更新 `Info.plist` 中的 `SUPublicEDKey`
 
@@ -266,7 +284,7 @@ curl -I https://tbxhs.github.io/PureBar/PureBar-2.4.0.zip
 
 1. **Tag 已存在** - 脚本会提示是否覆盖，输入 `y` 继续
 2. **gh 未认证** - 运行 `gh auth login`
-3. **Sparkle 工具未安装** - 运行 `brew install --cask sparkle`
+3. **Sparkle CLI 未找到** - 先本地 Release 构建一次，或从 [Sparkle Releases](https://github.com/sparkle-project/Sparkle/releases) 下载工具并设置 `SPARKLE_BIN_DIR`
 4. **DMG 卷未卸载** - 手动卸载或重启 Finder
 
 ### Q: 如何在新机器上设置开发环境
