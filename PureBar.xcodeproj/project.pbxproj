@@ -13,6 +13,7 @@
 		871429192B3DAF4A003FA2CB /* AppLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871429182B3DAF4A003FA2CB /* AppLocalizer.swift */; };
 		8714291C2B3DBFDF003FA2CB /* AppMainVC+Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8714291B2B3DBFDF003FA2CB /* AppMainVC+Menu.swift */; };
 		8732DDF32B3E896D004B72DE /* HolidayManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8732DDF22B3E896D004B72DE /* HolidayManagerTests.swift */; };
+		8A11AA11BB11CC11DD11EE11 /* CalendarManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A22BB22CC22DD22EE22FF22 /* CalendarManagerTests.swift */; };
 		873424D02B35357B00C364BF /* DateGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873424CF2B35357B00C364BF /* DateGridCell.swift */; };
 		8739F9C92B5F611D00BD1F1B /* DateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8739F9C82B5F611D00BD1F1B /* DateFormatterTests.swift */; };
 		873AD8F62B4C3DAB001C90B1 /* AppIconFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873AD8F52B4C3DAB001C90B1 /* AppIconFactory.swift */; };
@@ -64,6 +65,7 @@
 		8714291B2B3DBFDF003FA2CB /* AppMainVC+Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppMainVC+Menu.swift"; sourceTree = "<group>"; };
 		8732DDF02B3E896D004B72DE /* PureBarMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PureBarMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8732DDF22B3E896D004B72DE /* HolidayManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayManagerTests.swift; sourceTree = "<group>"; };
+		8A22BB22CC22DD22EE22FF22 /* CalendarManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManagerTests.swift; sourceTree = "<group>"; };
 		873424CF2B35357B00C364BF /* DateGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateGridCell.swift; sourceTree = "<group>"; };
 		8739F9C82B5F611D00BD1F1B /* DateFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterTests.swift; sourceTree = "<group>"; };
 		873AD8F52B4C3DAB001C90B1 /* AppIconFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconFactory.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				87D65EB52B412A4700E41049 /* AppDefinitionsTests.swift */,
 				87D65EB02B41200100E41049 /* AppPreferencesTests.swift */,
 				8732DDF22B3E896D004B72DE /* HolidayManagerTests.swift */,
+				8A22BB22CC22DD22EE22FF22 /* CalendarManagerTests.swift */,
 			);
 			path = PureBarMacTests;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				87007C1F2CE7157F006E98DE /* RuntimeTests.swift in Sources */,
 				8732DDF32B3E896D004B72DE /* HolidayManagerTests.swift in Sources */,
 				87D65EB62B412A4700E41049 /* AppDefinitionsTests.swift in Sources */,
+				8A11AA11BB11CC11DD11EE11 /* CalendarManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

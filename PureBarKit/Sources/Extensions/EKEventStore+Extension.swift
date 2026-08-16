@@ -34,11 +34,15 @@ public extension EKEventStore {
       return incomplete
     }
 
+    // EventKit matches completed reminders by their completion date, but users expect
+    // them on the date they were due, like the Calendar app does. Fetch everything
+    // completed since the range started (open-ended), and let the per-day overlap
+    // filtering, which is anchored on due dates, place them on the correct days.
     let completed = try await items(
       for: .reminder,
       predicate: predicateForCompletedReminders(
         withCompletionDateStarting: startDate,
-        ending: endDate,
+        ending: nil,
         calendars: calendars
       )
     )
