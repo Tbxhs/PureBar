@@ -66,6 +66,14 @@ enum AppPreferences {
 
     @Storage(key: "calendar.holiday-icon-style", defaultValue: .textBadge)
     static var holidayIconStyle: HolidayIconStyle
+
+    @Storage(key: "calendar.completed-reminders-style", defaultValue: .strikethrough)
+    static var completedRemindersStyle: CompletedReminderStyle {
+      didSet {
+        // Cached items may contain completed reminders, drop them to apply the change immediately
+        CalendarManager.default.clearCaches()
+      }
+    }
   }
 
   enum Accessibility {
@@ -119,6 +127,12 @@ enum HolidayIconStyle: String, Codable {
   case `default`        // Current style: briefcase + dot
   case symbol           // Symbol style: moon + briefcase circle
   case textBadge        // Text style: circle + 休/班
+}
+
+enum CompletedReminderStyle: String, Codable {
+  case strikethrough    // Strike-through the title, the pre-existing behavior of details view
+  case dimmed           // Render the row in a dimmed color
+  case hidden           // Do not fetch completed reminders at all
 }
 
 @MainActor

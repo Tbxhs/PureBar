@@ -163,6 +163,22 @@ extension AppMainVC {
     let menu = NSMenu()
     menu.autoenablesItems = false
 
+    // Completed reminders display style
+    menu.addItem(withTitle: Localized.UI.menuTitleCompletedReminders).isEnabled = false
+    [
+      (Localized.UI.menuTitleCompletedStrikethrough, CompletedReminderStyle.strikethrough),
+      (Localized.UI.menuTitleCompletedDimmed, CompletedReminderStyle.dimmed),
+      (Localized.UI.menuTitleCompletedHidden, CompletedReminderStyle.hidden),
+    ].forEach { (title: String, style: CompletedReminderStyle) in
+      menu.addItem(withTitle: title) { [weak self] in
+        AppPreferences.Calendar.completedRemindersStyle = style
+        self?.reloadCalendar()
+      }
+      .setOn(AppPreferences.Calendar.completedRemindersStyle == style)
+    }
+
+    menu.addSeparator()
+
     let calendars = CalendarManager.default.allCalendars()
     let remindersIndex = calendars.firstIndex { $0.allowedEntityTypes.contains(.reminder) }
     let identifiers = Set(calendars.map { $0.calendarIdentifier })
@@ -274,6 +290,22 @@ extension AppMainVC {
       }
     }
 
+    return item
+  }
+
+  var menuItemPreferences: NSMenuItem {
+    let menu = NSMenu()
+
+    menu.addItem(menuItemMenuBarIcon)
+    menu.addItem(menuItemAppearance)
+    menu.addItem(menuItemCalendars)
+    menu.addItem(menuItemPublicHolidays)
+    menu.addItem(menuItemAccessibility)
+    menu.addSeparator()
+    menu.addItem(menuItemLaunchAtLogin)
+
+    let item = NSMenuItem(title: Localized.UI.menuTitlePreferences)
+    item.submenu = menu
     return item
   }
 

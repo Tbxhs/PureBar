@@ -119,6 +119,11 @@ final class CalendarManager {
 // MARK: - Caching
 
 extension CalendarManager {
+  func clearCaches() {
+    memoryCache.removeAll()
+    cacheOrder.removeAll()
+  }
+
   func caches(from startDate: Date, to endDate: Date) -> [EKCalendarItem]? {
     let range = DateRange(start: startDate, end: endDate)
     guard let items = memoryCache[range] else {
@@ -205,7 +210,12 @@ private extension CalendarManager {
       case .event:
         return try await eventStore.events(from: startOfDayDate, to: endOfDayDate, calendars: calendars)
       case .reminder:
-        return try await eventStore.reminders(from: startOfDayDate, to: endOfDayDate, calendars: calendars)
+        return try await eventStore.reminders(
+          from: startOfDayDate,
+          to: endOfDayDate,
+          calendars: calendars,
+          includingCompleted: AppPreferences.Calendar.completedRemindersStyle != .hidden
+        )
       default:
         Logger.assertFail("Invalid type: \(type) of items to fetch for")
         return []

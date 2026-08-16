@@ -15,7 +15,12 @@ public extension EKEventStore {
     ))
   }
 
-  func reminders(from startDate: Date, to endDate: Date, calendars: [EKCalendar]) async throws -> [EKCalendarItem] {
+  func reminders(
+    from startDate: Date,
+    to endDate: Date,
+    calendars: [EKCalendar],
+    includingCompleted: Bool = true
+  ) async throws -> [EKCalendarItem] {
     let incomplete = try await items(
       for: .reminder,
       predicate: predicateForIncompleteReminders(
@@ -24,6 +29,10 @@ public extension EKEventStore {
         calendars: calendars
       )
     )
+
+    guard includingCompleted else {
+      return incomplete
+    }
 
     let completed = try await items(
       for: .reminder,

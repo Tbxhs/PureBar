@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "874E99282B33D8C0002FC90A"
-               BuildableName = "LunarBar.app"
-               BlueprintName = "LunarBarMac"
-               ReferencedContainer = "container:LunarBar.xcodeproj">
+               BuildableName = "PureBar.app"
+               BlueprintName = "PureBarMac"
+               ReferencedContainer = "container:PureBar.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,9 +35,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8732DDEF2B3E896D004B72DE"
-               BuildableName = "LunarBarMacTests.xctest"
-               BlueprintName = "LunarBarMacTests"
-               ReferencedContainer = "container:LunarBar.xcodeproj">
+               BuildableName = "PureBarMacTests.xctest"
+               BlueprintName = "PureBarMacTests"
+               ReferencedContainer = "container:PureBar.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -46,8 +46,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = "en"
-      region = "US"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -59,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "874E99282B33D8C0002FC90A"
-            BuildableName = "LunarBar.app"
-            BlueprintName = "LunarBarMac"
-            ReferencedContainer = "container:LunarBar.xcodeproj">
+            BuildableName = "PureBar.app"
+            BlueprintName = "PureBarMac"
+            ReferencedContainer = "container:PureBar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -76,9 +74,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "874E99282B33D8C0002FC90A"
-            BuildableName = "LunarBar.app"
-            BlueprintName = "LunarBarMac"
-            ReferencedContainer = "container:LunarBar.xcodeproj">
+            BuildableName = "PureBar.app"
+            BlueprintName = "PureBarMac"
+            ReferencedContainer = "container:PureBar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -483,6 +483,23 @@
         }
       }
     },
+    "Completed Reminders": {
+      "comment": "[Menu] Section title for completed reminders display style",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已完成的提醒"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已完成的提醒"
+          }
+        }
+      }
+    },
     "Content Scale": {
       "comment": "[Menu] Section title for content scales",
       "localizations": {
@@ -1395,6 +1412,23 @@
         }
       }
     },
+    "Dimmed": {
+      "comment": "[Menu] Display completed reminders in a dimmed color",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "变淡显示"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "變淡顯示"
+          }
+        }
+      }
+    },
     "Dongzhi": {
       "comment": "The 22nd solar term, always in Chinese",
       "localizations": {
@@ -1685,6 +1719,23 @@
           "stringUnit": {
             "state": "translated",
             "value": "寒露"
+          }
+        }
+      }
+    },
+    "Hidden": {
+      "comment": "[Menu] Do not display completed reminders",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隐藏"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隱藏"
           }
         }
       }
@@ -2796,6 +2847,23 @@
           "stringUnit": {
             "state": "translated",
             "value": "春節"
+          }
+        }
+      }
+    },
+    "Strike-through": {
+      "comment": "[Menu] Display completed reminders with a strike-through",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "删除线"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "刪除線"
           }
         }
       }

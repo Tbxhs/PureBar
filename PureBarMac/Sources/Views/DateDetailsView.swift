@@ -34,21 +34,34 @@ struct DateDetailsView: View {
       ForEach(0..<min(events.count, Constants.maximumRows), id: \.self) { index in
         let event = events[index]
         let color = event.calendar.color ?? Colors.controlAccent
+        let isCompleted = event.isCompletedItem
+        let style = AppPreferences.Calendar.completedRemindersStyle
 
         HStack {
           Circle()
             .fill(Color(color))
             .strokeBorder(Color(color.darkerColor()), lineWidth: lineWidth)
             .frame(width: Constants.dotSize * scale, height: Constants.dotSize * scale)
+            .opacity(isCompleted && style == .dimmed ? 0.35 : 1)
           Text(event.title)
             .font(font(weight: .regular, scale: scale))
             .frame(maxWidth: .infinity, alignment: .leading)
-            .strikethrough(event.isCompletedItem)
+            .strikethrough(isCompleted && style == .strikethrough)
+            .foregroundStyle(
+              isCompleted && style == .dimmed
+                ? AnyShapeStyle(.secondary)
+                : AnyShapeStyle(.primary)
+            )
           Spacer(minLength: Constants.largePadding * scale)
           Text(event.labelOfDates)
             .font(font(weight: .regular, scale: scale))
             .frame(alignment: .trailing)
             .fixedSize()
+            .foregroundStyle(
+              isCompleted && style == .dimmed
+                ? AnyShapeStyle(.secondary)
+                : AnyShapeStyle(.primary)
+            )
         }
         .frame(height: Constants.rowHeight * scale)
 
@@ -136,10 +149,6 @@ private final class DateDetailsHostVC: NSViewController {
 }
 
 private extension EKCalendarItem {
-  var isCompletedItem: Bool {
-    (self as? EKReminder)?.isCompleted == true
-  }
-
   var labelOfDates: String {
     guard !isAllDayItem else {
       // all-day

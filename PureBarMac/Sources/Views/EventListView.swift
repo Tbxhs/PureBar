@@ -108,13 +108,19 @@ private extension EventListView {
     let containerView = NSView()
     containerView.translatesAutoresizingMaskIntoConstraints = false
 
+    let isCompleted = event.isCompletedItem
+    let style = AppPreferences.Calendar.completedRemindersStyle
+    let baseColor = event.calendar.color ?? Colors.controlAccent
+    let displayColor = isCompleted && style == .dimmed
+      ? baseColor.withAlphaComponent(Constants.dimmedAlpha)
+      : baseColor
+
     // Color dot
     let dotView = NSView()
     dotView.wantsLayer = true
     dotView.layer?.cornerRadius = Constants.dotSize / 2
-    let color = event.calendar.color ?? Colors.controlAccent
-    dotView.layer?.backgroundColor = color.cgColor
-    dotView.layer?.borderColor = color.darkerColor().cgColor
+    dotView.layer?.backgroundColor = displayColor.cgColor
+    dotView.layer?.borderColor = displayColor.darkerColor().cgColor
     dotView.layer?.borderWidth = 0.5
     dotView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -130,6 +136,26 @@ private extension EventListView {
     timeLabel.font = .systemFont(ofSize: Constants.fontSize)
     timeLabel.alignment = .right
     timeLabel.translatesAutoresizingMaskIntoConstraints = false
+
+    // Apply the style for completed reminders: strike-through or dimmed
+    if isCompleted {
+      switch style {
+      case .strikethrough:
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineBreakMode = .byTruncatingTail
+        titleLabel.attributedStringValue = NSAttributedString(string: event.title, attributes: [
+          .font: NSFont.systemFont(ofSize: Constants.fontSize),
+          .foregroundColor: NSColor.labelColor,
+          .strikethroughStyle: NSUnderlineStyle.single.rawValue,
+          .paragraphStyle: paragraphStyle,
+        ])
+      case .dimmed:
+        titleLabel.textColor = Colors.secondaryLabel
+        timeLabel.textColor = Colors.secondaryLabel
+      case .hidden:
+        break // Filtered out at the data source level, never reaches here
+      }
+    }
 
     containerView.addSubview(dotView)
     containerView.addSubview(titleLabel)
@@ -229,6 +255,7 @@ private enum Constants {
   static let horizontalPadding: Double = 12
   static let topPadding: Double = 6
   static let bottomPadding: Double = 8
+  static let dimmedAlpha: Double = 0.35
   static let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "HH:mm"

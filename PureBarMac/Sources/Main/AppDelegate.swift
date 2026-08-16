@@ -430,12 +430,7 @@ private extension AppDelegate {
 
     // Create the context menu
     let menu = NSMenu()
-    menu.addItem(vc.menuItemMenuBarIcon)
-    menu.addItem(vc.menuItemAppearance)
-    menu.addItem(vc.menuItemCalendars)
-    menu.addItem(vc.menuItemPublicHolidays)
-    menu.addItem(vc.menuItemAccessibility)
-    menu.addItem(vc.menuItemLaunchAtLogin)
+    menu.addItem(vc.menuItemPreferences)
     menu.addSeparator()
     menu.addItem(vc.menuItemAboutAndHelp)
     menu.addSeparator()

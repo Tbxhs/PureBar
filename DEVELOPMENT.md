@@ -192,6 +192,23 @@ cd build/gh-pages && git add . && git commit -m "docs(appcast): 2.4.0" && git pu
 
 ## 开发工具
 
+### 运行测试
+
+项目使用共享 scheme `PureBarMac`（含单元测试 target `PureBarMacTests`，宿主为应用本体）：
+
+```bash
+# 构建并运行测试
+xcodebuild -project PureBar.xcodeproj -scheme PureBarMac test
+
+# 仅构建
+xcodebuild -project PureBar.xcodeproj -scheme PureBarMac -configuration Debug build
+```
+
+说明：
+- 测试宿主 `TEST_HOST` 指向 `PureBar.app/Contents/MacOS/PureBar`，依赖 `PRODUCT_NAME = PureBar`
+- 如果 `xcode-select` 指向 CommandLineTools，需要用 `DEVELOPER_DIR=/Applications/Xcode.app xcodebuild ...` 或先 `sudo xcode-select -s /Applications/Xcode.app`
+- PureBarKit 的独立测试（`swift test`）在命令行下会被 SwiftLint 插件阻拦，请用上面的 xcodebuild 方式
+
 ### 必需工具
 
 | 工具 | 用途 | 安装方式 |
@@ -325,4 +342,4 @@ Sparkle 私钥存储在 Keychain 中，建议定期备份：
 
 ---
 
-*最后更新: 2025-01-21 (v2.4.0)*
+*最后更新: 2026-08-16*

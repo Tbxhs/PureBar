@@ -20,6 +20,13 @@ public extension EKCalendarItem {
     return false
   }
 
+  /**
+   Whether the item is a completed reminder. Events are never "completed".
+   */
+  var isCompletedItem: Bool {
+    (self as? EKReminder)?.isCompleted == true
+  }
+
   var startOfItem: Date? {
     if let event = self as? EKEvent {
       return event.startDate

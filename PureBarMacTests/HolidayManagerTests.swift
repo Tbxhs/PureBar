@@ -16,22 +16,25 @@ final class HolidayManagerTests: XCTestCase {
     XCTAssertEqual(manager.typeOf(year: 2024, monthDay: "0204"), .workday)
   }
 
-  func testUserDefinedData() {
+  func testCachedFiles() {
     let manager = HolidayManager.default
-    let directory = URL.applicationSupportDirectory.appending(path: "PureBar/Holidays", directoryHint: .isDirectory)
+    let fileURL = URL.cachesDirectory
+      .appending(path: "Holidays", directoryHint: .isDirectory)
+      .appending(path: "test-custom.json", directoryHint: .notDirectory)
 
-    try? FileManager.default.createDirectory(
-      at: directory,
-      withIntermediateDirectories: false
-    )
+    try? FileManager.default.removeItem(at: fileURL)
+    defer {
+      try? FileManager.default.removeItem(at: fileURL)
+    }
 
-    try? JSONSerialization.data(withJSONObject: ["2025": ["0101": 2]]).write(
-      to: directory.appending(path: "custom.json", directoryHint: .notDirectory),
+    try? JSONSerialization.data(withJSONObject: ["2099": ["0101": 2, "0102": 1]]).write(
+      to: fileURL,
       options: .atomic
     )
 
-    manager.reloadUserDefinedFiles()
-    XCTAssertEqual(manager.userDefinedFiles, ["custom.json"])
-    XCTAssertEqual(manager.typeOf(year: 2025, monthDay: "0101"), .holiday)
+    manager.reloadCachedFiles()
+    XCTAssertEqual(manager.typeOf(year: 2099, monthDay: "0101"), .holiday)
+    XCTAssertEqual(manager.typeOf(year: 2099, monthDay: "0102"), .workday)
+    XCTAssertNil(manager.typeOf(year: 2099, monthDay: "0103"))
   }
 }
