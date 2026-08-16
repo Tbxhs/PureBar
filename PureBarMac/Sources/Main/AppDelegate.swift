@@ -311,6 +311,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     CalendarManager.default.revealDateInCalendar(targetDate)
   }
 
+  /**
+   Reload the currently presented popover, if any, to apply preference changes immediately.
+
+   Menu actions are built against a temporary AppMainVC (see showContextMenu),
+   so changes made while a popover is open would otherwise not be visible until it is reopened.
+   */
+  @MainActor
+  func reloadPresentedPopover() {
+    guard let vc = presentedPopover?.contentViewController as? AppMainVC else {
+      return
+    }
+
+    vc.reloadCalendar()
+  }
+
   @MainActor
   func countDaysBetween(targetDate: Date) {
     guard let startDate = countingDate, targetDate != startDate else {

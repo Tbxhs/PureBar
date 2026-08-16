@@ -163,22 +163,6 @@ extension AppMainVC {
     let menu = NSMenu()
     menu.autoenablesItems = false
 
-    // Completed reminders display style
-    menu.addItem(withTitle: Localized.UI.menuTitleCompletedReminders).isEnabled = false
-    [
-      (Localized.UI.menuTitleCompletedStrikethrough, CompletedReminderStyle.strikethrough),
-      (Localized.UI.menuTitleCompletedDimmed, CompletedReminderStyle.dimmed),
-      (Localized.UI.menuTitleCompletedHidden, CompletedReminderStyle.hidden),
-    ].forEach { (title: String, style: CompletedReminderStyle) in
-      menu.addItem(withTitle: title) { [weak self] in
-        AppPreferences.Calendar.completedRemindersStyle = style
-        self?.reloadCalendar()
-      }
-      .setOn(AppPreferences.Calendar.completedRemindersStyle == style)
-    }
-
-    menu.addSeparator()
-
     let calendars = CalendarManager.default.allCalendars()
     let remindersIndex = calendars.firstIndex { $0.allowedEntityTypes.contains(.reminder) }
     let identifiers = Set(calendars.map { $0.calendarIdentifier })
@@ -188,9 +172,9 @@ extension AppMainVC {
       let item = NSMenuItem(title: calendar.title)
       item.setOn(!AppPreferences.Calendar.hiddenCalendars.contains(calendarID))
 
-      item.addAction { [weak self] in
+      item.addAction {
         AppPreferences.Calendar.hiddenCalendars.toggle(calendarID)
-        self?.reloadCalendar()
+        (NSApp.delegate as? AppDelegate)?.reloadPresentedPopover()
       }
 
       if let color = calendar.color {
@@ -222,14 +206,14 @@ extension AppMainVC {
       menu.addSeparator()
     }
 
-    menu.addItem(withTitle: Localized.UI.menuTitleSelectAll) { [weak self] in
+    menu.addItem(withTitle: Localized.UI.menuTitleSelectAll) {
       AppPreferences.Calendar.hiddenCalendars.removeAll()
-      self?.reloadCalendar()
+      (NSApp.delegate as? AppDelegate)?.reloadPresentedPopover()
     }.isEnabled = !AppPreferences.Calendar.hiddenCalendars.isEmpty
 
-    menu.addItem(withTitle: Localized.UI.menuTitleDeselectAll) { [weak self] in
+    menu.addItem(withTitle: Localized.UI.menuTitleDeselectAll) {
       AppPreferences.Calendar.hiddenCalendars = identifiers
-      self?.reloadCalendar()
+      (NSApp.delegate as? AppDelegate)?.reloadPresentedPopover()
     }.isEnabled = AppPreferences.Calendar.hiddenCalendars != identifiers
 
     menu.addSeparator()
@@ -253,9 +237,9 @@ extension AppMainVC {
       (Localized.UI.menuTitleSymbolStyle, HolidayIconStyle.symbol),
       (Localized.UI.menuTitleTextBadgeStyle, HolidayIconStyle.textBadge),
     ].forEach { (title: String, style: HolidayIconStyle) in
-      let item = menu.addItem(withTitle: title) { [weak self] in
+      let item = menu.addItem(withTitle: title) {
         AppPreferences.Calendar.holidayIconStyle = style
-        self?.reloadCalendar()
+        (NSApp.delegate as? AppDelegate)?.reloadPresentedPopover()
       }
       item.setOn(AppPreferences.Calendar.holidayIconStyle == style)
       item.image = HolidayIconFactory.menuPreviewIcon(style: style)
@@ -263,9 +247,9 @@ extension AppMainVC {
 
     menu.addSeparator()
 
-    menu.addItem(withTitle: Localized.UI.menuTitleDefaultHolidays) { [weak self] in
+    menu.addItem(withTitle: Localized.UI.menuTitleDefaultHolidays) {
       AppPreferences.Calendar.defaultHolidays.toggle()
-      self?.reloadCalendar()
+      (NSApp.delegate as? AppDelegate)?.reloadPresentedPopover()
     }
     .setOn(AppPreferences.Calendar.defaultHolidays)
 
@@ -293,9 +277,30 @@ extension AppMainVC {
     return item
   }
 
+  var menuItemCompletedReminders: NSMenuItem {
+    let menu = NSMenu()
+
+    [
+      (Localized.UI.menuTitleCompletedStrikethrough, CompletedReminderStyle.strikethrough),
+      (Localized.UI.menuTitleCompletedDimmed, CompletedReminderStyle.dimmed),
+      (Localized.UI.menuTitleCompletedHidden, CompletedReminderStyle.hidden),
+    ].forEach { (title: String, style: CompletedReminderStyle) in
+      menu.addItem(withTitle: title) {
+        AppPreferences.Calendar.completedRemindersStyle = style
+        (NSApp.delegate as? AppDelegate)?.reloadPresentedPopover()
+      }
+      .setOn(AppPreferences.Calendar.completedRemindersStyle == style)
+    }
+
+    let item = NSMenuItem(title: Localized.UI.menuTitleCompletedReminders)
+    item.submenu = menu
+    return item
+  }
+
   var menuItemPreferences: NSMenuItem {
     let menu = NSMenu()
 
+    menu.addItem(menuItemCompletedReminders)
     menu.addItem(menuItemMenuBarIcon)
     menu.addItem(menuItemAppearance)
     menu.addItem(menuItemCalendars)
@@ -516,9 +521,9 @@ extension AppMainVC {
         return
       }
 
-      Task { [weak self] in
+      Task {
         let success = await HolidayManager.default.fetchDefaultHolidays(from: urlString)
-        self?.reloadCalendar()
+        (NSApp.delegate as? AppDelegate)?.reloadPresentedPopover()
 
         let feedback = NSAlert()
         feedback.messageText = success
