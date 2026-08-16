@@ -26,20 +26,17 @@ final class CalendarManager {
   private var cacheOrder = [DateRange]()  // Maintain insertion order for a simple LRU
   private let cacheLimit = 128
 
-  func authorizationStatus(for type: EKEntityType) -> EKAuthorizationStatus {
-    EKEventStore.authorizationStatus(for: type)
+  var authorizationStatus: EKAuthorizationStatus {
+    EKEventStore.authorizationStatus(for: .event)
   }
 
-  func requestAccessIfNeeded(type: EKEntityType) async {
-    guard authorizationStatus(for: type) == .notDetermined else {
+  func requestAccessIfNeeded() async {
+    guard authorizationStatus == .notDetermined else {
       return
     }
 
-    let request = type == .reminder ? eventStore.requestFullAccessToReminders : eventStore.requestFullAccessToEvents
-    Logger.assert(type == .event || type == .reminder, "Invalid type: \(type) of access to request for")
-
     do {
-      let result = try await request()
+      let result = try await eventStore.requestFullAccessToEvents()
       Logger.log(.info, "Result of the event access request: \(result)")
     } catch {
       Logger.log(.error, error.localizedDescription)
@@ -49,32 +46,15 @@ final class CalendarManager {
   }
 
   func allCalendars() -> [EKCalendar] {
-    var calendars = [EKCalendar]()
-    if hasReadAccess(for: .event) {
-      calendars.append(contentsOf: eventStore.calendars(for: .event))
+    guard hasReadAccess else {
+      return []
     }
 
-    if hasReadAccess(for: .reminder) {
-      calendars.append(contentsOf: eventStore.calendars(for: .reminder))
-    }
-
-    return calendars
+    return eventStore.calendars(for: .event)
   }
 
-  func items(from startDate: Date, to endDate: Date) async throws -> [EKCalendarItem] {
-    let events = try await items(
-      for: .event,
-      from: startDate,
-      to: endDate
-    )
-
-    let reminders = try await items(
-      for: .reminder,
-      from: startDate,
-      to: endDate
-    )
-
-    let items = events + reminders
+  func items(from startDate: Date, to endDate: Date) -> [EKCalendarItem] {
+    let items = events(from: startDate, to: endDate)
     if !items.isEmpty {
       let range = DateRange(start: startDate, end: endDate)
       updateCache(range: range, items: items)
@@ -86,7 +66,7 @@ final class CalendarManager {
   func revealDateInCalendar(_ date: Date) {
     Task {
       // Requires Calendar access to locate the specified date
-      await requestAccessIfNeeded(type: .event)
+      await requestAccessIfNeeded()
 
       let source =
       """
@@ -139,7 +119,7 @@ extension CalendarManager {
     return items
   }
 
-  func preload(date: Date) async {
+  func preload(date: Date) {
     guard let monthDates = Calendar.solar.allDatesFillingMonth(from: date) else {
       return Logger.log(.error, "Missing monthDates to continue preloading")
     }
@@ -148,11 +128,7 @@ extension CalendarManager {
       return Logger.log(.error, "Missing startDate or endDate to continue preloading")
     }
 
-    do {
-      _ = try await items(from: startDate, to: endDate)
-    } catch {
-      Logger.log(.error, error.localizedDescription)
-    }
+    _ = items(from: startDate, to: endDate)
   }
 }
 
@@ -180,12 +156,12 @@ private extension CalendarManager {
     }
   }
 
-  func hasReadAccess(for type: EKEntityType) -> Bool {
-    authorizationStatus(for: type) == .fullAccess
+  var hasReadAccess: Bool {
+    authorizationStatus == .fullAccess
   }
 
-  func items(for type: EKEntityType, from startDate: Date, to endDate: Date) async throws -> [EKCalendarItem] {
-    guard hasReadAccess(for: type) else {
+  func events(from startDate: Date, to endDate: Date) -> [EKCalendarItem] {
+    guard hasReadAccess else {
       return []
     }
 
@@ -205,22 +181,7 @@ private extension CalendarManager {
     let startOfDayDate = Calendar.solar.startOfDay(for: startDate)
     let endOfDayDate = Calendar.solar.endOfDay(for: endDate)
 
-    let events = try await {
-      switch type {
-      case .event:
-        return try await eventStore.events(from: startOfDayDate, to: endOfDayDate, calendars: calendars)
-      case .reminder:
-        return try await eventStore.reminders(
-          from: startOfDayDate,
-          to: endOfDayDate,
-          calendars: calendars,
-          includingCompleted: AppPreferences.Calendar.completedRemindersStyle != .hidden
-        )
-      default:
-        Logger.assertFail("Invalid type: \(type) of items to fetch for")
-        return []
-      }
-    }()
+    let events = eventStore.events(from: startOfDayDate, to: endOfDayDate, calendars: calendars)
 
   #if DEBUG
     let perfEndTime = Date.timeIntervalSinceReferenceDate

@@ -8,49 +8,41 @@ import EventKit
 
 public extension EKCalendarItem {
   var isAllDayItem: Bool {
-    if let event = self as? EKEvent {
-      return event.isAllDay
+    guard let event = self as? EKEvent else {
+      Logger.assertFail("Invalid item is returned")
+      return false
     }
 
-    if let reminder = self as? EKReminder, let date = reminder.dueDateComponents {
-      return date.hour == nil && date.minute == nil && date.second == nil
-    }
-
-    Logger.assertFail("Invalid item is returned")
-    return false
-  }
-
-  /**
-   Whether the item is a completed reminder. Events are never "completed".
-   */
-  var isCompletedItem: Bool {
-    (self as? EKReminder)?.isCompleted == true
+    return event.isAllDay
   }
 
   var startOfItem: Date? {
-    if let event = self as? EKEvent {
-      return event.startDate
+    guard let event = self as? EKEvent else {
+      Logger.assertFail("Invalid item is returned")
+      return nil
     }
 
-    if let reminder = self as? EKReminder {
-      return reminder.alarms?.compactMap { $0.absoluteDate }.min() ?? endOfItem
-    }
-
-    Logger.assertFail("Invalid item is returned")
-    return nil
+    return event.startDate
   }
 
   var endOfItem: Date? {
-    if let event = self as? EKEvent {
-      return event.endDate
+    guard let event = self as? EKEvent else {
+      Logger.assertFail("Invalid item is returned")
+      return nil
     }
 
-    if let reminder = self as? EKReminder, let components = reminder.dueDateComponents {
-      return Calendar.solar.date(from: components)
+    return event.endDate
+  }
+
+  /**
+   Whether the item has already ended, used to apply the past events style.
+   */
+  var isPastItem: Bool {
+    guard let endOfItem else {
+      return false
     }
 
-    Logger.assertFail("Invalid item is returned")
-    return nil
+    return endOfItem < Date.now
   }
 
   /**

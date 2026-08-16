@@ -164,10 +164,9 @@ extension AppMainVC {
     menu.autoenablesItems = false
 
     let calendars = CalendarManager.default.allCalendars()
-    let remindersIndex = calendars.firstIndex { $0.allowedEntityTypes.contains(.reminder) }
     let identifiers = Set(calendars.map { $0.calendarIdentifier })
 
-    for (index, calendar) in calendars.enumerated() {
+    for calendar in calendars {
       let calendarID = calendar.calendarIdentifier
       let item = NSMenuItem(title: calendar.title)
       item.setOn(!AppPreferences.Calendar.hiddenCalendars.contains(calendarID))
@@ -187,24 +186,11 @@ extension AppMainVC {
         )
       }
 
-      if remindersIndex == index {
-        menu.addItem(.separator())
-      }
-
       item.isEnabled = true
       menu.addItem(item)
     }
 
     menu.addSeparator()
-
-    if CalendarManager.default.authorizationStatus(for: .reminder) == .notDetermined {
-      menu.addItem(withTitle: Localized.UI.menuTitleShowReminders) {
-        Task {
-          await CalendarManager.default.requestAccessIfNeeded(type: .reminder)
-        }
-      }
-      menu.addSeparator()
-    }
 
     menu.addItem(withTitle: Localized.UI.menuTitleSelectAll) {
       AppPreferences.Calendar.hiddenCalendars.removeAll()
@@ -277,22 +263,23 @@ extension AppMainVC {
     return item
   }
 
-  var menuItemCompletedReminders: NSMenuItem {
+  var menuItemPastEvents: NSMenuItem {
     let menu = NSMenu()
 
     [
-      (Localized.UI.menuTitleCompletedStrikethrough, CompletedReminderStyle.strikethrough),
-      (Localized.UI.menuTitleCompletedDimmed, CompletedReminderStyle.dimmed),
-      (Localized.UI.menuTitleCompletedHidden, CompletedReminderStyle.hidden),
-    ].forEach { (title: String, style: CompletedReminderStyle) in
+      (Localized.UI.menuTitlePastDimmedStrikethrough, PastEventsStyle.dimmedAndStrikethrough),
+      (Localized.UI.menuTitlePastDimmed, PastEventsStyle.dimmed),
+      (Localized.UI.menuTitlePastStrikethrough, PastEventsStyle.strikethrough),
+      (Localized.UI.menuTitlePastNone, PastEventsStyle.unchanged),
+    ].forEach { (title: String, style: PastEventsStyle) in
       menu.addItem(withTitle: title) {
-        AppPreferences.Calendar.completedRemindersStyle = style
+        AppPreferences.Calendar.pastEventsStyle = style
         (NSApp.delegate as? AppDelegate)?.reloadPresentedPopover()
       }
-      .setOn(AppPreferences.Calendar.completedRemindersStyle == style)
+      .setOn(AppPreferences.Calendar.pastEventsStyle == style)
     }
 
-    let item = NSMenuItem(title: Localized.UI.menuTitleCompletedReminders)
+    let item = NSMenuItem(title: Localized.UI.menuTitlePastEvents)
     item.submenu = menu
     return item
   }
@@ -300,7 +287,7 @@ extension AppMainVC {
   var menuItemPreferences: NSMenuItem {
     let menu = NSMenu()
 
-    menu.addItem(menuItemCompletedReminders)
+    menu.addItem(menuItemPastEvents)
     menu.addItem(menuItemMenuBarIcon)
     menu.addItem(menuItemAppearance)
     menu.addItem(menuItemCalendars)

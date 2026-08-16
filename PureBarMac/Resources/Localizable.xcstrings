@@ -210,23 +210,6 @@
         }
       }
     },
-    "all-day": {
-      "comment": "Label for an all-day event",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "全天"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "全天"
-          }
-        }
-      }
-    },
     "Appearance": {
       "comment": "[Menu] Change dark mode preference",
       "localizations": {
@@ -483,23 +466,6 @@
         }
       }
     },
-    "Completed Reminders": {
-      "comment": "[Menu] Section title for completed reminders display style",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已完成的提醒"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已完成的提醒"
-          }
-        }
-      }
-    },
     "Content Scale": {
       "comment": "[Menu] Section title for content scales",
       "localizations": {
@@ -564,109 +530,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "自訂符號"
-          }
-        }
-      }
-    },
-    "Dahan": {
-      "comment": "The 24th solar term, always in Chinese",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "大寒"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "大寒"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "大寒"
-          }
-        }
-      }
-    },
-    "Dark": {
-      "comment": "[Menu] Use the dark appearance",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "深色"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "深色"
-          }
-        }
-      }
-    },
-    "Dashu": {
-      "comment": "The 12th solar term, always in Chinese",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "大暑"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "大暑"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "大暑"
-          }
-        }
-      }
-    },
-    "Date grid area": {
-      "comment": "[AX] Indicate the current group is for date grids",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "日期网格区域"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "日期網格區域"
-          }
-        }
-      }
-    },
-    "Daxue": {
-      "comment": "The 21st solar term, always in Chinese",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "大雪"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "大雪"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "大雪"
           }
         }
       }
@@ -1361,6 +1224,109 @@
         }
       }
     },
+    "Dahan": {
+      "comment": "The 24th solar term, always in Chinese",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "大寒"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "大寒"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "大寒"
+          }
+        }
+      }
+    },
+    "Dark": {
+      "comment": "[Menu] Use the dark appearance",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "深色"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "深色"
+          }
+        }
+      }
+    },
+    "Dashu": {
+      "comment": "The 12th solar term, always in Chinese",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "大暑"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "大暑"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "大暑"
+          }
+        }
+      }
+    },
+    "Date grid area": {
+      "comment": "[AX] Indicate the current group is for date grids",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日期网格区域"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日期網格區域"
+          }
+        }
+      }
+    },
+    "Daxue": {
+      "comment": "The 21st solar term, always in Chinese",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "大雪"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "大雪"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "大雪"
+          }
+        }
+      }
+    },
     "Default": {
       "comment": "[Menu] Content scale: default",
       "localizations": {
@@ -1374,6 +1340,23 @@
           "stringUnit": {
             "state": "translated",
             "value": "預設"
+          }
+        }
+      }
+    },
+    "Default (Briefcase & Dot)": {
+      "comment": "[Menu] Default holiday icon style",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "默认（公文包和圆点）"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "默認（公文包和圓點）"
           }
         }
       }
@@ -1413,7 +1396,7 @@
       }
     },
     "Dimmed": {
-      "comment": "[Menu] Display completed reminders in a dimmed color",
+      "comment": "[Menu] Display past events in a dimmed color",
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
@@ -1425,6 +1408,23 @@
           "stringUnit": {
             "state": "translated",
             "value": "變淡顯示"
+          }
+        }
+      }
+    },
+    "Dimmed & Strike-through": {
+      "comment": "[Menu] Display past events dimmed with a strike-through",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "变淡 + 删除线"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "變淡 + 刪除線"
           }
         }
       }
@@ -1498,19 +1498,19 @@
         }
       }
     },
-    "en_US_POSIX": {
-      "comment": "Stable locale identifier used to localize formatters or UI components",
+    "Enter Month": {
+      "comment": "[Menu] Enter a month using date picker",
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "zh-Hans"
+            "value": "输入月份"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "zh-Hant"
+            "value": "輸入月份"
           }
         }
       }
@@ -1549,19 +1549,36 @@
         }
       }
     },
-    "Enter Month": {
-      "comment": "[Menu] Enter a month using date picker",
+    "Enter holiday data URL": {
+      "comment": "[Alert] Placeholder for URL input field",
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "输入月份"
+            "value": "输入假日数据 URL"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "輸入月份"
+            "value": "輸入假日資料 URL"
+          }
+        }
+      }
+    },
+    "Enter the URL of a JSON file containing holiday data. The file will be downloaded and cached locally.": {
+      "comment": "[Alert] Explanation for fetch updates",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "输入包含假日数据的 JSON 文件 URL。文件将被下载并缓存到本地。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "輸入包含假日資料的 JSON 檔案 URL。檔案將被下載並快取到本機。"
           }
         }
       }
@@ -1583,6 +1600,23 @@
         }
       }
     },
+    "Failed to fetch holiday data. Please check the URL and try again.": {
+      "comment": "[Alert] Failure message after fetching holiday updates",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "获取假日数据失败，请检查 URL 后重试。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "獲取假日資料失敗，請檢查 URL 後重試。"
+          }
+        }
+      }
+    },
     "Failed to get the update.": {
       "comment": "Title for failed to get the update",
       "localizations": {
@@ -1596,6 +1630,40 @@
           "stringUnit": {
             "state": "translated",
             "value": "無法獲取更新。"
+          }
+        }
+      }
+    },
+    "Fetch": {
+      "comment": "[Alert] Button to start fetching updates",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "获取"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "獲取"
+          }
+        }
+      }
+    },
+    "Fetch Holiday Updates": {
+      "comment": "[Alert] Title for fetch updates dialog",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "获取假日更新"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "獲取假日更新"
           }
         }
       }
@@ -1723,23 +1791,6 @@
         }
       }
     },
-    "Hidden": {
-      "comment": "[Menu] Do not display completed reminders",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "隐藏"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "隱藏"
-          }
-        }
-      }
-    },
     "Holiday": {
       "comment": "Label for holidays",
       "localizations": {
@@ -1774,53 +1825,19 @@
         }
       }
     },
-    "Default (Briefcase & Dot)": {
-      "comment": "[Menu] Default holiday icon style",
+    "Holiday data updated successfully.": {
+      "comment": "[Alert] Success message after fetching holiday updates",
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "默认（公文包和圆点）"
+            "value": "假日数据更新成功。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "默認（公文包和圓點）"
-          }
-        }
-      }
-    },
-    "Symbol (Moon & Briefcase)": {
-      "comment": "[Menu] Symbol holiday icon style",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "符号（月亮和公文包）"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "符號（月亮和公文包）"
-          }
-        }
-      }
-    },
-    "Text Badge (休 & 班)": {
-      "comment": "[Menu] Text badge holiday icon style",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "文字徽章（休和班）"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "文字徽章（休和班）"
+            "value": "假日資料更新成功。"
           }
         }
       }
@@ -2079,69 +2096,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "龍抬頭"
-          }
-        }
-      }
-    },
-    "Mangzhong": {
-      "comment": "The 9th solar term, always in Chinese",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "芒种"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "芒种"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "芒種"
-          }
-        }
-      }
-    },
-    "Menu Bar Icon": {
-      "comment": "[Menu] Section title for icons",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "菜单栏图标"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "選單列圖示"
-          }
-        }
-      }
-    },
-    "Mid-Autumn Festival": {
-      "comment": "Chinese traditional festival",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "中秋"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "中秋"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "中秋"
           }
         }
       }
@@ -2422,6 +2376,69 @@
         }
       }
     },
+    "Mangzhong": {
+      "comment": "The 9th solar term, always in Chinese",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "芒种"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "芒种"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "芒種"
+          }
+        }
+      }
+    },
+    "Menu Bar Icon": {
+      "comment": "[Menu] Section title for icons",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "菜单栏图标"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選單列圖示"
+          }
+        }
+      }
+    },
+    "Mid-Autumn Festival": {
+      "comment": "Chinese traditional festival",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "中秋"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "中秋"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "中秋"
+          }
+        }
+      }
+    },
     "New Year's Eve": {
       "comment": "Chinese traditional festival",
       "localizations": {
@@ -2462,6 +2479,23 @@
         }
       }
     },
+    "No Change": {
+      "comment": "[Menu] Do not change the display of past events",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不处理"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不處理"
+          }
+        }
+      }
+    },
     "Outlined Date": {
       "comment": "[Menu] Use the current date as the menu bar icon, outlined style",
       "localizations": {
@@ -2475,6 +2509,23 @@
           "stringUnit": {
             "state": "translated",
             "value": "描邊日期"
+          }
+        }
+      }
+    },
+    "Past Events": {
+      "comment": "[Menu] Section title for past events display style",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "过去的日程"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "過去的日程"
           }
         }
       }
@@ -2787,23 +2838,6 @@
         }
       }
     },
-    "Show Reminders": {
-      "comment": "[Menu] To request access for Reminders",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "显示提醒事项"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "顯示提醒事項"
-          }
-        }
-      }
-    },
     "Shuangjiang": {
       "comment": "The 18th solar term, always in Chinese",
       "localizations": {
@@ -2852,7 +2886,7 @@
       }
     },
     "Strike-through": {
-      "comment": "[Menu] Display completed reminders with a strike-through",
+      "comment": "[Menu] Display past events with a strike-through",
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
@@ -2864,6 +2898,23 @@
           "stringUnit": {
             "state": "translated",
             "value": "刪除線"
+          }
+        }
+      }
+    },
+    "Symbol (Moon & Briefcase)": {
+      "comment": "[Menu] Symbol holiday icon style",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "符号（月亮和公文包）"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "符號（月亮和公文包）"
           }
         }
       }
@@ -2881,6 +2932,23 @@
           "stringUnit": {
             "state": "translated",
             "value": "系統"
+          }
+        }
+      }
+    },
+    "Text Badge (休 & 班)": {
+      "comment": "[Menu] Text badge holiday icon style",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "文字徽章（休和班）"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "文字徽章（休和班）"
           }
         }
       }
@@ -3120,104 +3188,36 @@
         }
       }
     },
-    "Fetch Holiday Updates": {
-      "comment": "[Alert] Title for fetch updates dialog",
+    "all-day": {
+      "comment": "Label for an all-day event",
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "获取假日更新"
+            "value": "全天"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "獲取假日更新"
+            "value": "全天"
           }
         }
       }
     },
-    "Enter the URL of a JSON file containing holiday data. The file will be downloaded and cached locally.": {
-      "comment": "[Alert] Explanation for fetch updates",
+    "en_US_POSIX": {
+      "comment": "Stable locale identifier used to localize formatters or UI components",
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "输入包含假日数据的 JSON 文件 URL。文件将被下载并缓存到本地。"
+            "value": "zh-Hans"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "輸入包含假日資料的 JSON 檔案 URL。檔案將被下載並快取到本機。"
-          }
-        }
-      }
-    },
-    "Enter holiday data URL": {
-      "comment": "[Alert] Placeholder for URL input field",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "输入假日数据 URL"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "輸入假日資料 URL"
-          }
-        }
-      }
-    },
-    "Fetch": {
-      "comment": "[Alert] Button to start fetching updates",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "获取"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "獲取"
-          }
-        }
-      }
-    },
-    "Holiday data updated successfully.": {
-      "comment": "[Alert] Success message after fetching holiday updates",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "假日数据更新成功。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "假日資料更新成功。"
-          }
-        }
-      }
-    },
-    "Failed to fetch holiday data. Please check the URL and try again.": {
-      "comment": "[Alert] Failure message after fetching holiday updates",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "获取假日数据失败，请检查 URL 后重试。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "獲取假日資料失敗，請檢查 URL 後重試。"
+            "value": "zh-Hant"
           }
         }
       }

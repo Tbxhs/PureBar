@@ -111,8 +111,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     Logger.log(.info, "Requesting calendar access and preload")
     Task {
-      await CalendarManager.default.requestAccessIfNeeded(type: .event)
-      await CalendarManager.default.preload(date: .now)
+      await CalendarManager.default.requestAccessIfNeeded()
+      CalendarManager.default.preload(date: .now)
       Logger.log(.info, "Calendar preload finished")
 
       // We don't even have a main window, open the panel for initial launch

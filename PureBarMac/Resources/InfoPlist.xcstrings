@@ -141,52 +141,6 @@
           }
         }
       }
-    },
-    "NSRemindersFullAccessUsageDescription" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Grant PureBar permission to display items in the Reminders app.\n\nThis is optional, you can change permissions in the system privacy settings, this dialog will not reappear."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "授予 PureBar 权限以显示提醒事项。\n\n此为可选功能，您可以在系统隐私设置中更改授权，此弹窗将不再出现。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "授予 PureBar 許可權以顯示提醒事項。\n\n此為可選功能，您可以在系統隱私設定中更改授權，此彈窗將不再出現。"
-          }
-        }
-      }
-    },
-    "NSRemindersUsageDescription" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Grant PureBar permission to display items in the Reminders app.\n\nThis is optional, you can change permissions in the system privacy settings, this dialog will not reappear."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "授予 PureBar 权限以显示提醒事项。\n\n此为可选功能，您可以在系统隐私设置中更改授权，此弹窗将不再出现。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "授予 PureBar 許可權以顯示提醒事項。\n\n此為可選功能，您可以在系統隱私設定中更改授權，此彈窗將不再出現。"
-          }
-        }
-      }
     }
   },
   "version" : "1.0"

@@ -108,10 +108,12 @@ private extension EventListView {
     let containerView = NSView()
     containerView.translatesAutoresizingMaskIntoConstraints = false
 
-    let isCompleted = event.isCompletedItem
-    let style = AppPreferences.Calendar.completedRemindersStyle
+    let isPast = event.isPastItem
+    let style = AppPreferences.Calendar.pastEventsStyle
+    let dimmed = isPast && (style == .dimmed || style == .dimmedAndStrikethrough)
+    let struck = isPast && (style == .strikethrough || style == .dimmedAndStrikethrough)
     let baseColor = event.calendar.color ?? Colors.controlAccent
-    let displayColor = isCompleted && style == .dimmed
+    let displayColor = dimmed
       ? baseColor.withAlphaComponent(Constants.dimmedAlpha)
       : baseColor
 
@@ -137,24 +139,22 @@ private extension EventListView {
     timeLabel.alignment = .right
     timeLabel.translatesAutoresizingMaskIntoConstraints = false
 
-    // Apply the style for completed reminders: strike-through or dimmed
-    if isCompleted {
-      switch style {
-      case .strikethrough:
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineBreakMode = .byTruncatingTail
-        titleLabel.attributedStringValue = NSAttributedString(string: event.title, attributes: [
-          .font: NSFont.systemFont(ofSize: Constants.fontSize),
-          .foregroundColor: NSColor.labelColor,
-          .strikethroughStyle: NSUnderlineStyle.single.rawValue,
-          .paragraphStyle: paragraphStyle,
-        ])
-      case .dimmed:
-        titleLabel.textColor = Colors.secondaryLabel
-        timeLabel.textColor = Colors.secondaryLabel
-      case .hidden:
-        break // Filtered out at the data source level, never reaches here
-      }
+    // Apply the style for past events: strike-through and/or dimmed
+    if struck {
+      let paragraphStyle = NSMutableParagraphStyle()
+      paragraphStyle.lineBreakMode = .byTruncatingTail
+      titleLabel.attributedStringValue = NSAttributedString(string: event.title, attributes: [
+        .font: NSFont.systemFont(ofSize: Constants.fontSize),
+        .foregroundColor: dimmed ? Colors.secondaryLabel : NSColor.labelColor,
+        .strikethroughStyle: NSUnderlineStyle.single.rawValue,
+        .paragraphStyle: paragraphStyle,
+      ])
+    } else if dimmed {
+      titleLabel.textColor = Colors.secondaryLabel
+    }
+
+    if dimmed {
+      timeLabel.textColor = Colors.secondaryLabel
     }
 
     containerView.addSubview(dotView)

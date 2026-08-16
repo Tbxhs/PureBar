@@ -34,21 +34,23 @@ struct DateDetailsView: View {
       ForEach(0..<min(events.count, Constants.maximumRows), id: \.self) { index in
         let event = events[index]
         let color = event.calendar.color ?? Colors.controlAccent
-        let isCompleted = event.isCompletedItem
-        let style = AppPreferences.Calendar.completedRemindersStyle
+        let isPast = event.isPastItem
+        let style = AppPreferences.Calendar.pastEventsStyle
+        let dimmed = isPast && (style == .dimmed || style == .dimmedAndStrikethrough)
+        let struck = isPast && (style == .strikethrough || style == .dimmedAndStrikethrough)
 
         HStack {
           Circle()
             .fill(Color(color))
             .strokeBorder(Color(color.darkerColor()), lineWidth: lineWidth)
             .frame(width: Constants.dotSize * scale, height: Constants.dotSize * scale)
-            .opacity(isCompleted && style == .dimmed ? 0.35 : 1)
+            .opacity(dimmed ? 0.35 : 1)
           Text(event.title)
             .font(font(weight: .regular, scale: scale))
             .frame(maxWidth: .infinity, alignment: .leading)
-            .strikethrough(isCompleted && style == .strikethrough)
+            .strikethrough(struck)
             .foregroundStyle(
-              isCompleted && style == .dimmed
+              dimmed
                 ? AnyShapeStyle(.secondary)
                 : AnyShapeStyle(.primary)
             )
@@ -58,7 +60,7 @@ struct DateDetailsView: View {
             .frame(alignment: .trailing)
             .fixedSize()
             .foregroundStyle(
-              isCompleted && style == .dimmed
+              dimmed
                 ? AnyShapeStyle(.secondary)
                 : AnyShapeStyle(.primary)
             )

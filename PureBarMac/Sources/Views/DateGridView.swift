@@ -162,7 +162,7 @@ extension DateGridView {
     )
 
     Task {
-      let items = try await CalendarManager.default.items(from: startDate, to: endDate)
+      let items = CalendarManager.default.items(from: startDate, to: endDate)
       reloadData(allDates: allDates, events: items, diffable: false)
 
       // Preload adjacent months to match 6-row view without over-fetching
@@ -172,7 +172,7 @@ extension DateGridView {
       ].compactMap { $0 }
 
       for preloadDate in preloadDates {
-        await CalendarManager.default.preload(date: preloadDate)
+        CalendarManager.default.preload(date: preloadDate)
       }
     }
   }
