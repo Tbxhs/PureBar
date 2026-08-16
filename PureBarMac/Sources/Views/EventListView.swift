@@ -110,8 +110,8 @@ private extension EventListView {
 
     let isPast = event.isPastItem
     let style = AppPreferences.Calendar.pastEventsStyle
-    let dimmed = isPast && (style == .dimmed || style == .dimmedAndStrikethrough)
-    let struck = isPast && (style == .strikethrough || style == .dimmedAndStrikethrough)
+    let dimmed = isPast && style.dimsPastEvents
+    let struck = isPast && style.strikesPastEvents
     let baseColor = event.calendar.color ?? Colors.controlAccent
     let displayColor = dimmed
       ? baseColor.withAlphaComponent(Constants.dimmedAlpha)
@@ -183,15 +183,6 @@ private extension EventListView {
     // Store event reference in container
     containerView.identifier = NSUserInterfaceItemIdentifier(event.calendarItemIdentifier)
 
-    // Add hover effect
-    let trackingArea = NSTrackingArea(
-      rect: containerView.bounds,
-      options: [.mouseEnteredAndExited, .activeAlways, .inVisibleRect],
-      owner: containerView,
-      userInfo: nil
-    )
-    containerView.addTrackingArea(trackingArea)
-
     return containerView
   }
 
@@ -216,10 +207,11 @@ private extension EventListView {
 
 extension EventListView {
   func updateEventsWithStorage(_ events: [EKCalendarItem]) {
-    storedEvents = events
-    updateEvents(events)
+    let visibleEvents = AppPreferences.Calendar.pastEventsStyle.displayed(events)
+    storedEvents = visibleEvents
+    updateEvents(visibleEvents)
     invalidateIntrinsicContentSize()
-    Logger.log(.debug, "EventListView.updateEventsWithStorage: total=\(events.count) height=\(self.intrinsicContentSize.height)")
+    Logger.log(.debug, "EventListView.updateEventsWithStorage: total=\(visibleEvents.count) height=\(self.intrinsicContentSize.height)")
   }
 }
 

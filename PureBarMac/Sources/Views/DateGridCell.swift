@@ -23,9 +23,6 @@ final class DateGridCell: NSCollectionViewItem {
   private var mainInfo = ""
   private var isDateSelected = false
 
-  private var detailsTask: Task<Void, Never>?
-  private weak var detailsPopover: NSPopover?
-
   // Callback when the cell is clicked to select the date
   var onDateSelected: ((Date, [EKCalendarItem]) -> Void)?
 
@@ -374,9 +371,8 @@ extension DateGridCell {
 
   @discardableResult
   func cancelHighlight() -> Bool {
-    // highlightView 悬停效果已移除，保持为 0
     highlightView.alphaValue = 0
-    return dismissDetails()
+    return false
   }
 
   func setSelected(_ selected: Bool) {
@@ -585,15 +581,6 @@ private extension DateGridCell {
     onDateSelected?(cellDate, cellEvents)
   }
 
-  func revealDateInCalendar() {
-    guard let cellDate else {
-      return Logger.assertFail("Missing cellDate to continue")
-    }
-
-    dismissDetails()
-    (NSApp.delegate as? AppDelegate)?.openCalendar(targetDate: cellDate)
-  }
-
   @objc func onLongPress(_ recognizer: NSPressGestureRecognizer) {
     guard recognizer.state == .began, let cellDate else {
       return
@@ -604,29 +591,7 @@ private extension DateGridCell {
       performanceTime: .now
     )
 
-    dismissDetails()
     (NSApp.delegate as? AppDelegate)?.countDaysBetween(targetDate: cellDate)
-  }
-
-  @discardableResult
-  func dismissDetails() -> Bool {
-    let wasOpen = detailsPopover?.isShown == true
-    detailsTask?.cancel()
-
-    let closeDetails: @Sendable () -> Void = {
-      Task { @MainActor in
-        self.detailsPopover?.close()
-        self.detailsPopover = nil
-      }
-    }
-
-    if !AppPreferences.Accessibility.reduceMotion, let window = detailsPopover?.window {
-      window.fadeOut(completion: closeDetails)
-    } else {
-      closeDetails()
-    }
-
-    return wasOpen
   }
 }
 

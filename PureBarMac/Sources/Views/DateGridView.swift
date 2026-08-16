@@ -238,12 +238,16 @@ private extension DateGridView {
     snapshot.appendSections([Section.default])
 
     snapshot.appendItems(allDates.map { date in
-      Model(date: date, events: events?.filter {
+      let dayEvents = events?.filter {
         $0.overlaps(
           startOfDay: Calendar.solar.startOfDay(for: date),
           endOfDay: Calendar.solar.endOfDay(for: date)
         )
-      }.oldestToNewest ?? [])
+      } ?? []
+      return Model(
+        date: date,
+        events: AppPreferences.Calendar.pastEventsStyle.displayed(dayEvents).oldestToNewest
+      )
     })
 
     // Disable the animation when cache is not hit, to avoid subsequent updates being ignored

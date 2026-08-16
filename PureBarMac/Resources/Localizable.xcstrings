@@ -1791,6 +1791,23 @@
         }
       }
     },
+    "Hidden": {
+      "comment": "[Menu] Hide past events completely",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不显示"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不顯示"
+          }
+        }
+      }
+    },
     "Holiday": {
       "comment": "Label for holidays",
       "localizations": {

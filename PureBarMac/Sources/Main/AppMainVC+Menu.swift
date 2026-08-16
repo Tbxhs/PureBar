@@ -271,6 +271,7 @@ extension AppMainVC {
       (Localized.UI.menuTitlePastDimmed, PastEventsStyle.dimmed),
       (Localized.UI.menuTitlePastStrikethrough, PastEventsStyle.strikethrough),
       (Localized.UI.menuTitlePastNone, PastEventsStyle.unchanged),
+      (Localized.UI.menuTitlePastHidden, PastEventsStyle.hidden),
     ].forEach { (title: String, style: PastEventsStyle) in
       menu.addItem(withTitle: title) {
         AppPreferences.Calendar.pastEventsStyle = style

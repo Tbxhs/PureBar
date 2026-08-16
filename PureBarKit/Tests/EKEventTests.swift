@@ -24,4 +24,18 @@ final class EKEventTests: XCTestCase {
       return event.overlaps(startOfDay: .now, endOfDay: .now.addingTimeInterval(10))
     }())
   }
+
+  func testIsPastItem() {
+    let store = EKEventStore()
+
+    let past = EKEvent(eventStore: store)
+    past.startDate = Date.now.addingTimeInterval(-3600)
+    past.endDate = Date.now.addingTimeInterval(-60)
+    XCTAssertTrue(past.isPastItem)
+
+    let ongoing = EKEvent(eventStore: store)
+    ongoing.startDate = Date.now.addingTimeInterval(-60)
+    ongoing.endDate = Date.now.addingTimeInterval(3600)
+    XCTAssertFalse(ongoing.isPastItem)
+  }
 }

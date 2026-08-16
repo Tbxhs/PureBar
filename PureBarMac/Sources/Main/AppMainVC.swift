@@ -195,9 +195,11 @@ private extension AppMainVC {
       let startOfDay = Calendar.solar.startOfDay(for: today)
       let endOfDay = Calendar.solar.endOfDay(for: today)
       let events = CalendarManager.default.items(from: startOfDay, to: endOfDay)
-      let todayEvents = events.filter {
-        $0.overlaps(startOfDay: startOfDay, endOfDay: endOfDay)
-      }.oldestToNewest
+      let todayEvents = AppPreferences.Calendar.pastEventsStyle.displayed(
+        events.filter {
+          $0.overlaps(startOfDay: startOfDay, endOfDay: endOfDay)
+        }.oldestToNewest
+      )
 
       await MainActor.run {
         // Only select today if we're still viewing this month

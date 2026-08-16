@@ -6,6 +6,7 @@
 //
 
 import AppKit
+import EventKit
 import PureBarKit
 
 /**
@@ -129,6 +130,23 @@ enum PastEventsStyle: String, Codable {
   case dimmed                  // Render the row in a dimmed color
   case strikethrough           // Strike through the title
   case unchanged              // Keep past events as-is
+  case hidden                  // Do not show past events
+
+  var dimsPastEvents: Bool {
+    self == .dimmed || self == .dimmedAndStrikethrough
+  }
+
+  var strikesPastEvents: Bool {
+    self == .strikethrough || self == .dimmedAndStrikethrough
+  }
+
+  func displayed(_ events: [EKCalendarItem]) -> [EKCalendarItem] {
+    guard self == .hidden else {
+      return events
+    }
+
+    return events.filter { !$0.isPastItem }
+  }
 }
 
 @MainActor

@@ -2,11 +2,11 @@
 
 # PureBar
 
-[![](https://img.shields.io/badge/Platform-macOS_15.0+-blue?color=007bff)](https://github.com/tbxhs/PureBar/releases/latest) [![](https://github.com/tbxhs/PureBar/actions/workflows/build-and-test.yml/badge.svg?branch=main)](https://github.com/tbxhs/PureBar/actions/workflows/build-and-test.yml) [![](https://img.shields.io/github/v/release/tbxhs/PureBar?color=brightgreen)](https://github.com/tbxhs/PureBar/releases/latest) [![](https://img.shields.io/badge/License-MIT-yellow)](./LICENSE)
+[![](https://img.shields.io/badge/Platform-macOS_15.0+-blue?color=007bff)](https://github.com/tbxhs/PureBar/releases/latest) [![](https://img.shields.io/github/v/release/tbxhs/PureBar?color=brightgreen)](https://github.com/tbxhs/PureBar/releases/latest) [![](https://img.shields.io/badge/License-MIT-yellow)](./LICENSE)
 
 **纯粹、简洁、高效** — 完全免费且开源的 macOS 菜单栏日历应用
 
-支持农历、公共假日、系统日历集成、提醒事项等功能，为你的 Mac 菜单栏带来优雅的日历体验。
+支持农历、公共假日、系统日历集成等功能，为你的 Mac 菜单栏带来优雅的日历体验。
 
 <img src="./.github/assets/screenshots/main-interface.png" width="320" alt="主界面"> <img src="./.github/assets/screenshots/calendar-view.png" width="320" alt="日历视图">
 
@@ -16,7 +16,7 @@
 
 - 📅 **农历与公历** - 同时显示农历和公历日期
 - 🎊 **公共假日** - 内置中国大陆、香港、台湾等地假日
-- 📆 **日历集成** - 无缝显示系统日历事件和提醒事项
+- 📆 **日历集成** - 无缝显示系统日历事件
 - 🎨 **图标自定义** - 支持多种菜单栏图标样式（日期、日历、系统符号、自定义格式）
 - 🌓 **外观适配** - 跟随系统、浅色或深色模式
 - ⚡️ **轻量简洁** - 极简设计，专注核心功能

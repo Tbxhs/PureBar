@@ -59,6 +59,7 @@ enum Localized {
     static let menuTitlePastDimmed = String(localized: "Dimmed", comment: "[Menu] Display past events in a dimmed color")
     static let menuTitlePastStrikethrough = String(localized: "Strike-through", comment: "[Menu] Display past events with a strike-through")
     static let menuTitlePastNone = String(localized: "No Change", comment: "[Menu] Do not change the display of past events")
+    static let menuTitlePastHidden = String(localized: "Hidden", comment: "[Menu] Hide past events completely")
     static let menuTitleSelectAll = String(localized: "Select All", comment: "[Menu] Select all calendars")
     static let menuTitleDeselectAll = String(localized: "Deselect All", comment: "[Menu] Deselect all calendars")
     static let menuTitlePrivacySettings = String(localized: "Privacy Settings", comment: "[Menu] Open privacy settings")
