@@ -110,7 +110,7 @@ private extension EventListView {
 
     let isPast = event.isPastItem
     let style = AppPreferences.Calendar.pastEventsStyle
-    let dimmed = isPast && style.dimsPastEvents
+    let dimmed = (isPast && style.dimsPastEvents) || event.isPendingItem
     let struck = isPast && style.strikesPastEvents
     let baseColor = event.calendar.color ?? Colors.controlAccent
     let displayColor = dimmed

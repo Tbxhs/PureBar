@@ -7,6 +7,7 @@
 
 import AppKit
 import EventKit
+import PureBarKit
 
 /**
  UI component to draw Calendar events as dots.
@@ -26,12 +27,17 @@ final class EventView: NSStackView {
     isHidden = events.isEmpty
     removeArrangedSubviews()
 
+    // Dim the day only when every event is one the user hasn't committed to,
+    // dimming individual dots is ambiguous since dots are anonymous
+    let allPending = !events.isEmpty && events.allSatisfy { $0.isPendingItem }
+    let alpha = allPending ? Constants.pendingAlpha : Constants.normalAlpha
+
     // Only show up to three dots due to limited space
     events.prefix(Constants.eventLimit).forEach {
       let dotView = DotView()
       let baseColor = $0.calendar?.color ?? Colors.controlAccent
-      // 降低亮度：使用 70% 透明度让颜色更柔和
-      dotView.layerBackgroundColor = baseColor.withAlphaComponent(0.7)
+      // 降低亮度：使用透明度让颜色更柔和
+      dotView.layerBackgroundColor = baseColor.withAlphaComponent(alpha)
       addArrangedSubview(dotView)
     }
   }
@@ -43,6 +49,8 @@ private extension EventView {
   enum Constants {
     static let spacing: Double = 2
     static let eventLimit = 3
+    static let normalAlpha: Double = 0.7
+    static let pendingAlpha: Double = 0.35
   }
 }
 

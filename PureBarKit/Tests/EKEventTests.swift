@@ -25,6 +25,14 @@ final class EKEventTests: XCTestCase {
     }())
   }
 
+  func testIsPendingItemWithoutAttendees() {
+    // Attendees are read-only in EventKit, so only the no-attendee path is testable
+    let event = EKEvent(eventStore: EKEventStore())
+    event.startDate = Date.now
+    event.endDate = event.startDate.addingTimeInterval(3600)
+    XCTAssertFalse(event.isPendingItem)
+  }
+
   func testIsPastItem() {
     let store = EKEventStore()
 
