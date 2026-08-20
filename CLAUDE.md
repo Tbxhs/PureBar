@@ -13,7 +13,8 @@ macOS 菜单栏日历 App：农历、公共假日、系统日历集成，纯 App
 
 ## 构建 / 测试
 - 无 XcodeGen，`PureBar.xcodeproj` 是手写工程，直接 `open` 后选 scheme `PureBarMac`（Xcode 16+）
-- 测试用 `xcodebuild -project PureBar.xcodeproj -scheme PureBarMac test`；`TEST_HOST` 指向 App 本体可执行文件。PureBarKit 单独 `swift test` 会被 SwiftLint 插件的沙盒挡住，只能走 xcodebuild
+- 测试用 `xcodebuild -project PureBar.xcodeproj -scheme PureBarMac test`；`TEST_HOST` 指向 App 本体可执行文件。注意该 scheme 只跑 PureBarMacTests，**不含** PureBarKit 的测试
+- PureBarKit 测试：`swift test` 会被 SwiftLint 插件的沙盒挡住（报 `error: fatalError`），项目根下的 PureBarKit scheme 又没配 test action；可用的跑法是 `cd PureBarKit && xcodebuild -scheme PureBarKit -destination 'platform=macOS' test`（用包目录自动生成的 scheme）
 - `xcode-select` 指向 CommandLineTools 时 xcodebuild 会失败，需显式指到完整 Xcode（本机为 Xcode-beta）
 - 改版本号只改 `Build.xcconfig` 的 `MARKETING_VERSION`/`CURRENT_PROJECT_VERSION`，`CHANGELOG.md` 要同步；条目必须用 `## [X.Y.Z]` 格式，`release.sh` 靠这个格式的 awk 匹配抽取 Release Notes
 
