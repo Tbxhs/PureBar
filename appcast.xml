@@ -3,6 +3,21 @@
     <channel>
         <title>PureBar</title>
         <item>
+            <title>2.7.4</title>
+            <pubDate>Sun, 20 Sep 2026 15:18:05 +0800</pubDate>
+            <sparkle:version>29</sparkle:version>
+            <sparkle:shortVersionString>2.7.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://tbxhs.github.io/PureBar/PureBar-2.7.4.zip" length="2790000" type="application/octet-stream" sparkle:edSignature="GVCpG+co0q0Vw9eZ+Mi35zqc5dUXDPHziCxJ57R+m8jbFyyQVYc9YPeTspOVmn7gFbOZFlL4KmMpcscmoPjrDw=="/>
+            <sparkle:deltas>
+                <enclosure url="https://tbxhs.github.io/PureBar/PureBar29-28.delta" sparkle:deltaFrom="28" length="122006" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="825968" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="MlAKj/hOfUn3+yRBQZj75pHv7fP5aDwbHS2bbup3vZGfSymJ5hTaBRSJwUvo04fQcqeMzJidXIWz0VfgIBm5Dg=="/>
+                <enclosure url="https://tbxhs.github.io/PureBar/PureBar29-27.delta" sparkle:deltaFrom="27" length="140830" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="825968" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="2VO5hUFCmBOehGrT05AeUrWvuzmiBW13PcDRKXgHOzBYwGmAQ6m88hpJUmYQt4rcrxoUY91XCxhCBAvDFTMCBg=="/>
+                <enclosure url="https://tbxhs.github.io/PureBar/PureBar29-26.delta" sparkle:deltaFrom="26" length="165262" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="825968" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="7gAea5lwWw9b43rIbMalAwi4G1kFr5hiVKgyGlArPcnaS6rISiagGb9hMyElbgm/JtoOULMeRpIwlS83COmfCA=="/>
+                <enclosure url="https://tbxhs.github.io/PureBar/PureBar29-25.delta" sparkle:deltaFrom="25" length="178742" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="825968" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="wkJZWTudM3wRjAjThsUgCSoYzecQ06FurMfPBfIh/0xgPxZ0aigcynan99fzH2C769RgDlVUnFllYZMHykNwCQ=="/>
+                <enclosure url="https://tbxhs.github.io/PureBar/PureBar29-24.delta" sparkle:deltaFrom="24" length="220138" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="825968" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="bho0u66uK4FCzfIh1a1T/MEC7mQzylXqA82uZ1vxcPv9FNcTIb++4ym7cdHz1BYsTZvHiESxhWCzZcli67OcDw=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>2.7.3</title>
             <pubDate>Thu, 20 Aug 2026 18:27:08 +0800</pubDate>
             <sparkle:version>28</sparkle:version>
@@ -30,21 +45,6 @@
                 <enclosure url="https://tbxhs.github.io/PureBar/PureBar27-24.delta" sparkle:deltaFrom="24" length="210682" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="825968" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="51nNxM65ZxQxZv4v4RUmOtWvkwETZG+p/IZaLjIHkK/4iZRVk96C6xFQzWttXdCzM1jqBG8yEAdTE4mAjpe5AQ=="/>
                 <enclosure url="https://tbxhs.github.io/PureBar/PureBar27-23.delta" sparkle:deltaFrom="23" length="210178" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="825968" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="1sZer9EXee8+xm//drxOZoqZM58Wn/yOJ/RNT18n+JZTUnffsQNfpD8Gw3ZStWlVUOVDiQrgFVnFoHldL2ykDw=="/>
                 <enclosure url="https://tbxhs.github.io/PureBar/PureBar27-22.delta" sparkle:deltaFrom="22" length="217186" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="825968" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="KxRKjrIirYsOZloGLChD16gryrcxpr2c8nMlcR4XAHRBI3S7N6rT9b/pxKnqh1CQqfSNF+ZHSGwpa5yu6AohDw=="/>
-            </sparkle:deltas>
-        </item>
-        <item>
-            <title>2.7.1</title>
-            <pubDate>Sun, 16 Aug 2026 15:17:24 +0800</pubDate>
-            <sparkle:version>26</sparkle:version>
-            <sparkle:shortVersionString>2.7.1</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://tbxhs.github.io/PureBar/PureBar-2.7.1.zip" length="2782985" type="application/octet-stream" sparkle:edSignature="FpOR+WOKwSZXMd5kYOSN7S6/8aFznDRxxPPqB/AUoHzyt7CvGFMy6/dCz8Hg3Qd43vuqI4gIpP6mqIX7J+FECA=="/>
-            <sparkle:deltas>
-                <enclosure url="https://tbxhs.github.io/PureBar/PureBar26-25.delta" sparkle:deltaFrom="25" length="141790" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="825968" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="EZG6pRDPKQycuIl4SEVjr6JkllB+jq1CuGJyEcfkIPROnfCOa+HbB2bY/+EsCn8W/SUDdicUE9J5miJmrIlMDA=="/>
-                <enclosure url="https://tbxhs.github.io/PureBar/PureBar26-24.delta" sparkle:deltaFrom="24" length="190862" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="825968" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="ttcn0WzA3KR+YGdEwLCs7eMD1i10H5kr7tNdEXDm85tj71zz+2x2uVRecl6wzOHQC9Pkk58u2xpg3O4KZTR5Cw=="/>
-                <enclosure url="https://tbxhs.github.io/PureBar/PureBar26-23.delta" sparkle:deltaFrom="23" length="190602" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="825968" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="USaGNFJNuurZXNpHP32+dcYTV+093IfPR5wjV+31CsNKjsgf5RnQfJ+yqSjpvO0Gi1NU567ZJOA6bkGTku3mAA=="/>
-                <enclosure url="https://tbxhs.github.io/PureBar/PureBar26-22.delta" sparkle:deltaFrom="22" length="194366" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="825968" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="WoThSAIp+62qwI8F2ZWV8sqV1s9+xnnfP39GAA31VnjP5beO4hiHiMkT4PLDbc1PJNt7abtRo3Sp9FuaZhXFCQ=="/>
-                <enclosure url="https://tbxhs.github.io/PureBar/PureBar26-21.delta" sparkle:deltaFrom="21" length="423134" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860336" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="5FvX57NGHbzHK/PVOKWY/7LQYL/hpRFVB2xR/MylbYBDAqjnLXMHDQSx+00WhVLJbjnDB1abnPU3CsR9O/ODAQ=="/>
             </sparkle:deltas>
         </item>
     </channel>
