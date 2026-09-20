@@ -353,6 +353,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   }
 }
 
+extension AppDelegate {
+  /**
+   Close and reopen the calendar popover so layout-mode changes (e.g. hiding lunar dates)
+   rebuild the grid from scratch instead of patching visible cells in place.
+   */
+  @MainActor
+  func recreatePresentedPopover() {
+    guard presentedPopover?.isShown == true else {
+      return
+    }
+
+    presentedPopover?.close()
+    DispatchQueue.main.async { [weak self] in
+      self?.openPanel()
+    }
+  }
+}
+
 // MARK: - NSPopoverDelegate
 
 extension AppDelegate: NSPopoverDelegate {

@@ -87,6 +87,10 @@ final class DateGridCell: NSCollectionViewItem {
     return view
   }()
 
+  /// Tight stack of solar / lunar / event dots. Top-aligned when lunar is shown,
+  /// vertically centered in the selection circle when lunar is hidden.
+  private let dateContentView = NSView()
+
   private let selectionRingView: NSView = {
     let view = NSView()
     view.wantsLayer = true
@@ -112,6 +116,8 @@ final class DateGridCell: NSCollectionViewItem {
 
   private var holidayViewWidthConstraint: NSLayoutConstraint?
   private var holidayViewHeightConstraint: NSLayoutConstraint?
+  private var dateContentTopConstraint: NSLayoutConstraint?
+  private var dateContentCenterYConstraint: NSLayoutConstraint?
   private var eventBelowLunarConstraint: NSLayoutConstraint?
   private var eventBelowSolarConstraint: NSLayoutConstraint?
 }
@@ -317,7 +323,7 @@ extension DateGridCell {
 
     // Today is marked by accent text; selection adds the surrounding accent surface.
     solarLabel.font = .systemFont(
-      ofSize: Constants.solarFontSize,
+      ofSize: resolvedSolarFontSize,
       weight: usesAccent ? .semibold : .medium
     )
 
@@ -381,6 +387,8 @@ extension DateGridCell {
 private extension DateGridCell {
   enum Constants {
     static let solarFontSize: Double = FontSizes.regular
+    /// Slightly larger so a solar-only date fills the selection circle without the lunar line.
+    static let solarOnlyFontSize: Double = 17
     static let lunarFontSize: Double = FontSizes.small
     static let eventViewHeight: Double = 10
     static let selectionBorderWidth: Double = 1
@@ -388,6 +396,10 @@ private extension DateGridCell {
     static let textBadgeIconSize: Double = 11
     static let lunarDateFormatter: DateFormatter = .lunarDate
     static let stateIndicatorSize: Double = 40
+  }
+
+  var resolvedSolarFontSize: Double {
+    AppPreferences.Calendar.showLunarDates ? Constants.solarFontSize : Constants.solarOnlyFontSize
   }
 
   enum AnimationConstants {
@@ -415,34 +427,49 @@ private extension DateGridCell {
     selectionRingView.translatesAutoresizingMaskIntoConstraints = false
     selectionContainerView.addSubview(selectionRingView)
 
+    dateContentView.translatesAutoresizingMaskIntoConstraints = false
+    containerView.addSubview(dateContentView)
+
     solarLabel.translatesAutoresizingMaskIntoConstraints = false
-    containerView.addSubview(solarLabel)
-    NSLayoutConstraint.activate([
-      solarLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-      solarLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: AppDesign.cellRectInset),
-    ])
+    dateContentView.addSubview(solarLabel)
 
     lunarLabel.translatesAutoresizingMaskIntoConstraints = false
-    containerView.addSubview(lunarLabel)
-    NSLayoutConstraint.activate([
-      lunarLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-      lunarLabel.topAnchor.constraint(equalTo: solarLabel.bottomAnchor),
-    ])
+    dateContentView.addSubview(lunarLabel)
 
     eventView.translatesAutoresizingMaskIntoConstraints = false
-    containerView.addSubview(eventView)
+    dateContentView.addSubview(eventView)
+
+    let dateContentTop = dateContentView.topAnchor.constraint(
+      equalTo: containerView.topAnchor,
+      constant: AppDesign.cellRectInset
+    )
+    let dateContentCenterY = dateContentView.centerYAnchor.constraint(
+      equalTo: containerView.centerYAnchor
+    )
     let eventBelowLunar = eventView.topAnchor.constraint(equalTo: lunarLabel.bottomAnchor)
+    let eventBelowSolar = eventView.topAnchor.constraint(equalTo: solarLabel.bottomAnchor)
+    dateContentTopConstraint = dateContentTop
+    dateContentCenterYConstraint = dateContentCenterY
     eventBelowLunarConstraint = eventBelowLunar
-    eventBelowSolarConstraint = eventView.topAnchor.constraint(equalTo: solarLabel.bottomAnchor)
+    eventBelowSolarConstraint = eventBelowSolar
+
     NSLayoutConstraint.activate([
-      eventView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-      eventBelowLunar,
-      eventView.heightAnchor.constraint(equalToConstant: Constants.eventViewHeight),
-      // Ensure eventView has enough space from the bottom to prevent clipping
-      eventView.bottomAnchor.constraint(
+      dateContentView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+      dateContentView.bottomAnchor.constraint(
         lessThanOrEqualTo: containerView.bottomAnchor,
         constant: -AppDesign.cellRectInset
       ),
+
+      solarLabel.centerXAnchor.constraint(equalTo: dateContentView.centerXAnchor),
+      solarLabel.topAnchor.constraint(equalTo: dateContentView.topAnchor),
+
+      lunarLabel.centerXAnchor.constraint(equalTo: dateContentView.centerXAnchor),
+      lunarLabel.topAnchor.constraint(equalTo: solarLabel.bottomAnchor),
+
+      eventView.centerXAnchor.constraint(equalTo: dateContentView.centerXAnchor),
+      eventBelowLunar,
+      eventView.heightAnchor.constraint(equalToConstant: Constants.eventViewHeight),
+      eventView.bottomAnchor.constraint(equalTo: dateContentView.bottomAnchor),
     ])
 
     NSLayoutConstraint.activate([
@@ -548,9 +575,13 @@ private extension DateGridCell {
     lunarLabel.isHidden = !showLunar
 
     if showLunar {
+      dateContentCenterYConstraint?.isActive = false
+      dateContentTopConstraint?.isActive = true
       eventBelowSolarConstraint?.isActive = false
       eventBelowLunarConstraint?.isActive = true
     } else {
+      dateContentTopConstraint?.isActive = false
+      dateContentCenterYConstraint?.isActive = true
       eventBelowLunarConstraint?.isActive = false
       eventBelowSolarConstraint?.isActive = true
     }

@@ -291,7 +291,7 @@ extension AppMainVC {
 
     item.addAction {
       AppPreferences.Calendar.showLunarDates.toggle()
-      (NSApp.delegate as? AppDelegate)?.reloadPresentedPopover()
+      (NSApp.delegate as? AppDelegate)?.recreatePresentedPopover()
     }
 
     return item
