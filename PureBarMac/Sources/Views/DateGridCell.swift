@@ -21,6 +21,7 @@ final class DateGridCell: NSCollectionViewItem {
   private(set) var cellDate: Date?
   private var displayedMonthDate: Date?
   private var cellEvents = [EKCalendarItem]()
+  private var lunarInfo: LunarInfo?
   private var mainInfo = ""
   private var isDateSelected = false
   private var isHovered = false
@@ -111,6 +112,8 @@ final class DateGridCell: NSCollectionViewItem {
 
   private var holidayViewWidthConstraint: NSLayoutConstraint?
   private var holidayViewHeightConstraint: NSLayoutConstraint?
+  private var eventBelowLunarConstraint: NSLayoutConstraint?
+  private var eventBelowSolarConstraint: NSLayoutConstraint?
 }
 
 // MARK: - Life Cycle
@@ -189,15 +192,14 @@ extension DateGridCell {
     self.cellDate = cellDate
     self.displayedMonthDate = monthDate
     self.cellEvents = cellEvents
+    self.lunarInfo = lunarInfo
 
     let currentDate = Date.now
     let solarComponents = Calendar.solar.dateComponents([.year, .month, .day], from: cellDate)
-    let lunarComponents = Calendar.lunar.dateComponents([.year, .month, .day], from: cellDate)
-    let lastDayOfLunarYear = Calendar.lunar.lastDayOfYear(from: cellDate)
-    let isLeapLunarMonth = Calendar.lunar.isLeapMonth(from: cellDate)
+    let showLunar = AppPreferences.Calendar.showLunarDates
+    applyLunarLayout(showLunar: showLunar)
 
     let solarMonthDay = solarComponents.fourDigitsMonthDay
-    let lunarMonthDay = lunarComponents.fourDigitsMonthDay
 
     let holidayType = HolidayManager.default.typeOf(
       year: solarComponents.year ?? 0, // It's too broken to have year as nil
@@ -211,32 +213,10 @@ extension DateGridCell {
       Logger.assertFail("Failed to get solar day from date: \(cellDate)")
     }
 
-    // Lunar day label
-    if let day = lunarComponents.day {
-      if day == 1, let month = lunarComponents.month {
-        // The Chinese character "月" will shift the layout slightly to the left,
-        // add a "thin space" to make it optically centered.
-        lunarLabel.stringValue = "\u{2009}" + AppLocalizer.chineseMonth(of: month - 1, isLeap: isLeapLunarMonth)
-      } else {
-        lunarLabel.stringValue = AppLocalizer.chineseDay(of: day - 1)
-      }
+    if showLunar {
+      updateLunarLabel(cellDate: cellDate, solarMonthDay: solarMonthDay, lunarInfo: lunarInfo)
     } else {
-      Logger.assertFail("Failed to get lunar day from date: \(cellDate)")
-    }
-
-    // Prefer solar term over normal lunar day
-    if let solarTerm = lunarInfo?.solarTerms[solarMonthDay] {
-      lunarLabel.stringValue = AppLocalizer.solarTerm(of: solarTerm)
-    }
-
-    // Prefer lunar holiday over solar term
-    if let lunarHoliday = AppLocalizer.lunarFestival(of: lunarMonthDay) {
-      lunarLabel.stringValue = lunarHoliday
-    }
-
-    // Chinese New Year's Eve, the last day of the lunar year, not necessarily a certain date
-    if let lastDayOfLunarYear, Calendar.lunar.isDate(cellDate, inSameDayAs: lastDayOfLunarYear) {
-      lunarLabel.stringValue = Localized.Calendar.chineseNewYearsEve
+      lunarLabel.stringValue = ""
     }
 
     // Reload event dot views
@@ -274,8 +254,10 @@ extension DateGridCell {
       }
 
       // Formatted lunar date, e.g., 癸卯年冬月十五 (leading numbers are removed to be concise)
-      let lunarDate = Constants.lunarDateFormatter.string(from: cellDate)
-      components.append(lunarDate.removingLeadingDigits)
+      if showLunar {
+        let lunarDate = Constants.lunarDateFormatter.string(from: cellDate)
+        components.append(lunarDate.removingLeadingDigits)
+      }
 
       // Date ruler, e.g., "(10 days ago)" when hovering over a cell
       if let daysBetween = Calendar.solar.daysBetween(from: currentDate, to: cellDate) {
@@ -305,9 +287,22 @@ extension DateGridCell {
     // Combine all visually available information to get the accessibility label
     containerView.setAccessibilityLabel([
       solarLabel.stringValue,
-      lunarLabel.stringValue,
+      showLunar ? lunarLabel.stringValue : nil,
       accessibleDetails,
     ].compactMap { $0 }.joined(separator: " "))
+  }
+
+  func reloadDisplay() {
+    guard let cellDate else {
+      return
+    }
+
+    updateViews(
+      cellDate: cellDate,
+      cellEvents: cellEvents,
+      monthDate: displayedMonthDate,
+      lunarInfo: lunarInfo
+    )
   }
 
   func updateOpacity(monthDate: Date?) {
@@ -436,9 +431,12 @@ private extension DateGridCell {
 
     eventView.translatesAutoresizingMaskIntoConstraints = false
     containerView.addSubview(eventView)
+    let eventBelowLunar = eventView.topAnchor.constraint(equalTo: lunarLabel.bottomAnchor)
+    eventBelowLunarConstraint = eventBelowLunar
+    eventBelowSolarConstraint = eventView.topAnchor.constraint(equalTo: solarLabel.bottomAnchor)
     NSLayoutConstraint.activate([
       eventView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-      eventView.topAnchor.constraint(equalTo: lunarLabel.bottomAnchor),
+      eventBelowLunar,
       eventView.heightAnchor.constraint(equalToConstant: Constants.eventViewHeight),
       // Ensure eventView has enough space from the bottom to prevent clipping
       eventView.bottomAnchor.constraint(
@@ -479,6 +477,8 @@ private extension DateGridCell {
       heightConstraint,
     ])
 
+    applyLunarLayout(showLunar: AppPreferences.Calendar.showLunarDates)
+
     let longPressRecognizer = NSPressGestureRecognizer(target: self, action: #selector(onLongPress(_:)))
     longPressRecognizer.minimumPressDuration = 0.5
     view.addGestureRecognizer(longPressRecognizer)
@@ -508,6 +508,52 @@ private extension DateGridCell {
       glassSelection.bottomAnchor.constraint(equalTo: selectionContainerView.bottomAnchor),
     ])
     self.glassSelectionView = glassSelection
+  }
+
+  func updateLunarLabel(cellDate: Date, solarMonthDay: String, lunarInfo: LunarInfo?) {
+    let lunarComponents = Calendar.lunar.dateComponents([.year, .month, .day], from: cellDate)
+    let lastDayOfLunarYear = Calendar.lunar.lastDayOfYear(from: cellDate)
+    let isLeapLunarMonth = Calendar.lunar.isLeapMonth(from: cellDate)
+    let lunarMonthDay = lunarComponents.fourDigitsMonthDay
+
+    if let day = lunarComponents.day {
+      if day == 1, let month = lunarComponents.month {
+        // The Chinese character "月" will shift the layout slightly to the left,
+        // add a "thin space" to make it optically centered.
+        lunarLabel.stringValue = "\u{2009}" + AppLocalizer.chineseMonth(of: month - 1, isLeap: isLeapLunarMonth)
+      } else {
+        lunarLabel.stringValue = AppLocalizer.chineseDay(of: day - 1)
+      }
+    } else {
+      Logger.assertFail("Failed to get lunar day from date: \(cellDate)")
+    }
+
+    // Prefer solar term over normal lunar day
+    if let solarTerm = lunarInfo?.solarTerms[solarMonthDay] {
+      lunarLabel.stringValue = AppLocalizer.solarTerm(of: solarTerm)
+    }
+
+    // Prefer lunar holiday over solar term
+    if let lunarHoliday = AppLocalizer.lunarFestival(of: lunarMonthDay) {
+      lunarLabel.stringValue = lunarHoliday
+    }
+
+    // Chinese New Year's Eve, the last day of the lunar year, not necessarily a certain date
+    if let lastDayOfLunarYear, Calendar.lunar.isDate(cellDate, inSameDayAs: lastDayOfLunarYear) {
+      lunarLabel.stringValue = Localized.Calendar.chineseNewYearsEve
+    }
+  }
+
+  func applyLunarLayout(showLunar: Bool) {
+    lunarLabel.isHidden = !showLunar
+
+    if showLunar {
+      eventBelowSolarConstraint?.isActive = false
+      eventBelowLunarConstraint?.isActive = true
+    } else {
+      eventBelowLunarConstraint?.isActive = false
+      eventBelowSolarConstraint?.isActive = true
+    }
   }
 
   func handleCellClick() {

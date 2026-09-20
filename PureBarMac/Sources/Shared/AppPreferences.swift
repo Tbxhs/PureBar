@@ -70,6 +70,9 @@ enum AppPreferences {
 
     @Storage(key: "calendar.past-events-style", defaultValue: .dimmedAndStrikethrough)
     static var pastEventsStyle: PastEventsStyle
+
+    @Storage(key: "calendar.show-lunar-dates", defaultValue: true)
+    static var showLunarDates: Bool
   }
 
   enum Accessibility {

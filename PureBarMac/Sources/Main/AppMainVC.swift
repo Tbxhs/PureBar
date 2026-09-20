@@ -80,7 +80,9 @@ extension AppMainVC {
     monthDate = targetDate
 
     let solarYear = Calendar.solar.year(from: targetDate)
-    let lunarInfo = LunarCalendar.default.info(of: solarYear)
+    let lunarInfo = AppPreferences.Calendar.showLunarDates
+      ? LunarCalendar.default.info(of: solarYear)
+      : nil
 
     headerView.updateCalendar(date: targetDate)
     dateGridView.updateCalendar(date: targetDate, lunarInfo: lunarInfo)

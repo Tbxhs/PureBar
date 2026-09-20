@@ -254,9 +254,10 @@ private extension DateGridView {
     let animated = diffable && events != nil && !AppPreferences.Accessibility.reduceMotion
     dataSource?.apply(snapshot, animatingDifferences: animated)
 
-    // Force update of certain properties that are not part of the diffable model
+    // Force update of properties that are not part of the diffable model,
+    // including preference-driven display such as lunar dates.
     visibleCells.forEach {
-      $0.updateOpacity(monthDate: monthDate)
+      $0.reloadDisplay()
     }
   }
 }

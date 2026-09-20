@@ -285,10 +285,23 @@ extension AppMainVC {
     return item
   }
 
+  var menuItemShowLunarDates: NSMenuItem {
+    let item = NSMenuItem(title: Localized.UI.menuTitleShowLunarDates)
+    item.setOn(AppPreferences.Calendar.showLunarDates)
+
+    item.addAction {
+      AppPreferences.Calendar.showLunarDates.toggle()
+      (NSApp.delegate as? AppDelegate)?.reloadPresentedPopover()
+    }
+
+    return item
+  }
+
   var menuItemPreferences: NSMenuItem {
     let menu = NSMenu()
 
     menu.addItem(menuItemPastEvents)
+    menu.addItem(menuItemShowLunarDates)
     menu.addItem(menuItemMenuBarIcon)
     menu.addItem(menuItemAppearance)
     menu.addItem(menuItemCalendars)

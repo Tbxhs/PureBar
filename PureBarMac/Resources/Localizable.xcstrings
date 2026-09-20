@@ -2855,6 +2855,23 @@
         }
       }
     },
+    "Show Lunar Dates": {
+      "comment": "[Menu] Show lunar dates in the calendar grid",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显示农历"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "顯示農曆"
+          }
+        }
+      }
+    },
     "Shuangjiang": {
       "comment": "The 18th solar term, always in Chinese",
       "localizations": {
