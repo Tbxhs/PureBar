@@ -179,12 +179,16 @@ private extension AppMainVC {
     let contentScale = AppPreferences.General.contentScale.rawValue
     let cellSpacing = AppDesign.dateCellSpacing
 
+    // Without the lunar line each cell only holds the date and its dots,
+    // so the rows give up that line's height instead of stretching to fill it.
+    let baseHeight: Double = AppPreferences.Calendar.showLunarDates ? 320 : 286
+
     return CGSize(
       width: 240 * contentScale
         + cellInset * Double(Calendar.solar.numberOfDaysInWeek)
         + cellSpacing * Double(Calendar.solar.numberOfDaysInWeek - 1)
         + contentMargin,
-      height: 320 * contentScale
+      height: baseHeight * contentScale
         + cellInset * Double(Calendar.solar.numberOfRowsInMonth)
         + cellSpacing * Double(Calendar.solar.numberOfRowsInMonth - 1)
         + contentMargin

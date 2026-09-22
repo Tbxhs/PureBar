@@ -87,8 +87,8 @@ final class DateGridCell: NSCollectionViewItem {
     return view
   }()
 
-  /// Tight stack of solar / lunar / event dots. Top-aligned when lunar is shown,
-  /// vertically centered in the selection circle when lunar is hidden.
+  /// Tight stack of solar / lunar / event dots. Top-aligned when lunar is shown; when lunar is
+  /// hidden the solar date sits in the (smaller) selection circle and the dots hang below it.
   private let dateContentView = NSView()
 
   private let selectionRingView: NSView = {
@@ -117,9 +117,15 @@ final class DateGridCell: NSCollectionViewItem {
   private var holidayViewWidthConstraint: NSLayoutConstraint?
   private var holidayViewHeightConstraint: NSLayoutConstraint?
   private var dateContentTopConstraint: NSLayoutConstraint?
-  private var dateContentCenterYConstraint: NSLayoutConstraint?
+  private var dateContentBottomConstraint: NSLayoutConstraint?
   private var eventBelowLunarConstraint: NSLayoutConstraint?
-  private var eventBelowSolarConstraint: NSLayoutConstraint?
+  private var solarInIndicatorConstraint: NSLayoutConstraint?
+  private var eventBelowIndicatorConstraint: NSLayoutConstraint?
+  private var indicatorSizeConstraints = [NSLayoutConstraint]()
+  private var indicatorCenterYConstraints = [NSLayoutConstraint]()
+
+  /// Diameter of the hover / selection circle, depends on whether the lunar line is shown.
+  private var indicatorSize = Constants.stateIndicatorSize
 }
 
 // MARK: - Life Cycle
@@ -143,8 +149,8 @@ extension DateGridCell {
     let reduceTransparency = AppPreferences.Accessibility.reduceTransparency
     let accentColor = Colors.controlAccent.resolvedColor(with: view.effectiveAppearance)
 
-    // All interaction surfaces share the same fixed circle geometry.
-    let radius = Constants.stateIndicatorSize / 2
+    // All interaction surfaces share the same circle geometry.
+    let radius = indicatorSize / 2
 
     let hoverAlpha: Double
     if reduceTransparency {
@@ -323,7 +329,7 @@ extension DateGridCell {
 
     // Today is marked by accent text; selection adds the surrounding accent surface.
     solarLabel.font = .systemFont(
-      ofSize: resolvedSolarFontSize,
+      ofSize: Constants.solarFontSize,
       weight: usesAccent ? .semibold : .medium
     )
 
@@ -387,19 +393,16 @@ extension DateGridCell {
 private extension DateGridCell {
   enum Constants {
     static let solarFontSize: Double = FontSizes.regular
-    /// Slightly larger so a solar-only date fills the selection circle without the lunar line.
-    static let solarOnlyFontSize: Double = 17
     static let lunarFontSize: Double = FontSizes.small
     static let eventViewHeight: Double = 10
     static let selectionBorderWidth: Double = 1
     static let defaultIconSize: Double = 9
     static let textBadgeIconSize: Double = 11
     static let lunarDateFormatter: DateFormatter = .lunarDate
+    /// Encloses solar date, lunar date and event dots when the lunar line is shown.
     static let stateIndicatorSize: Double = 40
-  }
-
-  var resolvedSolarFontSize: Double {
-    AppPreferences.Calendar.showLunarDates ? Constants.solarFontSize : Constants.solarOnlyFontSize
+    /// Encloses just the solar date when the lunar line is hidden, the dots hang below the circle.
+    static let solarOnlyIndicatorSize: Double = 26
   }
 
   enum AnimationConstants {
@@ -439,26 +442,30 @@ private extension DateGridCell {
     eventView.translatesAutoresizingMaskIntoConstraints = false
     dateContentView.addSubview(eventView)
 
+    // Lunar layout: the stack is top-aligned in the cell and the circle encloses all of it.
     let dateContentTop = dateContentView.topAnchor.constraint(
       equalTo: containerView.topAnchor,
       constant: AppDesign.cellRectInset
     )
-    let dateContentCenterY = dateContentView.centerYAnchor.constraint(
-      equalTo: containerView.centerYAnchor
+    let dateContentBottom = dateContentView.bottomAnchor.constraint(
+      lessThanOrEqualTo: containerView.bottomAnchor,
+      constant: -AppDesign.cellRectInset
     )
     let eventBelowLunar = eventView.topAnchor.constraint(equalTo: lunarLabel.bottomAnchor)
-    let eventBelowSolar = eventView.topAnchor.constraint(equalTo: solarLabel.bottomAnchor)
+
+    // Solar-only layout: the circle encloses just the date and the dots hang below the circle,
+    // the circle is shifted up by half the dots row so both stay centered as a group.
+    let solarInIndicator = solarLabel.centerYAnchor.constraint(equalTo: selectionContainerView.centerYAnchor)
+    let eventBelowIndicator = eventView.topAnchor.constraint(equalTo: selectionContainerView.bottomAnchor)
+
     dateContentTopConstraint = dateContentTop
-    dateContentCenterYConstraint = dateContentCenterY
+    dateContentBottomConstraint = dateContentBottom
     eventBelowLunarConstraint = eventBelowLunar
-    eventBelowSolarConstraint = eventBelowSolar
+    solarInIndicatorConstraint = solarInIndicator
+    eventBelowIndicatorConstraint = eventBelowIndicator
 
     NSLayoutConstraint.activate([
       dateContentView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-      dateContentView.bottomAnchor.constraint(
-        lessThanOrEqualTo: containerView.bottomAnchor,
-        constant: -AppDesign.cellRectInset
-      ),
 
       solarLabel.centerXAnchor.constraint(equalTo: dateContentView.centerXAnchor),
       solarLabel.topAnchor.constraint(equalTo: dateContentView.topAnchor),
@@ -467,21 +474,24 @@ private extension DateGridCell {
       lunarLabel.topAnchor.constraint(equalTo: solarLabel.bottomAnchor),
 
       eventView.centerXAnchor.constraint(equalTo: dateContentView.centerXAnchor),
-      eventBelowLunar,
       eventView.heightAnchor.constraint(equalToConstant: Constants.eventViewHeight),
       eventView.bottomAnchor.constraint(equalTo: dateContentView.bottomAnchor),
     ])
 
-    NSLayoutConstraint.activate([
-      highlightView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+    indicatorSizeConstraints = [
+      highlightView.widthAnchor.constraint(equalToConstant: indicatorSize),
+      highlightView.heightAnchor.constraint(equalToConstant: indicatorSize),
+      selectionContainerView.widthAnchor.constraint(equalToConstant: indicatorSize),
+      selectionContainerView.heightAnchor.constraint(equalToConstant: indicatorSize),
+    ]
+    indicatorCenterYConstraints = [
       highlightView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-      highlightView.widthAnchor.constraint(equalToConstant: Constants.stateIndicatorSize),
-      highlightView.heightAnchor.constraint(equalToConstant: Constants.stateIndicatorSize),
-
-      selectionContainerView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
       selectionContainerView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-      selectionContainerView.widthAnchor.constraint(equalToConstant: Constants.stateIndicatorSize),
-      selectionContainerView.heightAnchor.constraint(equalToConstant: Constants.stateIndicatorSize),
+    ]
+
+    NSLayoutConstraint.activate(indicatorSizeConstraints + indicatorCenterYConstraints + [
+      highlightView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+      selectionContainerView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
 
       selectionRingView.leadingAnchor.constraint(equalTo: selectionContainerView.leadingAnchor),
       selectionRingView.topAnchor.constraint(equalTo: selectionContainerView.topAnchor),
@@ -520,7 +530,7 @@ private extension DateGridCell {
   func setupGlassEffects() {
     let isDarkMode = view.effectiveAppearance.isDarkMode
     let glassSelection = NSGlassEffectView()
-    glassSelection.cornerRadius = Constants.stateIndicatorSize / 2
+    glassSelection.cornerRadius = indicatorSize / 2
     glassSelection.tintColor = Colors.controlAccent
       .resolvedColor(with: view.effectiveAppearance)
       .withAlphaComponent(isDarkMode ? 0.14 : 0.10)
@@ -573,18 +583,22 @@ private extension DateGridCell {
 
   func applyLunarLayout(showLunar: Bool) {
     lunarLabel.isHidden = !showLunar
+    indicatorSize = showLunar ? Constants.stateIndicatorSize : Constants.solarOnlyIndicatorSize
 
-    if showLunar {
-      dateContentCenterYConstraint?.isActive = false
-      dateContentTopConstraint?.isActive = true
-      eventBelowSolarConstraint?.isActive = false
-      eventBelowLunarConstraint?.isActive = true
-    } else {
-      dateContentTopConstraint?.isActive = false
-      dateContentCenterYConstraint?.isActive = true
-      eventBelowLunarConstraint?.isActive = false
-      eventBelowSolarConstraint?.isActive = true
+    let lunarConstraints = [dateContentTopConstraint, dateContentBottomConstraint, eventBelowLunarConstraint]
+    let solarOnlyConstraints = [solarInIndicatorConstraint, eventBelowIndicatorConstraint]
+
+    // Deactivate first so the two sets never overlap within one layout pass
+    NSLayoutConstraint.deactivate((showLunar ? solarOnlyConstraints : lunarConstraints).compactMap { $0 })
+    NSLayoutConstraint.activate((showLunar ? lunarConstraints : solarOnlyConstraints).compactMap { $0 })
+
+    indicatorSizeConstraints.forEach { $0.constant = indicatorSize }
+    indicatorCenterYConstraints.forEach {
+      $0.constant = showLunar ? 0 : -Constants.eventViewHeight / 2
     }
+
+    // Corner radii follow the circle size in viewDidLayout
+    view.needsLayout = true
   }
 
   func handleCellClick() {
