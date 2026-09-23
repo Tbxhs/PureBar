@@ -647,12 +647,17 @@ private extension DateGridCell {
       selectionContainerView.isHidden = false
       selectionContainerView.alphaValue = 0
 
-      let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
-      scaleAnimation.fromValue = AnimationConstants.selectionInitialScale
-      scaleAnimation.toValue = 1.0
-      scaleAnimation.duration = AnimationConstants.selectionShowDuration
-      scaleAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
-      selectionContainerView.layer?.add(scaleAnimation, forKey: "selectionScale")
+      if let layer = selectionContainerView.layer {
+        let scaleAnimation = CABasicAnimation(keyPath: "transform")
+        scaleAnimation.fromValue = NSValue(caTransform3D: centeredScaleTransform(
+          of: layer,
+          scale: AnimationConstants.selectionInitialScale
+        ))
+        scaleAnimation.toValue = NSValue(caTransform3D: CATransform3DIdentity)
+        scaleAnimation.duration = AnimationConstants.selectionShowDuration
+        scaleAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        layer.add(scaleAnimation, forKey: "selectionScale")
+      }
 
       NSAnimationContext.runAnimationGroup { context in
         context.duration = AnimationConstants.selectionShowDuration
@@ -678,5 +683,19 @@ private extension DateGridCell {
     selectionContainerView.layer?.removeAllAnimations()
     selectionContainerView.alphaValue = visible ? 1 : 0
     selectionContainerView.isHidden = !visible
+  }
+
+  /**
+   A scale transform around the center of the layer.
+
+   AppKit anchors the layer of a view at its corner, a plain "transform.scale" makes the circle
+   grow toward one side, which reads as the circle sliding down when a date is selected.
+   */
+  func centeredScaleTransform(of layer: CALayer, scale: Double) -> CATransform3D {
+    let offsetX = layer.bounds.width * (0.5 - layer.anchorPoint.x)
+    let offsetY = layer.bounds.height * (0.5 - layer.anchorPoint.y)
+    let toCenter = CATransform3DMakeTranslation(-offsetX, -offsetY, 0)
+    let scaled = CATransform3DConcat(toCenter, CATransform3DMakeScale(scale, scale, 1))
+    return CATransform3DConcat(scaled, CATransform3DMakeTranslation(offsetX, offsetY, 0))
   }
 }
