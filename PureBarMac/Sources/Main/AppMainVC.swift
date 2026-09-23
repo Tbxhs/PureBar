@@ -128,7 +128,8 @@ extension AppMainVC {
     let eventListHeight = eventListView.intrinsicContentSize.height
     // Note: eventListHeight is in container's coordinate (unscaled), need to convert to display size
     let contentScale = AppPreferences.General.contentScale.rawValue
-    let newSize = CGSize(width: baseSize.width, height: baseSize.height + eventListHeight * contentScale)
+    // Whole points only, see desiredContentSize
+    let newSize = CGSize(width: baseSize.width, height: (baseSize.height + eventListHeight * contentScale).rounded())
 
     // Use animation for smooth size transitions (unless user prefers reduced motion)
     if AppPreferences.Accessibility.reduceMotion {
@@ -188,15 +189,17 @@ private extension AppMainVC {
     // so the rows give up that line's height instead of stretching to fill it.
     let baseHeight: Double = AppPreferences.Calendar.showLunarDates ? 320 : 286
 
+    // Round to whole points: with a fractional size (e.g., the roomy scale) the popover window is rounded
+    // onto a different top edge for each height, so the panel jumps by 1pt as the event list changes.
     return CGSize(
-      width: 240 * contentScale
+      width: (240 * contentScale
         + cellInset * Double(Calendar.solar.numberOfDaysInWeek)
         + cellSpacing * Double(Calendar.solar.numberOfDaysInWeek - 1)
-        + contentMargin,
-      height: baseHeight * contentScale
+        + contentMargin).rounded(),
+      height: (baseHeight * contentScale
         + cellInset * Double(Calendar.solar.numberOfRowsInMonth)
         + cellSpacing * Double(Calendar.solar.numberOfRowsInMonth - 1)
-        + contentMargin
+        + contentMargin).rounded()
     )
   }
 
