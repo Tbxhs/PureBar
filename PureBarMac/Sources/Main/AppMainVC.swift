@@ -110,6 +110,11 @@ extension AppMainVC {
     updateCalendar(targetDate: Date.now, selectToday: true)
   }
 
+  func reloadEvents() {
+    Logger.log(.info, "Reloading events of the displayed month")
+    dateGridView.reloadEvents()
+  }
+
   func togglePinnedOnTop() {
     AppPreferences.General.pinnedOnTop.toggle()
     popover?.behavior = AppPreferences.General.pinnedOnTop ? .applicationDefined : .transient

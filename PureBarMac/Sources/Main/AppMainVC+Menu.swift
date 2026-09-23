@@ -148,6 +148,9 @@ extension AppMainVC {
 
     menu.addSeparator()
 
+    // Show Lunar Dates
+    menu.addItem(menuItemShowLunarDates)
+
     // Pin on Top
     menu.addItem(withTitle: Localized.UI.menuTitlePinOnTop) { [weak self] in
       self?.togglePinnedOnTop()
@@ -301,7 +304,6 @@ extension AppMainVC {
     let menu = NSMenu()
 
     menu.addItem(menuItemPastEvents)
-    menu.addItem(menuItemShowLunarDates)
     menu.addItem(menuItemMenuBarIcon)
     menu.addItem(menuItemAppearance)
     menu.addItem(menuItemCalendars)

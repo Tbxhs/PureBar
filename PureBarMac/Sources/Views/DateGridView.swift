@@ -176,6 +176,33 @@ extension DateGridView {
       }
     }
   }
+
+  /**
+   Refetch events of the displayed month in place, keeping the month and the selected date.
+   */
+  func reloadEvents() {
+    guard let monthDate, let allDates = Calendar.solar.allDatesFillingMonth(from: monthDate) else {
+      return
+    }
+
+    guard let startDate = allDates.first, let endDate = allDates.last else {
+      return Logger.assertFail("Missing any dates from: \(monthDate)")
+    }
+
+    reloadData(
+      allDates: allDates,
+      events: CalendarManager.default.items(from: startDate, to: endDate),
+      diffable: false,
+      reconfigures: true
+    )
+
+    // Keep the event list of the selected date in sync with the refetched events
+    if let selectedDate, let model = dataSource?.snapshot().itemIdentifiers.first(where: {
+      Calendar.solar.isDate($0.date, inSameDayAs: selectedDate)
+    }) {
+      onDateSelected?(selectedDate, model.events)
+    }
+  }
 }
 
 // MARK: - Private
@@ -230,7 +257,7 @@ private extension DateGridView {
   }
 
   @MainActor
-  func reloadData(allDates: [Date], events: [EKCalendarItem]?, diffable: Bool = true) {
+  func reloadData(allDates: [Date], events: [EKCalendarItem]?, diffable: Bool = true, reconfigures: Bool = false) {
     cancelHighlight()
     Logger.log(.debug, "Reloading dateGridView: \(allDates.count) items")
 
@@ -250,14 +277,20 @@ private extension DateGridView {
       )
     })
 
+    // Refetched events can equal the previous ones while holding newer data, configure every cell again
+    if reconfigures {
+      snapshot.reloadItems(snapshot.itemIdentifiers)
+    }
+
     // Disable the animation when cache is not hit, to avoid subsequent updates being ignored
     let animated = diffable && events != nil && !AppPreferences.Accessibility.reduceMotion
     dataSource?.apply(snapshot, animatingDifferences: animated)
 
-    // Force update of properties that are not part of the diffable model,
-    // including preference-driven display such as lunar dates.
+    // Cells kept by an animated diff are not configured again by the cell provider,
+    // force update of properties that are not part of the diffable model: the displayed month,
+    // lunar info and preference-driven display such as lunar dates.
     visibleCells.forEach {
-      $0.reloadDisplay()
+      $0.reloadDisplay(monthDate: monthDate, lunarInfo: lunarInfo)
     }
   }
 }

@@ -45,6 +45,16 @@ final class CalendarManager {
     eventStore = EKEventStore()
   }
 
+  /**
+   Start over with a new event store, a long-lived one can stop returning events, e.g., after the Mac sleeps.
+
+   Events fetched from the previous store should not be kept around, the caller is responsible for reloading them.
+   */
+  func resetEventStore() {
+    eventStore = EKEventStore()
+    clearCaches()
+  }
+
   func allCalendars() -> [EKCalendar] {
     guard hasReadAccess else {
       return []

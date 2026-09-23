@@ -6,6 +6,7 @@
 //
 
 import AppKit
+import EventKit
 import PureBarKit
 #if canImport(Sparkle)
 import Sparkle
@@ -148,33 +149,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     Logger.log(.info, "applicationDidFinishLaunching: observers registering")
 
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(calendarDayDidChange(_:)),
-      name: .NSCalendarDayChanged,
-      object: nil
-    )
-
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(windowDidUpdate(_:)),
-      name: NSWindow.didUpdateNotification,
-      object: nil
-    )
-
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(windowDidResignKey(_:)),
-      name: NSWindow.didResignKeyNotification,
-      object: nil
-    )
-
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(menuBarIconDidChange(_:)),
-      name: .menuBarIconDidChange,
-      object: nil
-    )
+    addObservers()
     Logger.log(.info, "applicationDidFinishLaunching: finished")
   }
 
@@ -369,6 +344,18 @@ extension AppDelegate {
       self?.openPanel()
     }
   }
+
+  /**
+   Refetch events of the currently presented popover, if any, keeping the displayed month and selection.
+   */
+  @MainActor
+  func reloadPresentedEvents() {
+    guard presentedPopover?.isShown == true, let vc = presentedPopover?.contentViewController as? AppMainVC else {
+      return
+    }
+
+    vc.reloadEvents()
+  }
 }
 
 // MARK: - NSPopoverDelegate
@@ -388,6 +375,69 @@ private extension AppDelegate {
   @objc func calendarDayDidChange(_ notification: Notification) {
     DispatchQueue.main.async {
       self.updateMenuBarIcon()
+    }
+  }
+
+  func addObservers() {
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(calendarDayDidChange(_:)),
+      name: .NSCalendarDayChanged,
+      object: nil
+    )
+
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(windowDidUpdate(_:)),
+      name: NSWindow.didUpdateNotification,
+      object: nil
+    )
+
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(windowDidResignKey(_:)),
+      name: NSWindow.didResignKeyNotification,
+      object: nil
+    )
+
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(menuBarIconDidChange(_:)),
+      name: .menuBarIconDidChange,
+      object: nil
+    )
+
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(eventStoreDidChange(_:)),
+      name: .EKEventStoreChanged,
+      object: nil
+    )
+
+    NSWorkspace.shared.notificationCenter.addObserver(
+      self,
+      selector: #selector(systemDidWake(_:)),
+      name: NSWorkspace.didWakeNotification,
+      object: nil
+    )
+  }
+
+  // periphery:ignore:parameters notification
+  @objc func eventStoreDidChange(_ notification: Notification) {
+    DispatchQueue.main.async {
+      // Cached events are stale once the Calendar database changes, refetch what is on screen
+      CalendarManager.default.clearCaches()
+      self.reloadPresentedEvents()
+    }
+  }
+
+  // periphery:ignore:parameters notification
+  @objc func systemDidWake(_ notification: Notification) {
+    DispatchQueue.main.async {
+      // A long-lived event store can come back from sleep returning no events, start over with a new one,
+      // an open popover refetches so it doesn't hold on to events from the previous store
+      CalendarManager.default.resetEventStore()
+      self.reloadPresentedEvents()
     }
   }
 
